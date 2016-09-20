@@ -1,0 +1,8 @@
+{
+  "lang": "en",
+  "ignoreCapitalization": true,
+  "dictionary": [
+    "JSDoc",
+    "docdash"
+  ]
+}

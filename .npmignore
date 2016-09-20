@@ -1,0 +1,14 @@
+.gitignore
+.npmignore
+.editorconfig
+
+node_modules/
+npm-debug.log
+
+test/
+coverage/
+.travis.yml
+
+docs/
+.jsdocrc
+.yaspellerrc

@@ -1,0 +1,55 @@
+{
+  "name": "eventemitter5",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "Andrey Sitnik <andrey@sitnik.ru>",
+  "license": "MIT",
+  "repository": "ai/eventemitter5",
+  "dependencies": {},
+  "devDependencies": {
+    "docdash": "^0.4.0",
+    "eslint": "^3.5.0",
+    "eslint-config-standard": "^6.0.1",
+    "eslint-plugin-promise": "^2.0.1",
+    "eslint-plugin-standard": "^2.0.0",
+    "jest": "^15.1.1",
+    "jsdoc": "^3.4.1",
+    "lint-staged": "^3.0.2",
+    "pre-commit": "^1.1.3",
+    "rimraf": "^2.5.4",
+    "yaspeller": "^2.9.1"
+  },
+  "scripts": {
+    "lint-staged": "lint-staged",
+    "spellcheck": "npm run docs && yaspeller *.md docs/*.html",
+    "clean": "rimraf docs/ coverage/",
+    "lint": "eslint *.js test/*.js",
+    "docs": "jsdoc --configure .jsdocrc *.js",
+    "test": "jest --coverage && npm run lint && npm run spellcheck"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "statements": 100
+      }
+    }
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "rules": {
+      "valid-jsdoc": "error",
+      "no-new": "off"
+    },
+    "env": {
+      "jest": true
+    }
+  },
+  "lint-staged": {
+    "*.md": "yaspeller",
+    "*.js": "eslint"
+  },
+  "pre-commit": [
+    "lint-staged"
+  ]
+}
