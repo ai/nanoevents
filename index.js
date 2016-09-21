@@ -53,7 +53,7 @@ EventEmitter5.prototype = {
    * @return {function} Unbind listener from event
    *
    * @example
-   * var unbind = ee.on('tick', function () {
+   * const unbind = ee.on('tick', (tickType, tickDuration) => {
    *   count += 1
    * })
    *
@@ -75,7 +75,7 @@ EventEmitter5.prototype = {
    * @return {function} Unbind listener from event
    *
    * @example
-   * var unbind = ee.once('tick', function () {
+   * const unbind = ee.once('tick', (tickType, tickDuration) => {
    *   works = true
    * })
    */
@@ -89,12 +89,12 @@ EventEmitter5.prototype = {
    * Calls each of the listeners registered for a given event.
    *
    * @param {string} event The event name.
-   * @param {...*} args The event arguments.
+   * @param {...*} arguments The arguments to listeners.
    *
    * @returns {boolean} `true` if the event had listeners, else `false`.
    *
    * @example
-   * ee.emit('tick', tickType, tickMode)
+   * ee.emit('tick', tickType, tickDuration)
    */
   emit: function emit (event, a1, a2, a3, a4, a5, a6) {
     var listeners = this.listeners[event]
@@ -113,13 +113,13 @@ EventEmitter5.prototype = {
    * Execute listener callback.
    *
    * @param {object} listener Listener object
-   * @param {...*} args The event arguments.
+   * @param {...*} arguments The arguments to listeners.
    *
    * @return {*} callback’s result
    *
    * @example
-   * for ( listener of ee.listeners['tick'] ) {
-   *   if ( ee.call(listener, tickType, tickMode) === false ) {
+   * for (listener of ee.listeners['tick']) {
+   *   if (ee.call(listener, tickType, tickDuration) === false) {
    *     break
    *   }
    * }
