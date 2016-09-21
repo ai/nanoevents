@@ -3,6 +3,8 @@
   "ignoreCapitalization": true,
   "dictionary": [
     "JSDoc",
-    "docdash"
+    "docdash",
+    "EventEmitter5",
+    "js"
   ]
 }
