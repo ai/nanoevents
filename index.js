@@ -7,10 +7,10 @@
  *     this.events = new EventEmitter5()
  *   }
  *   on() {
- *     return this.events.on.apple(this.events, arguments)
+ *     return this.events.on.apply(this.events, arguments)
  *   }
  *   once() {
- *     return this.events.once.apple(this.events, arguments)
+ *     return this.events.once.apply(this.events, arguments)
  *   }
  *   tick() {
  *     this.events.emit('tick')
@@ -89,6 +89,7 @@ EventEmitter5.prototype = {
    * Calls each of the listeners registered for a given event.
    *
    * @param {string} event The event name.
+   * @param {...*} args The event arguments.
    *
    * @returns {boolean} `true` if the event had listeners, else `false`.
    *
@@ -112,8 +113,9 @@ EventEmitter5.prototype = {
    * Execute listener callback.
    *
    * @param {object} listener Listener object
+   * @param {...*} args The event arguments.
    *
-   * @return {any} callback result
+   * @return {*} callback’s result
    *
    * @example
    * for ( listener of ee.listeners['tick'] ) {
