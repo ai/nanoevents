@@ -7,7 +7,7 @@ The differences from many other node.js events APIs:
 * Only 923 bytes after Uglify.
 * `on` and `once` methods return `unbind` function. You don’t need to save
   callback to variable for `removeListener`.
-* No aliases, just `on`, `once` methods.
+* No aliases, just `emit`, `on`, `once` methods.
 
 ```js
 import NanoEvents from 'nanoevents'
@@ -85,6 +85,19 @@ emitter.emit('tick', 1)
 unbind()
 emitter.emit('tick', 2)
 // Prints nothing
+```
+
+### Execute Listeners
+
+Method `emit` will execute all listeners. First argument is event name, others
+will be passed to listeners.
+
+```js
+emitter.on('tick', (a, b) => {
+  console.log(a, b)
+})
+emitter.emit('tick', 1, 'one')
+// Prints 1, 'one'
 ```
 
 ### Events List
