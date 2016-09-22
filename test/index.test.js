@@ -1,30 +1,30 @@
-var EventEmitter5 = require('../')
+var NanoEvents = require('../')
 
 it('is a class', function () {
-  var ee = new EventEmitter5()
-  expect(typeof EventEmitter5).toEqual('function')
-  expect(ee instanceof EventEmitter5).toBeTruthy()
+  var ee = new NanoEvents()
+  expect(typeof NanoEvents).toEqual('function')
+  expect(ee instanceof NanoEvents).toBeTruthy()
 })
 
 it('is empty from the beggining', function () {
-  var ee = new EventEmitter5()
-  expect(ee.listeners).toEqual({ })
+  var ee = new NanoEvents()
+  expect(ee.events).toEqual({ })
 })
 
 it('adds listeners', function () {
-  var ee = new EventEmitter5()
+  var ee = new NanoEvents()
 
   ee.on('one', function () { })
   ee.on('two', function () { })
   ee.once('two', function () { })
 
-  expect(Object.keys(ee.listeners)).toEqual(['one', 'two'])
-  expect(ee.listeners.one.length).toEqual(1)
-  expect(ee.listeners.two.length).toEqual(2)
+  expect(Object.keys(ee.events)).toEqual(['one', 'two'])
+  expect(ee.events.one.length).toEqual(1)
+  expect(ee.events.two.length).toEqual(2)
 })
 
 it('calls listener', function () {
-  var ee = new EventEmitter5()
+  var ee = new NanoEvents()
   var calls = []
   ee.on('event', function () {
     calls.push(Array.prototype.slice.call(arguments))
@@ -40,7 +40,7 @@ it('calls listener', function () {
 })
 
 it('returns true when listeners present', function () {
-  var ee = new EventEmitter5()
+  var ee = new NanoEvents()
   expect(ee.emit('event')).not.toBeTruthy()
 
   ee.on('event', function () { })
@@ -48,7 +48,7 @@ it('returns true when listeners present', function () {
 })
 
 it('unbinds listener', function () {
-  var ee = new EventEmitter5()
+  var ee = new NanoEvents()
 
   var calls1 = []
   var unbind = ee.on('event', function (a) {
@@ -69,14 +69,14 @@ it('unbinds listener', function () {
 })
 
 it('does not fall on multiple unbind', function () {
-  var ee = new EventEmitter5()
+  var ee = new NanoEvents()
   var unbind = ee.on('event', function () { })
   unbind()
   unbind()
 })
 
 it('calls listener once on request', function () {
-  var ee = new EventEmitter5()
+  var ee = new NanoEvents()
 
   var calls1 = []
   ee.once('event', function (a) {
@@ -96,7 +96,7 @@ it('calls listener once on request', function () {
 })
 
 it('calls event manually', function () {
-  var ee = new EventEmitter5()
+  var ee = new NanoEvents()
 
   var calls1 = []
   ee.on('event', function (a) {
@@ -108,39 +108,39 @@ it('calls event manually', function () {
     calls2.push(a)
   })
 
-  ee.call(ee.listeners.event[0], 1)
+  ee.call(ee.events.event[0], 1)
 
   expect(calls1).toEqual([1])
   expect(calls2).toEqual([])
 })
 
 it('calls event manually with different arguments', function () {
-  var ee = new EventEmitter5()
+  var ee = new NanoEvents()
   var calls = []
   ee.on('event', function () {
     calls.push(Array.prototype.slice.call(arguments))
   })
 
-  ee.call(ee.listeners.event[0])
-  ee.call(ee.listeners.event[0], 11)
-  ee.call(ee.listeners.event[0], 21, 22)
-  ee.call(ee.listeners.event[0], 31, 32, 33)
-  ee.call(ee.listeners.event[0], 41, 42, 43, 44)
+  ee.call(ee.events.event[0])
+  ee.call(ee.events.event[0], 11)
+  ee.call(ee.events.event[0], 21, 22)
+  ee.call(ee.events.event[0], 31, 32, 33)
+  ee.call(ee.events.event[0], 41, 42, 43, 44)
 
   expect(calls).toEqual([[], [11], [21, 22], [31, 32, 33], [41, 42, 43, 44]])
 })
 
 it('removes once listener on manually call', function () {
-  var ee = new EventEmitter5()
+  var ee = new NanoEvents()
   var calls = []
   ee.once('event', function (a) {
     calls.push(a)
     return 'return'
   })
 
-  var result = ee.call(ee.listeners.event[0], 1)
+  var result = ee.call(ee.events.event[0], 1)
   expect(result).toEqual('return')
 
   expect(calls).toEqual([1])
-  expect(ee.listeners.event.length).toEqual(0)
+  expect(ee.events.event.length).toEqual(0)
 })

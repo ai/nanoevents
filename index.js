@@ -4,23 +4,27 @@
  * @example
  * class Ticker {
  *   constructor() {
- *     this.events = new EventEmitter5()
+ *     this.emitter = new NanoEvents()
  *   }
  *   on() {
- *     return this.events.on.apply(this.events, arguments)
+ *     return this.emitter.on.apply(this.events, arguments)
  *   }
  *   once() {
- *     return this.events.once.apply(this.events, arguments)
+ *     return this.emitter.once.apply(this.events, arguments)
  *   }
  *   tick() {
- *     this.events.emit('tick')
+ *     this.emitter.emit('tick')
  *   }
  * }
  *
  * @class
  */
-function EventEmitter5 () {
-  this.listeners = { }
+function NanoEvents () {
+  /**
+   * Event names in keys and listeners array in values
+   * @type {object}
+   */
+  this.events = { }
 }
 
 function add (emitter, event, callback) {
@@ -30,19 +34,19 @@ function add (emitter, event, callback) {
   listener.rm = function () {
     if (!isSubscribed) return
     isSubscribed = false
-    var listeners = emitter.listeners[event]
+    var listeners = emitter.events[event]
     listeners.splice(listeners.indexOf(listener), 1)
   }
 
-  if (emitter.listeners[event]) {
-    emitter.listeners[event].push(listener)
+  if (emitter.events[event]) {
+    emitter.events[event].push(listener)
   } else {
-    emitter.listeners[event] = [listener]
+    emitter.events[event] = [listener]
   }
   return listener
 }
 
-EventEmitter5.prototype = {
+NanoEvents.prototype = {
 
   /**
    * Add a listener for a given event.
@@ -97,7 +101,7 @@ EventEmitter5.prototype = {
    * ee.emit('tick', tickType, tickDuration)
    */
   emit: function emit (event, a1, a2, a3) {
-    var listeners = this.listeners[event]
+    var listeners = this.events[event]
     if (!listeners || listeners.length === 0) return false
 
     var i
@@ -142,7 +146,7 @@ EventEmitter5.prototype = {
    * @return {*} callback’s result
    *
    * @example
-   * for (listener of ee.listeners['tick']) {
+   * for (listener of ee.events['tick']) {
    *   if (ee.call(listener, tickType, tickDuration) === false) {
    *     break
    *   }
@@ -168,4 +172,4 @@ EventEmitter5.prototype = {
 
 }
 
-module.exports = EventEmitter5
+module.exports = NanoEvents

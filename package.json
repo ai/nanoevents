@@ -1,11 +1,11 @@
 {
-  "name": "eventemitter5",
+  "name": "nano-events",
   "version": "0.0.0",
-  "description": "",
+  "description": "Small, simple and clean events API",
   "keywords": [],
   "author": "Andrey Sitnik <andrey@sitnik.ru>",
   "license": "MIT",
-  "repository": "ai/eventemitter5",
+  "repository": "ai/nano-events",
   "dependencies": {},
   "devDependencies": {
     "docdash": "^0.4.0",
