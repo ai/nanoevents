@@ -129,26 +129,6 @@ NanoEvents.prototype = {
     }
 
     return true
-  },
-
-  /**
-   * Execute listener callback.
-   *
-   * @param {object} listener Listener object
-   * @param {...*} arguments The arguments to listeners.
-   *
-   * @return {*} callback’s result
-   *
-   * @example
-   * for (listener of ee.events['tick']) {
-   *   if (ee.call(listener, tickType, tickDuration) === false) {
-   *     break
-   *   }
-   * }
-   */
-  call: function call (listener) {
-    if (listener.once) listener.rm()
-    return run(listener, arguments)
   }
 
 }
