@@ -21,7 +21,7 @@
  */
 function NanoEvents () {
   /**
-   * Event names in keys and listeners array in values
+   * Event names in keys and arrays with listeners in values.
    * @type {object}
    */
   this.events = { }
@@ -104,7 +104,7 @@ NanoEvents.prototype = {
    * Calls each of the listeners registered for a given event.
    *
    * @param {string} event The event name.
-   * @param {...*} arguments The arguments to listeners.
+   * @param {...*} arguments The arguments for listeners.
    *
    * @returns {boolean} `true` if the event had listeners, else `false`.
    *

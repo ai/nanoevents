@@ -1,7 +1,6 @@
 # Nano Events
 
-Small, simple and clean events API.
-The differences from many other node.js events APIs:
+Small and simple events API.
 
 * No node.js [EventEmitter] compatibility.
 * Only 923 bytes after Uglify.
@@ -29,8 +28,8 @@ function disable () {
 
 ### Mixing to Object
 
-Because main Nano Events API is only 2 method, you could just create proxy
-in your class:
+Because main Nano Events API has only 2 methods,
+you could just create proxy methods in your class:
 
 ```js
 class Ticker {
@@ -51,9 +50,8 @@ class Ticker {
 
 ### Add Listener
 
-There are 2 method to add listener for specific event: `on` and `once`.
-First will create regular listener, second will remove listener after first
-execution.
+There are 2 methods to add listener for specific event:
+`on` and one-time `once`.
 
 ```js
 emitter.on('tick', number => {
@@ -71,8 +69,8 @@ emitter.emit('tick', 2)
 
 ### Remove Listener
 
-Method `on` and `once` return `unbind` function. Call it and this listener
-will be unbind from event.
+Methods `on` and `once` return `unbind` function. Call it and this listener
+will be removed from event.
 
 ```js
 const unbind = emitter.on('tick', number => {

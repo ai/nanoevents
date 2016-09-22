@@ -1,7 +1,7 @@
 {
   "name": "nanoevents",
   "version": "0.0.0",
-  "description": "Small, simple and clean events API",
+  "description": "Small and simple events API",
   "keywords": [
     "EventEmitter",
     "Events",
