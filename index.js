@@ -28,6 +28,10 @@ module.exports = function NanoEvents () {
 }
 
 function add (events, event, cb) {
+  if (typeof cb !== 'function') {
+    throw new Error('Expected event listener to be a function')
+  }
+
   var added = true
   var l = { fn: cb }
 

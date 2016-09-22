@@ -11,6 +11,13 @@ it('is empty from the beggining', function () {
   expect(ee.events).toEqual({ })
 })
 
+it('allows only function as listener', function () {
+  var ee = new NanoEvents()
+  expect(function () {
+    ee.on('event', { })
+  }).toThrowError(/function/)
+})
+
 it('adds listeners', function () {
   var ee = new NanoEvents()
 
