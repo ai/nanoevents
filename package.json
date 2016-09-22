@@ -1,5 +1,5 @@
 {
-  "name": "nano-events",
+  "name": "nanoevents",
   "version": "0.0.0",
   "description": "Small, simple and clean events API",
   "keywords": [
@@ -16,7 +16,7 @@
   ],
   "author": "Andrey Sitnik <andrey@sitnik.ru>",
   "license": "MIT",
-  "repository": "ai/nano-events",
+  "repository": "ai/nanoevents",
   "dependencies": {},
   "devDependencies": {
     "docdash": "^0.4.0",

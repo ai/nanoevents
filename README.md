@@ -10,7 +10,7 @@ The differences from many other node.js events APIs:
 * No aliases, just `on`, `once` methods.
 
 ```js
-import NanoEvents from 'nano-events'
+import NanoEvents from 'nanoevents'
 const emitter = new NanoEvents()
 
 const unbind = emitter.on('tick', volume => {
