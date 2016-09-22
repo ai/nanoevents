@@ -3,7 +3,7 @@
 Small and simple events API.
 
 * No node.js [EventEmitter] compatibility.
-* Only 923 bytes after Uglify.
+* Only 875 bytes after Uglify.
 * `on` and `once` methods return `unbind` function. You don’t need to save
   callback to variable for `removeListener`.
 * No aliases, just `emit`, `on`, `once` methods.

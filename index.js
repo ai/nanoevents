@@ -19,7 +19,7 @@
  *
  * @class
  */
-function NanoEvents () {
+module.exports = function NanoEvents () {
   /**
    * Event names in keys and arrays with listeners in values.
    * @type {object}
@@ -29,25 +29,25 @@ function NanoEvents () {
 
 function add (events, event, cb) {
   var added = true
-  var listener = { fn: cb }
+  var l = { fn: cb }
 
-  listener.rm = function () {
+  l.rm = function () {
     if (!added) return
     added = false
     var list = events[event]
     if (list.length > 1) {
-      list.splice(list.indexOf(listener), 1)
+      list.splice(list.indexOf(l), 1)
     } else {
       delete events[event]
     }
   }
 
   if (events[event]) {
-    events[event].push(listener)
+    events[event].push(l)
   } else {
-    events[event] = [listener]
+    events[event] = [l]
   }
-  return listener
+  return l
 }
 
 function run (l, args) {
@@ -58,7 +58,7 @@ function run (l, args) {
   return l.fn.apply(this, array)
 }
 
-NanoEvents.prototype = {
+module.exports.prototype = {
 
   /**
    * Add a listener for a given event.
@@ -132,5 +132,3 @@ NanoEvents.prototype = {
   }
 
 }
-
-module.exports = NanoEvents
