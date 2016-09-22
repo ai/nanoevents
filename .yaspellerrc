@@ -5,6 +5,7 @@
     "JSDoc",
     "docdash",
     "NanoEvents",
-    "js"
+    "js",
+    "cb"
   ]
 }

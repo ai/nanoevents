@@ -27,23 +27,31 @@ function NanoEvents () {
   this.events = { }
 }
 
-function add (emitter, event, callback) {
-  var isSubscribed = true
-  var listener = { fn: callback }
+function add (events, event, cb) {
+  var added = true
+  var listener = { fn: cb }
 
   listener.rm = function () {
-    if (!isSubscribed) return
-    isSubscribed = false
-    var listeners = emitter.events[event]
-    listeners.splice(listeners.indexOf(listener), 1)
+    if (!added) return
+    added = false
+    var list = events[event]
+    list.splice(list.indexOf(listener), 1)
   }
 
-  if (emitter.events[event]) {
-    emitter.events[event].push(listener)
+  if (events[event]) {
+    events[event].push(listener)
   } else {
-    emitter.events[event] = [listener]
+    events[event] = [listener]
   }
   return listener
+}
+
+function run (l, args) {
+  var array = new Array(args.length - 1)
+  for (var i = 1; i < args.length; i++) {
+    array[i - 1] = args[i]
+  }
+  return l.fn.apply(this, array)
 }
 
 NanoEvents.prototype = {
@@ -52,7 +60,7 @@ NanoEvents.prototype = {
    * Add a listener for a given event.
    *
    * @param {string} event The event name.
-   * @param {function} callback The listener function.
+   * @param {function} cb The listener function.
    *
    * @return {function} Unbind listener from event
    *
@@ -65,16 +73,15 @@ NanoEvents.prototype = {
    *   unbind()
    * }
    */
-  on: function on (event, callback) {
-    var listener = add(this, event, callback)
-    return listener.rm
+  on: function on (event, cb) {
+    return add(this.events, event, cb).rm
   },
 
   /**
    * Add a one-time listener for a given event.
    *
    * @param {string} event The event name.
-   * @param {function} callback The listener function.
+   * @param {function} cb The listener function.
    *
    * @return {function} Unbind listener from event
    *
@@ -83,10 +90,10 @@ NanoEvents.prototype = {
    *   works = true
    * })
    */
-  once: function once (event, callback) {
-    var listener = add(this, event, callback)
-    listener.once = true
-    return listener.rm
+  once: function once (event, cb) {
+    var l = add(this.events, event, cb)
+    l.once = true
+    return l.rm
   },
 
   /**
@@ -100,38 +107,21 @@ NanoEvents.prototype = {
    * @example
    * ee.emit('tick', tickType, tickDuration)
    */
-  emit: function emit (event, a1, a2, a3) {
-    var listeners = this.events[event]
-    if (!listeners || listeners.length === 0) return false
+  emit: function emit (event) {
+    var list = this.events[event]
+    if (!list || !list.length) return false
 
     var i
-    var remove = []
+    var rm = []
 
-    for (i = 0; i < listeners.length; i++) {
-      var listener = listeners[i]
-      if (listener.once) remove.push(listener)
-
-      switch (arguments.length) {
-        case 1:
-          listener.fn.call(this)
-          break
-        case 2:
-          listener.fn.call(this, a1)
-          break
-        case 3:
-          listener.fn.call(this, a1, a2)
-          break
-        default:
-          var args = new Array(arguments.length - 1)
-          for (var j = 1; j < arguments.length; j++) {
-            args[j - 1] = arguments[j]
-          }
-          listener.fn.apply(this, args)
-      }
+    for (i = 0; i < list.length; i++) {
+      var l = list[i]
+      if (l.once) rm.push(l)
+      run(l, arguments)
     }
 
-    for (i = 0; i < remove.length; i++) {
-      remove[i].rm()
+    for (i = 0; i < rm.length; i++) {
+      rm[i].rm()
     }
 
     return true
@@ -152,22 +142,9 @@ NanoEvents.prototype = {
    *   }
    * }
    */
-  call: function call (listener, a1, a2, a3) {
+  call: function call (listener) {
     if (listener.once) listener.rm()
-    switch (arguments.length) {
-      case 1:
-        return listener.fn.call(this)
-      case 2:
-        return listener.fn.call(this, a1)
-      case 3:
-        return listener.fn.call(this, a1, a2)
-      default:
-        var args = new Array(arguments.length - 1)
-        for (var i = 1; i < arguments.length; i++) {
-          args[i - 1] = arguments[i]
-        }
-        return listener.fn.apply(this, args)
-    }
+    return run(listener, arguments)
   }
 
 }
