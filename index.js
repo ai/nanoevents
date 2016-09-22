@@ -96,15 +96,39 @@ EventEmitter5.prototype = {
    * @example
    * ee.emit('tick', tickType, tickDuration)
    */
-  emit: function emit (event, a1, a2, a3, a4, a5, a6) {
+  emit: function emit (event, a1, a2, a3) {
     var listeners = this.listeners[event]
     if (!listeners || listeners.length === 0) return false
 
-    var args = arguments
-    listeners.forEach(function (i) {
-      args[0] = i
-      this.call.apply(this, args)
-    }, this)
+    var i
+    var remove = []
+
+    for (i = 0; i < listeners.length; i++) {
+      var listener = listeners[i]
+      if (listener.once) remove.push(listener)
+
+      switch (arguments.length) {
+        case 1:
+          listener.fn.call(this)
+          break
+        case 2:
+          listener.fn.call(this, a1)
+          break
+        case 3:
+          listener.fn.call(this, a1, a2)
+          break
+        default:
+          var args = new Array(arguments.length - 1)
+          for (var j = 1; j < arguments.length; j++) {
+            args[j - 1] = arguments[j]
+          }
+          listener.fn.apply(this, args)
+      }
+    }
+
+    for (i = 0; i < remove.length; i++) {
+      remove[i].rm()
+    }
 
     return true
   },
@@ -128,20 +152,17 @@ EventEmitter5.prototype = {
     if (listener.once) listener.rm()
     switch (arguments.length) {
       case 1:
-        listener.fn.call(this)
-        break
+        return listener.fn.call(this)
       case 2:
-        listener.fn.call(this, a1)
-        break
+        return listener.fn.call(this, a1)
       case 3:
-        listener.fn.call(this, a1, a2)
-        break
+        return listener.fn.call(this, a1, a2)
       default:
         var args = new Array(arguments.length - 1)
         for (var i = 1; i < arguments.length; i++) {
           args[i - 1] = arguments[i]
         }
-        listener.fn.apply(this, args)
+        return listener.fn.apply(this, args)
     }
   }
 

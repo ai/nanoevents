@@ -39,6 +39,14 @@ it('calls listener', function () {
   expect(calls).toEqual([[], [11], [21, 22], [31, 32, 33], [41, 42, 43, 44]])
 })
 
+it('returns true when listeners present', function () {
+  var ee = new EventEmitter5()
+  expect(ee.emit('event')).not.toBeTruthy()
+
+  ee.on('event', function () { })
+  expect(ee.emit('event')).toBeTruthy()
+})
+
 it('unbinds listener', function () {
   var ee = new EventEmitter5()
 
@@ -69,15 +77,22 @@ it('does not fall on multiple unbind', function () {
 
 it('calls listener once on request', function () {
   var ee = new EventEmitter5()
-  var calls = []
+
+  var calls1 = []
   ee.once('event', function (a) {
-    calls.push(a)
+    calls1.push(a)
+  })
+
+  var calls2 = []
+  ee.on('event', function (a) {
+    calls2.push(a)
   })
 
   ee.emit('event', 1)
   ee.emit('event', 2)
 
-  expect(calls).toEqual([1])
+  expect(calls1).toEqual([1])
+  expect(calls2).toEqual([1, 2])
 })
 
 it('calls event manually', function () {
@@ -99,14 +114,32 @@ it('calls event manually', function () {
   expect(calls2).toEqual([])
 })
 
+it('calls event manually with different arguments', function () {
+  var ee = new EventEmitter5()
+  var calls = []
+  ee.on('event', function () {
+    calls.push(Array.prototype.slice.call(arguments))
+  })
+
+  ee.call(ee.listeners.event[0])
+  ee.call(ee.listeners.event[0], 11)
+  ee.call(ee.listeners.event[0], 21, 22)
+  ee.call(ee.listeners.event[0], 31, 32, 33)
+  ee.call(ee.listeners.event[0], 41, 42, 43, 44)
+
+  expect(calls).toEqual([[], [11], [21, 22], [31, 32, 33], [41, 42, 43, 44]])
+})
+
 it('removes once listener on manually call', function () {
   var ee = new EventEmitter5()
   var calls = []
   ee.once('event', function (a) {
     calls.push(a)
+    return 'return'
   })
 
-  ee.call(ee.listeners.event[0], 1)
+  var result = ee.call(ee.listeners.event[0], 1)
+  expect(result).toEqual('return')
 
   expect(calls).toEqual([1])
   expect(ee.listeners.event.length).toEqual(0)
