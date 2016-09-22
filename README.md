@@ -13,7 +13,7 @@ import NanoEvents from 'nanoevents'
 const emitter = new NanoEvents()
 
 const unbind = emitter.on('tick', volume => {
-  summery += volume
+  summary += volume
 })
 emitter.once('tick', () => {
   works = true
