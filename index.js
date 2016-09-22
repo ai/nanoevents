@@ -35,7 +35,11 @@ function add (events, event, cb) {
     if (!added) return
     added = false
     var list = events[event]
-    list.splice(list.indexOf(listener), 1)
+    if (list.length > 1) {
+      list.splice(list.indexOf(listener), 1)
+    } else {
+      delete events[event]
+    }
   }
 
   if (events[event]) {

@@ -68,6 +68,18 @@ it('unbinds listener', function () {
   expect(calls2).toEqual([1, 2])
 })
 
+it('removes event on no listeners', function () {
+  var ee = new NanoEvents()
+  var unbind1 = ee.on('one', function () {})
+  var unbind2 = ee.on('one', function () {})
+
+  unbind1()
+  expect(Object.keys(ee.events)).toEqual(['one'])
+
+  unbind2()
+  expect(Object.keys(ee.events)).toEqual([])
+})
+
 it('does not fall on multiple unbind', function () {
   var ee = new NanoEvents()
   var unbind = ee.on('event', function () { })
@@ -142,5 +154,5 @@ it('removes once listener on manually call', function () {
   expect(result).toEqual('return')
 
   expect(calls).toEqual([1])
-  expect(ee.events.event.length).toEqual(0)
+  expect(Object.keys(ee.events)).toEqual([])
 })
