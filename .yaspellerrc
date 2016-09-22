@@ -5,6 +5,7 @@
     "JSDoc",
     "docdash",
     "NanoEvents",
+    "EventEmitter",
     "js",
     "cb"
   ]

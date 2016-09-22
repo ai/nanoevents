@@ -2,7 +2,18 @@
   "name": "nano-events",
   "version": "0.0.0",
   "description": "Small, simple and clean events API",
-  "keywords": [],
+  "keywords": [
+    "EventEmitter",
+    "Events",
+    "emit",
+    "emitter",
+    "event",
+    "once",
+    "pub/sub",
+    "publish",
+    "reactor",
+    "subscribe"
+  ],
   "author": "Andrey Sitnik <andrey@sitnik.ru>",
   "license": "MIT",
   "repository": "ai/nano-events",
@@ -38,6 +49,7 @@
   "eslintConfig": {
     "extends": "standard",
     "rules": {
+      "valid-jsdoc": "error",
       "no-new": "off"
     },
     "env": {
