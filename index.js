@@ -50,14 +50,6 @@ function add (events, event, cb) {
   return l
 }
 
-function run (l, args) {
-  var array = new Array(args.length - 1)
-  for (var i = 1; i < args.length; i++) {
-    array[i - 1] = args[i]
-  }
-  return l.fn.apply(this, array)
-}
-
 module.exports.prototype = {
 
   /**
@@ -115,18 +107,19 @@ module.exports.prototype = {
     var list = this.events[event]
     if (!list || !list.length) return false
 
-    var i
     var rm = []
+    var args = new Array(arguments.length - 1)
+    for (var i = 1; i < arguments.length; i++) {
+      args[i - 1] = arguments[i]
+    }
 
     for (i = 0; i < list.length; i++) {
       var l = list[i]
       if (l.once) rm.push(l)
-      run(l, arguments)
+      l.fn.apply(this, args)
     }
 
-    for (i = 0; i < rm.length; i++) {
-      rm[i].rm()
-    }
+    for (i = 0; i < rm.length; i++) rm[i].rm()
 
     return true
   }
