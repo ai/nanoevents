@@ -62,7 +62,7 @@ module.exports.prototype = {
    * @param {string} event The event name.
    * @param {function} cb The listener function.
    *
-   * @return {function} Unbind listener from event
+   * @return {function} Unbind listener from event.
    *
    * @example
    * const unbind = ee.on('tick', (tickType, tickDuration) => {
@@ -83,7 +83,7 @@ module.exports.prototype = {
    * @param {string} event The event name.
    * @param {function} cb The listener function.
    *
-   * @return {function} Unbind listener from event
+   * @return {function} Unbind listener from event.
    *
    * @example
    * const unbind = ee.once('tick', (tickType, tickDuration) => {
