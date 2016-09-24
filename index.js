@@ -23,6 +23,9 @@ module.exports = function NanoEvents () {
   /**
    * Event names in keys and arrays with listeners in values.
    * @type {object}
+   *
+   * @example
+   * Object.keys(ee.events)
    */
   this.events = { }
 }
