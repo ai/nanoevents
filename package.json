@@ -50,7 +50,7 @@
     "extends": "standard",
     "rules": {
       "valid-jsdoc": "error",
-      "no-new": "off"
+      "max-len": [2, 80]
     },
     "env": {
       "jest": true
