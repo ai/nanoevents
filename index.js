@@ -114,19 +114,18 @@ module.exports.prototype = {
     var list = this.events[event]
     if (!list || !list.length) return false
 
-    var rm = []
+    var copy = list.slice(0)
+
     var args = new Array(arguments.length - 1)
     for (var i = 1; i < arguments.length; i++) {
       args[i - 1] = arguments[i]
     }
 
-    for (i = 0; i < list.length; i++) {
-      var l = list[i]
-      if (l.once) rm.push(l)
+    for (i = 0; i < copy.length; i++) {
+      var l = copy[i]
       l.fn.apply(this, args)
+      if (l.once) l.rm()
     }
-
-    for (i = 0; i < rm.length; i++) rm[i].rm()
 
     return true
   }

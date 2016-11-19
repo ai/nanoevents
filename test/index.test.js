@@ -113,3 +113,19 @@ it('calls listener once on request', function () {
   expect(calls1).toEqual([1])
   expect(calls2).toEqual([1, 2])
 })
+
+it('calls listener once on request', function () {
+  var ee = new NanoEvents()
+
+  var calls = []
+  var remove1 = ee.on('event', function (a) {
+    remove1()
+    calls.push(1)
+  })
+  ee.on('event', function (a) {
+    calls.push(2)
+  })
+
+  ee.emit('event')
+  expect(calls).toEqual([1, 2])
+})
