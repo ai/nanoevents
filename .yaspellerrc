@@ -8,6 +8,7 @@
     "EventEmitter",
     "js",
     "cb",
-    "Versioning"
+    "Versioning",
+    "gzipped"
   ]
 }

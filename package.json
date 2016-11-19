@@ -27,18 +27,23 @@
     "jest": "^17.0.3",
     "jsdoc": "^3.4.3",
     "lint-staged": "^3.2.1",
+    "node-zopfli": "^2.0.2",
     "pre-commit": "^1.1.3",
     "rimraf": "^2.5.4",
+    "uglifyjs": "^2.4.10",
     "yaspeller": "^3.0.0"
   },
   "scripts": {
     "lint-staged": "lint-staged",
     "spellcheck": "npm run cleandocs && yaspeller *.md docs/*.html",
     "cleandocs": "npm run docs && rimraf docs/*.js.html",
-    "clean": "rimraf docs/ coverage/",
+    "clean": "rimraf docs/ coverage/ min.js*",
     "lint": "eslint *.js test/*.js",
     "docs": "jsdoc --configure .jsdocrc *.js",
-    "test": "jest --coverage && npm run lint && npm run spellcheck"
+    "test": "jest --coverage && npm run lint && npm run spellcheck",
+    "compress": "uglifyjs index.js -o min.js && zopfli --gzip min.js",
+    "show": "ls -l min.js.gz | awk '{print \"Size:\", $5, \"B\"}'",
+    "size": "npm run compress && npm run show"
   },
   "jest": {
     "coverageThreshold": {
@@ -51,7 +56,10 @@
     "extends": "standard",
     "rules": {
       "valid-jsdoc": "error",
-      "max-len": [2, 80]
+      "max-len": [
+        2,
+        80
+      ]
     },
     "env": {
       "jest": true

@@ -12,3 +12,6 @@ coverage/
 docs/
 .jsdocrc
 .yaspellerrc
+
+min.js
+min.js.gz
