@@ -27,10 +27,8 @@
     "jest": "^17.0.3",
     "jsdoc": "^3.4.3",
     "lint-staged": "^3.2.1",
-    "node-zopfli": "^2.0.2",
     "pre-commit": "^1.1.3",
     "rimraf": "^2.5.4",
-    "uglifyjs": "^2.4.10",
     "yaspeller": "^3.0.0"
   },
   "scripts": {
