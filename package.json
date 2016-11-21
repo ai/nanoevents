@@ -37,7 +37,7 @@
     "lint-staged": "lint-staged",
     "spellcheck": "npm run cleandocs && yaspeller *.md docs/*.html",
     "cleandocs": "npm run docs && rimraf docs/*.js.html",
-    "clean": "rimraf docs/ coverage/ min.js*",
+    "clean": "rimraf docs/ coverage/ *.gz",
     "lint": "eslint *.js test/*.js",
     "docs": "jsdoc --configure .jsdocrc *.js",
     "test": "jest --coverage && npm run lint && npm run spellcheck",
