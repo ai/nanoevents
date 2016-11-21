@@ -18,7 +18,6 @@
   "license": "MIT",
   "repository": "ai/nanoevents",
   "dependencies": {
-    "uglifyjs": "^2.4.10"
   },
   "devDependencies": {
     "docdash": "^0.4.0",
@@ -31,6 +30,7 @@
     "lint-staged": "^3.2.1",
     "pre-commit": "^1.1.3",
     "rimraf": "^2.5.4",
+    "uglifyjs": "^2.4.10",
     "yaspeller": "^3.0.0"
   },
   "scripts": {
