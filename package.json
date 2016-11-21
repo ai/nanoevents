@@ -42,7 +42,7 @@
     "docs": "jsdoc --configure .jsdocrc *.js",
     "test": "jest --coverage && npm run lint && npm run spellcheck",
     "compress": "uglifyjs index.js -o min.js && gzip -9 -f min.js",
-    "show": "ls -l min.js.gz | awk '{print \"Size:\", $5, \"B\"}'",
+    "show": "ls -l *.gz | awk '{print \"Size:\", $5, \"B\"}'",
     "size": "npm run compress && npm run show"
   },
   "jest": {
