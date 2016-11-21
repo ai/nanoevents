@@ -17,7 +17,9 @@
   "author": "Andrey Sitnik <andrey@sitnik.ru>",
   "license": "MIT",
   "repository": "ai/nanoevents",
-  "dependencies": {},
+  "dependencies": {
+    "uglifyjs": "^2.4.10"
+  },
   "devDependencies": {
     "docdash": "^0.4.0",
     "eslint": "^3.10.2",
@@ -39,7 +41,7 @@
     "lint": "eslint *.js test/*.js",
     "docs": "jsdoc --configure .jsdocrc *.js",
     "test": "jest --coverage && npm run lint && npm run spellcheck",
-    "compress": "uglifyjs index.js -o min.js && zopfli --gzip min.js",
+    "compress": "uglifyjs index.js -o min.js && gzip -9 -f min.js",
     "show": "ls -l min.js.gz | awk '{print \"Size:\", $5, \"B\"}'",
     "size": "npm run compress && npm run show"
   },
