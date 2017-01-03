@@ -35,15 +35,15 @@
   },
   "scripts": {
     "lint-staged": "lint-staged",
-    "spellcheck": "npm run cleandocs && yaspeller *.md docs/*.html",
-    "cleandocs": "npm run docs && rimraf docs/*.js.html",
+    "spellcheck": "yarn run cleandocs && yaspeller *.md docs/*.html",
+    "cleandocs": "yarn run docs && rimraf docs/*.js.html",
     "clean": "rimraf docs/ coverage/ *.gz",
     "lint": "eslint *.js test/*.js",
     "docs": "jsdoc --configure .jsdocrc *.js",
-    "test": "jest --coverage && npm run lint && npm run spellcheck",
+    "test": "jest --coverage && yarn run lint && yarn run spellcheck",
     "compress": "uglifyjs index.js -o min.js && gzip -9 -f min.js",
     "show": "ls -lh *.gz | awk '{print \"Size:\", $5\"B\"}'",
-    "size": "npm run compress && npm run show && rm *.gz"
+    "size": "yarn run compress && yarn run show && rm *.gz"
   },
   "jest": {
     "coverageThreshold": {
