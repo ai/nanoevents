@@ -116,8 +116,9 @@ module.exports.prototype = {
 
     var copy = list.slice(0)
 
+    var i
     var args = new Array(arguments.length - 1)
-    for (var i = 1; i < arguments.length; i++) {
+    for (i = 1; i < arguments.length; i++) {
       args[i - 1] = arguments[i]
     }
 

@@ -118,11 +118,11 @@ it('calls listener once on request', function () {
   var ee = new NanoEvents()
 
   var calls = []
-  var remove1 = ee.on('event', function (a) {
+  var remove1 = ee.on('event', function () {
     remove1()
     calls.push(1)
   })
-  ee.on('event', function (a) {
+  ee.on('event', function () {
     calls.push(2)
   })
 

@@ -21,6 +21,7 @@
   "devDependencies": {
     "docdash": "^0.4.0",
     "eslint": "^3.12.2",
+    "eslint-config-logux": "^3.0.0",
     "eslint-config-standard": "^6.2.1",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
@@ -52,17 +53,7 @@
     }
   },
   "eslintConfig": {
-    "extends": "standard",
-    "rules": {
-      "valid-jsdoc": "error",
-      "max-len": [
-        2,
-        80
-      ]
-    },
-    "env": {
-      "jest": true
-    }
+    "extends": "eslint-config-logux"
   },
   "lint-staged": {
     "*.md": "yaspeller",

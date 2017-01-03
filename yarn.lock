@@ -733,6 +733,10 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
+eslint-config-logux@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-logux/-/eslint-config-logux-3.0.0.tgz#f1660151026daf92fa5c84a2aff2b65f0b32ac89"
+
 eslint-config-standard@^6.2.1:
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-6.2.1.tgz#d3a68aafc7191639e7ee441e7348739026354292"
