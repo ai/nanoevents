@@ -20,30 +20,32 @@
   "dependencies": {},
   "devDependencies": {
     "docdash": "^0.4.0",
-    "eslint": "^3.12.2",
-    "eslint-config-logux": "^3.0.0",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^2.0.1",
-    "jest": "^18.1.0",
+    "eslint": "^4.1.1",
+    "eslint-config-logux": "^15.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-es5": "^1.1.0",
+    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-jest": "^20.0.3",
+    "eslint-plugin-node": "^5.1.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^20.0.4",
     "jsdoc": "^3.4.3",
-    "lint-staged": "^3.2.5",
+    "lint-staged": "^4.0.0",
     "pre-commit": "^1.2.2",
-    "rimraf": "^2.5.4",
-    "uglifyjs": "^2.4.10",
-    "yaspeller": "^3.0.0"
+    "rimraf": "^2.6.1",
+    "size-limit": "^0.1.1",
+    "yaspeller-ci": "^0.4.0"
   },
   "scripts": {
     "lint-staged": "lint-staged",
-    "spellcheck": "yarn run cleandocs && yaspeller *.md docs/*.html",
-    "cleandocs": "yarn run docs && rimraf docs/*.js.html",
-    "clean": "rimraf docs/ coverage/ *.gz",
+    "spellcheck": "yarn docs && yaspeller-ci *.md docs/*.html",
+    "clean": "rimraf docs/ coverage/",
     "lint": "eslint *.js test/*.js",
     "docs": "jsdoc --configure .jsdocrc *.js",
-    "test": "jest --coverage && yarn run lint && yarn run spellcheck",
-    "compress": "uglifyjs index.js -o min.js && gzip -9 -f min.js",
-    "show": "ls -lh *.gz | awk '{print \"Size:\", $5\"B\"}'",
-    "size": "yarn run compress && yarn run show && rm *.gz"
+    "test": "jest --coverage && yarn lint && yarn size && yarn spellcheck",
+    "size": "size-limit 300B"
   },
   "jest": {
     "coverageThreshold": {
@@ -53,10 +55,10 @@
     }
   },
   "eslintConfig": {
-    "extends": "eslint-config-logux"
+    "extends": "eslint-config-logux/browser"
   },
   "lint-staged": {
-    "*.md": "yaspeller",
+    "*.md": "yaspeller-ci",
     "*.js": "eslint"
   },
   "pre-commit": [
