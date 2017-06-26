@@ -114,7 +114,7 @@ it('calls listener once on request', function () {
   expect(calls2).toEqual([1, 2])
 })
 
-it('calls listener once on request', function () {
+it('removes listener during event', function () {
   var ee = new NanoEvents()
 
   var calls = []
