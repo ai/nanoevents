@@ -54,6 +54,9 @@
       }
     }
   },
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "eslintConfig": {
     "extends": "eslint-config-logux/browser"
   },
