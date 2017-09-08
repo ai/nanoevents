@@ -1,3 +1,5 @@
+module.exports = NanoEvents
+
 /**
  * Interface for event subscription.
  *
@@ -19,7 +21,7 @@
  *
  * @class
  */
-module.exports = function NanoEvents () {
+function NanoEvents () {
   /**
    * Event names in keys and arrays with listeners in values.
    * @type {object}
@@ -57,7 +59,7 @@ function add (events, event, cb) {
   return l
 }
 
-module.exports.prototype = {
+NanoEvents.prototype = {
 
   /**
    * Add a listener for a given event.
