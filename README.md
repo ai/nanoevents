@@ -3,7 +3,7 @@
 Small and simple events API.
 
 * No node.js [EventEmitter] compatibility.
-* Only 297 bytes (minified and gzipped).
+* Only 330 bytes (minified and gzipped).
 * `on` and `once` methods return `unbind` function. You don’t need to save
   callback to variable for `removeListener`.
 * No aliases, just `emit`, `on`, `once` methods.
@@ -112,6 +112,18 @@ const unbind = emitter.on('tick', () => { })
 Object.keys(emitter.events) //=> ["tick"]
 
 unbind()
+Object.keys(emitter.events) //=> []
+```
+
+### Remove all listeners
+
+`unbindAll` method will remove all listeners to all events.
+
+```js
+emitter.on('event1', () => { })
+emitter.on('event2', () => { })
+
+emitter.unbindAll();
 Object.keys(emitter.events) //=> []
 ```
 
