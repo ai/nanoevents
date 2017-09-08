@@ -3,7 +3,7 @@
 Small and simple events API.
 
 * No node.js [EventEmitter] compatibility.
-* Only 307 bytes (minified and gzipped).
+* Only 297 bytes (minified and gzipped).
 * `on` and `once` methods return `unbind` function. You don’t need to save
   callback to variable for `removeListener`.
 * No aliases, just `emit`, `on`, `once` methods.
@@ -115,15 +115,22 @@ unbind()
 Object.keys(emitter.events) //=> []
 ```
 
-### Remove all listeners
+### Helpers
+
+Additional functionality is available in `nanoevents/helpers` module.
+
+#### Remove all listeners
 
 `unbindAll` method will remove all listeners to all events.
 
 ```js
+import { unbindAll } from 'nanoevents/helpers';
+
 emitter.on('event1', () => { })
 emitter.on('event2', () => { })
 
-emitter.unbindAll();
+unbindAll(emitter);
+
 Object.keys(emitter.events) //=> []
 ```
 

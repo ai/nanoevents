@@ -45,7 +45,7 @@
     "lint": "eslint *.js test/*.js",
     "docs": "jsdoc --configure .jsdocrc *.js",
     "test": "jest --coverage && yarn lint && yarn size && yarn spellcheck",
-    "size": "size-limit 310B"
+    "size": "size-limit 300B"
   },
   "jest": {
     "coverageThreshold": {

@@ -129,18 +129,5 @@ module.exports.prototype = {
     }
 
     return true
-  },
-
-  /**
-   * Removes all listeners.
-   *
-   * @returns {undefined}
-   *
-   * @example
-   * ee.unbindAll()
-   */
-  unbindAll: function unbindAll () {
-    this.events = {}
   }
-
 }

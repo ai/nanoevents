@@ -129,12 +129,3 @@ it('removes listener during event', function () {
   ee.emit('event')
   expect(calls).toEqual([1, 2])
 })
-
-it('cleans all listeners', function () {
-  var ee = new NanoEvents()
-
-  ee.on('event', function () { })
-  ee.unbindAll()
-
-  expect(Object.keys(ee.events)).toEqual([])
-})
