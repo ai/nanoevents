@@ -140,11 +140,7 @@ module.exports.prototype = {
    * ee.unbindAll()
    */
   unbindAll: function unbindAll () {
-    for (var key in this.events) {
-      if (this.events.hasOwnProperty(key)) {
-        delete this.events[key]
-      }
-    }
+    this.events = {}
   }
 
 }
