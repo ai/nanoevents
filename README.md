@@ -32,6 +32,7 @@ function disable () {
        alt="Sponsored by Evil Martians" width="236" height="54">
 </a>
 
+
 ## Usage
 
 ### Mixing to Object
@@ -56,6 +57,7 @@ class Ticker {
 }
 ```
 
+
 ### Add Listener
 
 There are 2 methods to add listener for specific event:
@@ -75,6 +77,7 @@ emitter.emit('tick', 2)
 // Prints "on 2"
 ```
 
+
 ### Remove Listener
 
 Methods `on` and `once` return `unbind` function. Call it and this listener
@@ -93,6 +96,7 @@ emitter.emit('tick', 2)
 // Prints nothing
 ```
 
+
 ### Execute Listeners
 
 Method `emit` will execute all listeners. First argument is event name, others
@@ -106,6 +110,7 @@ emitter.emit('tick', 1, 'one')
 // Prints 1, 'one'
 ```
 
+
 ### Events List
 
 You can get used events list by `events` property.
@@ -117,6 +122,7 @@ Object.keys(emitter.events) //=> ["tick"]
 unbind()
 Object.keys(emitter.events) //=> []
 ```
+
 
 ### Helpers
 
