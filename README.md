@@ -24,7 +24,8 @@ function disable () {
 }
 ```
 
-[Size Limit]: https://github.com/ai/size-limit
+[EventEmitter]: https://nodejs.org/api/events.html
+[Size Limit]:   https://github.com/ai/size-limit
 
 <a href="https://evilmartians.com/?utm_source=nanoevents">
   <img src="https://evilmartians.com/badges/sponsored-by-evil-martians.svg"
@@ -133,5 +134,3 @@ unbindAll(emitter);
 
 Object.keys(emitter.events) //=> { }
 ```
-
-[EventEmitter]: https://nodejs.org/api/events.html
