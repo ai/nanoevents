@@ -132,5 +132,4 @@ NanoEvents.prototype = {
 
     return true
   }
-
 }

@@ -12,6 +12,7 @@
     "js",
     "cb",
     "Versioning",
-    "gzipped"
+    "gzipped",
+    "unbindAll"
   ]
 }

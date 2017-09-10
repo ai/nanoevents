@@ -115,4 +115,23 @@ unbind()
 Object.keys(emitter.events) //=> []
 ```
 
+### Helpers
+
+Additional functionality is available in `nanoevents/helpers` module.
+
+#### Remove all listeners
+
+`unbindAll` method will remove all listeners to all events.
+
+```js
+import { unbindAll } from 'nanoevents/helpers';
+
+emitter.on('event1', () => { })
+emitter.on('event2', () => { })
+
+unbindAll(emitter);
+
+Object.keys(emitter.events) //=> []
+```
+
 [EventEmitter]: https://nodejs.org/api/events.html
