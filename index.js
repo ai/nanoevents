@@ -1,5 +1,3 @@
-module.exports = NanoEvents
-
 /**
  * Interface for event subscription.
  *
@@ -34,7 +32,7 @@ function NanoEvents () {
 
 function add (events, event, cb) {
   if (typeof cb !== 'function') {
-    throw new Error('Expected event listener to be a function')
+    throw new Error('Listener must be a function')
   }
 
   var added = true
@@ -118,13 +116,9 @@ NanoEvents.prototype = {
 
     var copy = list.slice(0)
 
-    var i
-    var args = new Array(arguments.length - 1)
-    for (i = 1; i < arguments.length; i++) {
-      args[i - 1] = arguments[i]
-    }
+    var args = [].slice.call(arguments, 1)
 
-    for (i = 0; i < copy.length; i++) {
+    for (var i = 0; i < copy.length; i++) {
       var l = copy[i]
       l.fn.apply(this, args)
       if (l.once) l.rm()
@@ -133,3 +127,5 @@ NanoEvents.prototype = {
     return true
   }
 }
+
+module.exports = NanoEvents
