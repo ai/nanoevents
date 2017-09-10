@@ -1,6 +1,11 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.4
+* Add `nanoevents/unbind-all` helper (by Igor Deryabin).
+* Fix JSDoc (by Igor Deryabin).
+* Reduce size.
+
 ## 0.3
 * Allow to change listeners during the emit.
 
