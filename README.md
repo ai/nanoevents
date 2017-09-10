@@ -3,7 +3,7 @@
 Small and simple events API.
 
 * No node.js [EventEmitter] compatibility.
-* Only 270 bytes (minified and gzipped).
+* Only 270 bytes (minified and gzipped). It uses [Size Limit] to control size.
 * `on` and `once` methods return `unbind` function. You don’t need to save
   callback to variable for `removeListener`.
 * No aliases, just `emit`, `on`, `once` methods.
@@ -23,6 +23,8 @@ function disable () {
   unbind()
 }
 ```
+
+[Size Limit]: https://github.com/ai/size-limit
 
 <a href="https://evilmartians.com/?utm_source=nanoevents">
   <img src="https://evilmartians.com/badges/sponsored-by-evil-martians.svg"
