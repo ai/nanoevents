@@ -35,17 +35,19 @@ function add (events, event, cb, once) {
     throw new Error('Listener must be a function')
   }
 
-  var l = { fn: cb, once: once }
-
-  l.rm = function () {
-    var list = events[event]
-    if (list) {
-      var index = list.indexOf(l)
-      if (index > -1) {
-        if (list[1]) {
-          list.splice(index, 1)
-        } else {
-          delete events[event]
+  var l = {
+    fn: cb,
+    once: once,
+    rm: function () {
+      var list = events[event]
+      if (list) {
+        var index = list.indexOf(l)
+        if (index > -1) {
+          if (list[1]) {
+            list.splice(index, 1)
+          } else {
+            delete events[event]
+          }
         }
       }
     }
