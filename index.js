@@ -116,7 +116,7 @@ NanoEvents.prototype = {
 
     list = list.slice()
 
-    var args = [].slice.call(arguments, 1)
+    var args = list.slice.call(arguments, 1)
     for (var i = 0; list[i]; i++) {
       var l = list[i]
       l.fn.apply(this, args)
