@@ -3,7 +3,7 @@
 Simple and tiny event emitter library for JavaScript.
 
 * No node.js [EventEmitter] compatibility.
-* Only 257 bytes (minified and gzipped). It uses [Size Limit] to control size.
+* Only 254 bytes (minified and gzipped). It uses [Size Limit] to control size.
 * `on` and `once` methods return `unbind` function. You don’t need to save
   callback to variable for `removeListener`.
 * No aliases, just `emit`, `on`, `once` methods.
