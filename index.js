@@ -35,17 +35,19 @@ function add (events, event, cb) {
     throw new Error('Listener must be a function')
   }
 
-  var added = true
   var l = { fn: cb }
 
   l.rm = function () {
-    if (!added) return
-    added = false
     var list = events[event]
-    if (list.length > 1) {
-      list.splice(list.indexOf(l), 1)
-    } else {
-      delete events[event]
+    if (list) {
+      var index = list.indexOf(l)
+      if (index > -1) {
+        if (list[1]) {
+          list.splice(index, 1)
+        } else {
+          delete events[event]
+        }
+      }
     }
   }
 
@@ -112,16 +114,16 @@ NanoEvents.prototype = {
    */
   emit: function emit (event) {
     var list = this.events[event]
-    if (!list || !list.length) return false
+    if (!list || !list[0]) return false
 
-    var copy = list.slice(0)
+    list = list.slice()
 
-    var args = [].slice.call(arguments, 1)
-
-    for (var i = 0; i < copy.length; i++) {
-      var l = copy[i]
+    for (
+      var l, i = 0, args = [].slice.call(arguments, 1);
+      l = list[i++]; // eslint-disable-line no-cond-assign
+      l.once && l.rm()
+    ) {
       l.fn.apply(this, args)
-      if (l.once) l.rm()
     }
 
     return true
