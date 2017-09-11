@@ -118,12 +118,11 @@ NanoEvents.prototype = {
 
     list = list.slice()
 
-    for (
-      var l, i = 0, args = [].slice.call(arguments, 1);
-      l = list[i++]; // eslint-disable-line no-cond-assign
-      l.once && l.rm()
-    ) {
+    var args = [].slice.call(arguments, 1)
+    for (var i = 0; i < list.length; i++) {
+      var l = list[i]
       l.fn.apply(this, args)
+      if (l.once) l.rm()
     }
 
     return true
