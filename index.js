@@ -27,7 +27,7 @@ function NanoEvents () {
    * @example
    * Object.keys(ee.events)
    */
-  this.events = { }
+  this.events = Object.create(null)
 }
 
 function add (events, event, cb) {
