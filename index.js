@@ -30,12 +30,12 @@ function NanoEvents () {
   this.events = { }
 }
 
-function add (events, event, cb) {
+function add (events, event, cb, once) {
   if (typeof cb !== 'function') {
     throw new Error('Listener must be a function')
   }
 
-  var l = { fn: cb }
+  var l = { fn: cb, once: once }
 
   l.rm = function () {
     var list = events[event]
@@ -96,9 +96,7 @@ NanoEvents.prototype = {
    * })
    */
   once: function once (event, cb) {
-    var l = add(this.events, event, cb)
-    l.once = true
-    return l.rm
+    return add(this.events, event, cb, true).rm
   },
 
   /**
