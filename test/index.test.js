@@ -129,3 +129,12 @@ it('removes listener during event', function () {
   ee.emit('event')
   expect(calls).toEqual([1, 2])
 })
+
+it('does not clash with Object.prototype properties', function () {
+  var ee = new NanoEvents()
+  expect(function () {
+    ee.emit('constructor')
+    ee.emit('hasOwnProperty')
+    ee.emit('__proto__')
+  }).not.toThrowError()
+})
