@@ -35,13 +35,13 @@ function add (events, event, cb, once) {
     throw new Error('Listener must be a function')
   }
 
-  var l = {
+  var listener = {
     fn: cb,
     once: once,
     rm: function () {
       var list = events[event]
       if (list) {
-        var index = list.indexOf(l)
+        var index = list.indexOf(listener)
         if (index > -1) {
           if (list[1]) { // list[1] === list.length > 1
             list.splice(index, 1)
@@ -54,12 +54,12 @@ function add (events, event, cb, once) {
   }
 
   if (events[event]) {
-    events[event].push(l)
+    events[event].push(listener)
   } else {
-    events[event] = [l]
+    events[event] = [listener]
   }
 
-  return l
+  return listener
 }
 
 NanoEvents.prototype = {
