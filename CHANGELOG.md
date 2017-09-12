@@ -1,6 +1,10 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.4.1
+* Fix clashing with `Object` methods (by Anton Khlynovskiy).
+* Reduce size (by Anton Khlynovskiy).
+
 ## 0.4
 * Add `nanoevents/unbind-all` helper (by Igor Deryabin).
 * Fix JSDoc (by Igor Deryabin).
