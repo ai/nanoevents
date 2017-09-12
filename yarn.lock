@@ -613,8 +613,8 @@ caniuse-api@^1.5.2:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000726"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000726.tgz#9bb742f8d026a62df873bc03c06843d2255b60d7"
+  version "1.0.30000727"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000727.tgz#4e22593089b0f35c1b2adcfc28234493a21a4b2e"
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -852,8 +852,8 @@ content-type-parser@^1.0.1:
   resolved "https://registry.yarnpkg.com/content-type-parser/-/content-type-parser-1.0.1.tgz#c3e56988c53c65127fb46d4032a3a900246fdc94"
 
 content-type@~1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/content-type/-/content-type-1.0.2.tgz#b7d113aee7a8dd27bd21133c4dc2529df1721eed"
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/content-type/-/content-type-1.0.4.tgz#e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
 
 convert-source-map@^1.4.0, convert-source-map@^1.5.0:
   version "1.5.0"
@@ -1366,9 +1366,9 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-logux@^16.1.1:
-  version "16.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-logux/-/eslint-config-logux-16.1.1.tgz#5d622436c959167e60f5752196a15afd43a944d5"
+eslint-config-logux@^16.2.0:
+  version "16.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-logux/-/eslint-config-logux-16.2.0.tgz#f86abbf6aa4fcccb9647ccc32fd6b69b8ccc8182"
   dependencies:
     globals "^10.1.0"
 
@@ -1818,8 +1818,8 @@ form-data@~2.1.1:
     mime-types "^2.1.12"
 
 forwarded@~0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.0.tgz#19ef9874c4ae1c297bcf078fde63a09b66a84363"
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.1.tgz#8a4e30c640b05395399a3549c730257728048961"
 
 fresh@0.5.0:
   version "0.5.0"
@@ -2723,16 +2723,16 @@ jest@^21.0.2:
     jest-cli "^21.0.2"
 
 js-base64@^2.1.9:
-  version "2.1.9"
-  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.1.9.tgz#f0e80ae039a4bd654b5f281fc93f04a914a7fcce"
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.3.1.tgz#3705897c35fce0e202132630e750d8a17cd220ec"
 
 js-tokens@^3.0.0, js-tokens@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
 
 js-yaml@^3.4.3, js-yaml@^3.7.0, js-yaml@^3.9.1:
-  version "3.9.1"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.9.1.tgz#08775cebdfdd359209f0d2acd383c8f86a6904a0"
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.10.0.tgz#2e78441646bd4682e963f22b6e92823c309c62dc"
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
@@ -3484,8 +3484,8 @@ p-locate@^2.0.0:
     p-limit "^1.1.0"
 
 p-map@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/p-map/-/p-map-1.1.1.tgz#05f5e4ae97a068371bc2a5cc86bfbdbc19c4ae7a"
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/p-map/-/p-map-1.2.0.tgz#e4e94f311eabbc8633a1e79908165fca26241b6b"
 
 pako@~0.2.0:
   version "0.2.9"
@@ -4240,9 +4240,9 @@ right-align@^0.1.1:
   dependencies:
     align-text "^0.1.1"
 
-rimraf@2, rimraf@^2.2.8, rimraf@^2.5.1, rimraf@^2.5.4, rimraf@^2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.1.tgz#c2338ec643df7a1b7fe5c54fa86f57428a55f33d"
+rimraf@2, rimraf@^2.2.8, rimraf@^2.5.1, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.2.tgz#2ed8150d24a16ea8651e6d6ef0f47c4158ce7a36"
   dependencies:
     glob "^7.0.5"
 
@@ -4400,9 +4400,9 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
-size-limit@^0.11.1:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-0.11.1.tgz#e3f5f3ea67671203a716358af0e483de28ff0e3d"
+size-limit@^0.11.3:
+  version "0.11.3"
+  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-0.11.3.tgz#d3dbff672210753d9c15c5ba5eb1b8a775d2a8cc"
   dependencies:
     bytes "^3.0.0"
     chalk "^2.1.0"
@@ -4446,8 +4446,8 @@ source-list-map@^2.0.0:
   resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-2.0.0.tgz#aaa47403f7b245a92fbc97ea08f250d6087ed085"
 
 source-map-support@^0.4.15:
-  version "0.4.17"
-  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.17.tgz#6f2150553e6375375d0ccb3180502b78c18ba430"
+  version "0.4.18"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.18.tgz#0286a6de8be42641338594e97ccea75f0a2c585f"
   dependencies:
     source-map "^0.5.6"
 
@@ -4836,8 +4836,8 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
 uglify-es@^3.0.24:
-  version "3.0.28"
-  resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.0.28.tgz#1cdedbbcdb7865223065281ad7b2347629851d4b"
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.1.0.tgz#b4ca636bde6467e82a061ea7f2c124899d82bd2c"
   dependencies:
     commander "~2.11.0"
     source-map "~0.5.1"
@@ -5237,16 +5237,16 @@ yargs@~3.10.0:
     decamelize "^1.0.0"
     window-size "0.1.0"
 
-yaspeller-ci@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/yaspeller-ci/-/yaspeller-ci-0.6.0.tgz#abb2d151420ebaa0952cfc802061bd5ddc02fbf8"
+yaspeller-ci@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/yaspeller-ci/-/yaspeller-ci-0.7.0.tgz#ebf794b4cc3b7bd3d58938b01fb2dc769c87edc8"
   dependencies:
     ci-job-number "^0.3.0"
-    yaspeller "^3.2.0"
+    yaspeller "^4.0.0"
 
-yaspeller@^3.2.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/yaspeller/-/yaspeller-3.3.0.tgz#a74123515d05e561a8a9d6ea50a87e4cbe563ad9"
+yaspeller@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/yaspeller/-/yaspeller-4.0.0.tgz#6004e6dbd52ae42dfb3ef222921c13c461e25a5d"
   dependencies:
     async "^2.5.0"
     chalk "^2.0.1"
