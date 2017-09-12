@@ -43,7 +43,7 @@ function add (events, event, cb, once) {
       if (list) {
         var index = list.indexOf(l)
         if (index > -1) {
-          if (list[1]) {
+          if (list[1]) { // list[1] === list.length > 1
             list.splice(index, 1)
           } else {
             delete events[event]
@@ -58,6 +58,7 @@ function add (events, event, cb, once) {
   } else {
     events[event] = [l]
   }
+
   return l
 }
 
@@ -114,12 +115,12 @@ NanoEvents.prototype = {
    */
   emit: function emit (event) {
     var list = this.events[event]
-    if (!list || !list[0]) return false
+    if (!list || !list[0]) return false // list[0] === Array.isArray(list)
 
     list = list.slice()
 
     var args = list.slice.call(arguments, 1)
-    for (var i = 0; list[i]; i++) {
+    for (var i = 0; list[i]; i++) { // list[i] === i < list.length
       list[i].fn.apply(this, args)
       if (list[i].once) list[i].rm()
     }
