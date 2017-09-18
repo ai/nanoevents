@@ -53,30 +53,25 @@ NanoEvents.prototype = {
 
     var events = this.events
 
-    var listener = {
-      fn: callback,
-      rm: function () {
-        var list = events[event]
-        if (list) {
-          var index = list.indexOf(listener)
-          if (index > -1) {
-            if (list[1]) { // list[1] === list.length > 1
-              list.splice(index, 1)
-            } else {
-              delete events[event]
-            }
+    if (events[event]) {
+      events[event].push(callback)
+    } else {
+      events[event] = [callback]
+    }
+
+    return function () {
+      var list = events[event]
+      if (list) {
+        var index = list.indexOf(callback)
+        if (index > -1) {
+          if (list[1]) { // list[1] === list.length > 1
+            list.splice(index, 1)
+          } else {
+            delete events[event]
           }
         }
       }
     }
-
-    if (events[event]) {
-      events[event].push(listener)
-    } else {
-      events[event] = [listener]
-    }
-
-    return listener.rm
   },
 
   /**
@@ -98,7 +93,7 @@ NanoEvents.prototype = {
 
     var args = list.slice.call(arguments, 1)
     for (var i = 0; list[i]; i++) { // list[i] === i < list.length
-      list[i].fn.apply(this, args)
+      list[i].apply(this, args)
     }
 
     return true
