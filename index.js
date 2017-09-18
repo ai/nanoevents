@@ -33,7 +33,7 @@ NanoEvents.prototype = {
    * Add a listener for a given event.
    *
    * @param {string} event The event name.
-   * @param {function} callback The listener function.
+   * @param {function} cb The listener function.
    *
    * @return {function} Unbind listener from event.
    *
@@ -46,21 +46,21 @@ NanoEvents.prototype = {
    *   unbind()
    * }
    */
-  on: function on (event, callback) {
-    if (typeof callback !== 'function') {
+  on: function on (event, cb) {
+    if (process.env.NODE_ENV !== 'production' && typeof cb !== 'function') {
       throw new Error('Listener must be a function')
     }
 
     var events = this.events
 
     if (events[event]) {
-      events[event].push(callback)
+      events[event].push(cb)
     } else {
-      events[event] = [callback]
+      events[event] = [cb]
     }
 
     return function () {
-      events[event].splice(events[event].indexOf(callback) >>> 0, 1)
+      events[event].splice(events[event].indexOf(cb) >>> 0, 1)
     }
   },
 
