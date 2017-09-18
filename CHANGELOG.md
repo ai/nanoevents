@@ -1,6 +1,12 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.0
+* Remove `NanoEvents#once` method.
+* `NanoEvents#emit` doesn’t return boolean anymore.
+* Check arguments types only in development.
+* Reduce size.
+
 ## 0.4.1
 * Fix clashing with `Object` methods (by Anton Khlynovskiy).
 * Reduce size (by Anton Khlynovskiy).
