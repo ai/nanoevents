@@ -46,14 +46,6 @@ it('calls listener', function () {
   expect(calls).toEqual([[], [11], [21, 22], [31, 32, 33], [41, 42, 43, 44]])
 })
 
-it('returns true when listeners present', function () {
-  var ee = new NanoEvents()
-  expect(ee.emit('event')).not.toBeTruthy()
-
-  ee.on('event', function () { })
-  expect(ee.emit('event')).toBeTruthy()
-})
-
 it('unbinds listener', function () {
   var ee = new NanoEvents()
 

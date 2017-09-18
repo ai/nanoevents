@@ -80,21 +80,19 @@ NanoEvents.prototype = {
    * @param {string} event The event name.
    * @param {...*} arguments The arguments for listeners.
    *
-   * @returns {boolean} `true` if the event had listeners, else `false`.
+   * @returns {undefined}
    *
    * @example
    * ee.emit('tick', tickType, tickDuration)
    */
   emit: function emit (event) {
     var list = this.events[event]
-    if (!list || !list[0]) return false // list[0] === Array.isArray(list)
+    if (!list || !list[0]) return // list[0] === Array.isArray(list)
 
     var args = list.slice.call(arguments, 1)
     list.slice().map(function (i) {
       i.apply(this, args)
     })
-
-    return true
   }
 }
 
