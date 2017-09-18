@@ -9,9 +9,6 @@
  *   on() {
  *     return this.emitter.on.apply(this.events, arguments)
  *   }
- *   once() {
- *     return this.emitter.once.apply(this.events, arguments)
- *   }
  *   tick() {
  *     this.emitter.emit('tick')
  *   }
@@ -30,14 +27,13 @@ function NanoEvents () {
   this.events = { }
 }
 
-function add (events, event, cb, once) {
+function add (events, event, cb) {
   if (typeof cb !== 'function') {
     throw new Error('Listener must be a function')
   }
 
   var listener = {
     fn: cb,
-    once: once,
     rm: function () {
       var list = events[event]
       if (list) {
@@ -86,23 +82,6 @@ NanoEvents.prototype = {
   },
 
   /**
-   * Add a one-time listener for a given event.
-   *
-   * @param {string} event The event name.
-   * @param {function} cb The listener function.
-   *
-   * @return {function} Unbind listener from event.
-   *
-   * @example
-   * const unbind = ee.once('tick', (tickType, tickDuration) => {
-   *   works = true
-   * })
-   */
-  once: function once (event, cb) {
-    return add(this.events, event, cb, true).rm
-  },
-
-  /**
    * Calls each of the listeners registered for a given event.
    *
    * @param {string} event The event name.
@@ -122,7 +101,6 @@ NanoEvents.prototype = {
     var args = list.slice.call(arguments, 1)
     for (var i = 0; list[i]; i++) { // list[i] === i < list.length
       list[i].fn.apply(this, args)
-      if (list[i].once) list[i].rm()
     }
 
     return true

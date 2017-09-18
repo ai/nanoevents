@@ -4,9 +4,9 @@ Simple and tiny event emitter library for JavaScript.
 
 * No node.js [EventEmitter] compatibility.
 * Only 254 bytes (minified and gzipped). It uses [Size Limit] to control size.
-* `on` and `once` methods return `unbind` function. You don’t need to save
+* `on` method returns `unbind` function. You don’t need to save
   callback to variable for `removeListener`.
-* No aliases, just `emit`, `on`, `once` methods.
+* No aliases, just `emit` and `on` methods.
 
 ```js
 import NanoEvents from 'nanoevents'
@@ -14,9 +14,6 @@ const emitter = new NanoEvents()
 
 const unbind = emitter.on('tick', volume => {
   summary += volume
-})
-emitter.once('tick', () => {
-  works = true
 })
 
 function disable () {
@@ -48,9 +45,6 @@ class Ticker {
   on() {
     return this.emitter.on.apply(this.events, arguments)
   }
-  once() {
-    return this.emitter.once.apply(this.events, arguments)
-  }
   tick() {
     this.emitter.emit('tick')
   }
@@ -60,27 +54,23 @@ class Ticker {
 
 ### Add Listener
 
-There are 2 methods to add listener for specific event:
-`on` and one-time `once`.
+Use `on` method to add listener for specific event:
 
 ```js
 emitter.on('tick', number => {
-  console.log('on ' + number)
-})
-emitter.once('tick', number => {
-  console.log('once ' + number)
+  console.log(number)
 })
 
 emitter.emit('tick', 1)
-// Prints "on 1" and "once 1"
+// Prints "1"
 emitter.emit('tick', 2)
-// Prints "on 2"
+// Prints "2"
 ```
 
 
 ### Remove Listener
 
-Methods `on` and `once` return `unbind` function. Call it and this listener
+Methods `on` returns `unbind` function. Call it and this listener
 will be removed from event.
 
 ```js

@@ -8,7 +8,6 @@
     "emit",
     "emitter",
     "event",
-    "once",
     "pub/sub",
     "publish",
     "reactor",
@@ -62,7 +61,7 @@
   "size-limit": [
     {
       "path": "index.js",
-      "limit": "254 B"
+      "limit": "231 B"
     }
   ],
   "lint-staged": {

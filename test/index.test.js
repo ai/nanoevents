@@ -23,7 +23,7 @@ it('adds listeners', function () {
 
   ee.on('one', function () { })
   ee.on('two', function () { })
-  ee.once('two', function () { })
+  ee.on('two', function () { })
 
   expect(Object.keys(ee.events)).toEqual(['one', 'two'])
   expect(ee.events.one.length).toEqual(1)
@@ -91,26 +91,6 @@ it('removes event on no listeners', function () {
 
   unbind2()
   expect(Object.keys(ee.events)).toEqual([])
-})
-
-it('calls listener once on request', function () {
-  var ee = new NanoEvents()
-
-  var calls1 = []
-  ee.once('event', function (a) {
-    calls1.push(a)
-  })
-
-  var calls2 = []
-  ee.on('event', function (a) {
-    calls2.push(a)
-  })
-
-  ee.emit('event', 1)
-  ee.emit('event', 2)
-
-  expect(calls1).toEqual([1])
-  expect(calls2).toEqual([1, 2])
 })
 
 it('removes listener during event', function () {
