@@ -27,44 +27,13 @@ function NanoEvents () {
   this.events = { }
 }
 
-function add (events, event, cb) {
-  if (typeof cb !== 'function') {
-    throw new Error('Listener must be a function')
-  }
-
-  var listener = {
-    fn: cb,
-    rm: function () {
-      var list = events[event]
-      if (list) {
-        var index = list.indexOf(listener)
-        if (index > -1) {
-          if (list[1]) { // list[1] === list.length > 1
-            list.splice(index, 1)
-          } else {
-            delete events[event]
-          }
-        }
-      }
-    }
-  }
-
-  if (events[event]) {
-    events[event].push(listener)
-  } else {
-    events[event] = [listener]
-  }
-
-  return listener
-}
-
 NanoEvents.prototype = {
 
   /**
    * Add a listener for a given event.
    *
    * @param {string} event The event name.
-   * @param {function} cb The listener function.
+   * @param {function} callback The listener function.
    *
    * @return {function} Unbind listener from event.
    *
@@ -77,8 +46,37 @@ NanoEvents.prototype = {
    *   unbind()
    * }
    */
-  on: function on (event, cb) {
-    return add(this.events, event, cb).rm
+  on: function on (event, callback) {
+    if (typeof callback !== 'function') {
+      throw new Error('Listener must be a function')
+    }
+
+    var events = this.events
+
+    var listener = {
+      fn: callback,
+      rm: function () {
+        var list = events[event]
+        if (list) {
+          var index = list.indexOf(listener)
+          if (index > -1) {
+            if (list[1]) { // list[1] === list.length > 1
+              list.splice(index, 1)
+            } else {
+              delete events[event]
+            }
+          }
+        }
+      }
+    }
+
+    if (events[event]) {
+      events[event].push(listener)
+    } else {
+      events[event] = [listener]
+    }
+
+    return listener.rm
   },
 
   /**
