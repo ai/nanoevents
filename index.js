@@ -89,12 +89,10 @@ NanoEvents.prototype = {
     var list = this.events[event]
     if (!list || !list[0]) return false // list[0] === Array.isArray(list)
 
-    list = list.slice()
-
     var args = list.slice.call(arguments, 1)
-    for (var i = 0; list[i]; i++) { // list[i] === i < list.length
-      list[i].apply(this, args)
-    }
+    list.slice().map(function (i) {
+      i.apply(this, args)
+    })
 
     return true
   }

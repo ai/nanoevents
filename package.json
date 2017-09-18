@@ -56,12 +56,15 @@
     "node": ">=4.0.0"
   },
   "eslintConfig": {
-    "extends": "eslint-config-logux/browser"
+    "extends": "eslint-config-logux/browser",
+    "rules": {
+      "no-invalid-this": "off"
+    }
   },
   "size-limit": [
     {
       "path": "index.js",
-      "limit": "212 B"
+      "limit": "203 B"
     }
   ],
   "lint-staged": {
