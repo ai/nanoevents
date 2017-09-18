@@ -60,17 +60,7 @@ NanoEvents.prototype = {
     }
 
     return function () {
-      var list = events[event]
-      if (list) {
-        var index = list.indexOf(callback)
-        if (index > -1) {
-          if (list[1]) { // list[1] === list.length > 1
-            list.splice(index, 1)
-          } else {
-            delete events[event]
-          }
-        }
-      }
+      events[event].splice(events[event].indexOf(callback) >>> 0, 1)
     }
   },
 
