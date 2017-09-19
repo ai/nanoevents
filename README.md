@@ -51,6 +51,34 @@ class Ticker {
 }
 ```
 
+### Extending Classes
+
+It is very easy to integrate Nano Events into any existing class by using the `extends` keyword.
+
+This will provide any class with the `on()` and `emit()` methods, whilst also allowing you to implement your own functionality on top of it.
+
+```js
+const emitter = new NanoEvents();
+class Foo extends NanoEvents {
+    constructor() {
+        super();
+        this.foo = 'bar';
+    }
+
+    anotherMethod() {
+        return 'something';
+    }
+}
+
+const e = new Foo();
+e.on('thing', console.log);
+setInterval(function() {
+    e.emit('thing', e.foo);
+}, 300);
+
+console.log(e.anotherMethod());
+```
+
 
 ### Add Listener
 
