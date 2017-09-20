@@ -77,8 +77,7 @@ NanoEvents.prototype = {
 
     var args = list.slice.call(arguments, 1)
     list.slice().map(function (i) {
-      // `this` here refers to the global object: `global` or `window`
-      i.apply(this, args)
+      i.apply(this, args) // this === global or window
     })
   }
 }
