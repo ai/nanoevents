@@ -51,16 +51,12 @@ NanoEvents.prototype = {
       throw new Error('Listener must be a function')
     }
 
-    var events = this.events
-
-    if (events[event]) {
-      events[event].push(cb)
-    } else {
-      events[event] = [cb]
-    }
+    // event variable is reused and repurposed, now it's an array of handlers
+    event = this.events[event] = this.events[event] || []
+    event.push(cb)
 
     return function () {
-      events[event].splice(events[event].indexOf(cb) >>> 0, 1)
+      event.splice(event.indexOf(cb) >>> 0, 1)
     }
   },
 
