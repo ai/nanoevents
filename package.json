@@ -19,7 +19,7 @@
   "dependencies": {},
   "devDependencies": {
     "docdash": "^0.4.0",
-    "eslint": "^4.7.0",
+    "eslint": "^4.7.1",
     "eslint-config-logux": "^16.2.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-es5": "^1.1.0",
@@ -34,7 +34,7 @@
     "lint-staged": "^4.2.1",
     "pre-commit": "^1.2.2",
     "rimraf": "^2.6.2",
-    "size-limit": "^0.11.3",
+    "size-limit": "^0.11.4",
     "yaspeller-ci": "^0.7.0"
   },
   "scripts": {
