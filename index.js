@@ -56,6 +56,8 @@ NanoEvents.prototype = {
     event.push(cb)
 
     return function () {
+      // a.splice(i >>> 0, 1) === if (i !== -1) a.splice(i, 1)
+      // -1 >>> 0 === 0xFFFFFFFF, max possible array length
       event.splice(event.indexOf(cb) >>> 0, 1)
     }
   },
