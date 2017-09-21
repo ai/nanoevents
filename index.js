@@ -1,37 +1,40 @@
-/**
- * Interface for event subscription.
- *
- * @example
- * class Ticker {
- *   constructor() {
- *     this.emitter = new NanoEvents()
- *   }
- *   on() {
- *     return this.emitter.on.apply(this.events, arguments)
- *   }
- *   tick() {
- *     this.emitter.emit('tick')
- *   }
- * }
- *
- * @class
- */
-function NanoEvents () {
+(
   /**
-   * Event names in keys and arrays with listeners in values.
-   * @type {object}
+   * Interface for event subscription.
    *
+   * @alias NanoEvents
+   * @class
    * @example
-   * Object.keys(ee.events)
+   * class Ticker {
+   *   constructor() {
+   *     this.emitter = new NanoEvents()
+   *   }
+   *   on() {
+   *     return this.emitter.on.apply(this.events, arguments)
+   *   }
+   *   tick() {
+   *     this.emitter.emit('tick')
+   *   }
+   * }
    */
-  this.events = { }
-}
-
-NanoEvents.prototype = {
+  module.exports = function NanoEvents () {
+    /**
+     * Event names in keys and arrays with listeners in values.
+     * @alias NanoEvents#events
+     * @type {object}
+     *
+     * @example
+     * Object.keys(ee.events)
+     */
+    this.events = { }
+  }
+).prototype = {
 
   /**
    * Add a listener for a given event.
    *
+   * @alias NanoEvents#on
+   * @method
    * @param {string} event The event name.
    * @param {function} cb The listener function.
    *
@@ -65,6 +68,8 @@ NanoEvents.prototype = {
   /**
    * Calls each of the listeners registered for a given event.
    *
+   * @alias NanoEvents#emit
+   * @method
    * @param {string} event The event name.
    * @param {...*} arguments The arguments for listeners.
    *
@@ -83,5 +88,3 @@ NanoEvents.prototype = {
     })
   }
 }
-
-module.exports = NanoEvents
