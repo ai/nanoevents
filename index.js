@@ -1,33 +1,33 @@
-/**
- * Interface for event subscription.
- *
- * @example
- * class Ticker {
- *   constructor() {
- *     this.emitter = new NanoEvents()
- *   }
- *   on() {
- *     return this.emitter.on.apply(this.events, arguments)
- *   }
- *   tick() {
- *     this.emitter.emit('tick')
- *   }
- * }
- *
- * @class
- */
-function NanoEvents () {
+(module.exports =
   /**
-   * Event names in keys and arrays with listeners in values.
-   * @type {object}
+   * Interface for event subscription.
    *
    * @example
-   * Object.keys(ee.events)
+   * class Ticker {
+   *   constructor() {
+   *     this.emitter = new NanoEvents()
+   *   }
+   *   on() {
+   *     return this.emitter.on.apply(this.events, arguments)
+   *   }
+   *   tick() {
+   *     this.emitter.emit('tick')
+   *   }
+   * }
+   *
+   * @class
    */
-  this.events = { }
-}
-
-NanoEvents.prototype = {
+  function NanoEvents () {
+    /**
+     * Event names in keys and arrays with listeners in values.
+     * @type {object}
+     *
+     * @example
+     * Object.keys(ee.events)
+     */
+    this.events = { }
+  }
+).prototype = {
 
   /**
    * Add a listener for a given event.
@@ -83,5 +83,3 @@ NanoEvents.prototype = {
     })
   }
 }
-
-module.exports = NanoEvents
