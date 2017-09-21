@@ -11,6 +11,7 @@
     "EventEmitter",
     "js",
     "cb",
+    "args",
     "Versioning",
     "gzipped",
     "unbindAll",
