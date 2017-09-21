@@ -2,9 +2,9 @@
   /**
    * Interface for event subscription.
    *
-   * @alias NanoEvents
-   * @class
    * @example
+   * var NanoEvents = require('nanoevents')
+   *
    * class Ticker {
    *   constructor() {
    *     this.emitter = new NanoEvents()
@@ -16,15 +16,19 @@
    *     this.emitter.emit('tick')
    *   }
    * }
+   *
+   * @alias NanoEvents
+   * @class
    */
   module.exports = function NanoEvents () {
     /**
      * Event names in keys and arrays with listeners in values.
-     * @alias NanoEvents#events
      * @type {object}
      *
      * @example
      * Object.keys(ee.events)
+     *
+     * @alias NanoEvents#events
      */
     this.events = { }
   }
@@ -32,9 +36,6 @@
 
   /**
    * Add a listener for a given event.
-   *
-   * @alias NanoEvents#on
-   * @method
    * @param {string} event The event name.
    * @param {function} cb The listener function.
    *
@@ -48,6 +49,9 @@
    * disable () {
    *   unbind()
    * }
+   *
+   * @alias NanoEvents#on
+   * @method
    */
   on: function on (event, cb) {
     if (process.env.NODE_ENV !== 'production' && typeof cb !== 'function') {
@@ -68,8 +72,6 @@
   /**
    * Calls each of the listeners registered for a given event.
    *
-   * @alias NanoEvents#emit
-   * @method
    * @param {string} event The event name.
    * @param {...*} arguments The arguments for listeners.
    *
@@ -77,6 +79,9 @@
    *
    * @example
    * ee.emit('tick', tickType, tickDuration)
+   *
+   * @alias NanoEvents#emit
+   * @method
    */
   emit: function emit (event) {
     var list = this.events[event]
