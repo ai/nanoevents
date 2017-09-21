@@ -1,7 +1,9 @@
-(module.exports =
+(
   /**
    * Interface for event subscription.
    *
+   * @alias NanoEvents
+   * @class
    * @example
    * class Ticker {
    *   constructor() {
@@ -14,12 +16,11 @@
    *     this.emitter.emit('tick')
    *   }
    * }
-   *
-   * @class
    */
-  function NanoEvents () {
+  module.exports = function NanoEvents () {
     /**
      * Event names in keys and arrays with listeners in values.
+     * @alias NanoEvents#events
      * @type {object}
      *
      * @example
@@ -32,6 +33,8 @@
   /**
    * Add a listener for a given event.
    *
+   * @alias NanoEvents#on
+   * @method
    * @param {string} event The event name.
    * @param {function} cb The listener function.
    *
@@ -65,6 +68,8 @@
   /**
    * Calls each of the listeners registered for a given event.
    *
+   * @alias NanoEvents#emit
+   * @method
    * @param {string} event The event name.
    * @param {...*} arguments The arguments for listeners.
    *

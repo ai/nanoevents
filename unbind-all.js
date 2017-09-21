@@ -2,6 +2,7 @@ module.exports =
   /**
    * Removes all listeners.
    *
+   * @alias unbindAll
    * @param {NanoEvents} emitter NanoEvents instance.
    * @returns {undefined}
    *
