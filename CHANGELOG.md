@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.0.2
+* Reduce size (by Anton Khlynovskiy).
+
 ## 1.0.1
 * Reduce size (by Anton Khlynovskiy).
 
