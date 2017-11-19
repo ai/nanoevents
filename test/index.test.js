@@ -26,8 +26,8 @@ it('adds listeners', function () {
   ee.on('two', function () { })
 
   expect(Object.keys(ee.events)).toEqual(['one', 'two'])
-  expect(ee.events.one.length).toEqual(1)
-  expect(ee.events.two.length).toEqual(2)
+  expect(ee.events.one).toHaveLength(1)
+  expect(ee.events.two).toHaveLength(2)
 })
 
 it('calls listener', function () {
@@ -73,16 +73,16 @@ it('removes event on no listeners', function () {
   var unbind2 = ee.on('one', function () {})
 
   unbind1()
-  expect(ee.events.one.length).toEqual(1)
+  expect(ee.events.one).toHaveLength(1)
 
   unbind1()
-  expect(ee.events.one.length).toEqual(1)
+  expect(ee.events.one).toHaveLength(1)
 
   unbind2()
-  expect(ee.events.one.length).toEqual(0)
+  expect(ee.events.one).toHaveLength(0)
 
   unbind2()
-  expect(ee.events.one.length).toEqual(0)
+  expect(ee.events.one).toHaveLength(0)
 })
 
 it('removes listener during event', function () {
