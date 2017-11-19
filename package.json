@@ -20,6 +20,7 @@
   "devDependencies": {
     "docdash": "^0.4.0",
     "eslint": "^4.10.0",
+    "eslint-ci": "^0.1.0",
     "eslint-config-logux": "^16.2.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-es5": "^1.1.0",
@@ -41,7 +42,7 @@
     "lint-staged": "lint-staged",
     "spellcheck": "yarn docs && yaspeller-ci *.md docs/*.html",
     "clean": "rimraf docs/ coverage/",
-    "lint": "eslint *.js test/*.js",
+    "lint": "eslint-ci *.js test/*.js",
     "docs": "jsdoc --configure .jsdocrc *.js",
     "test": "jest --coverage && yarn lint && size-limit && yarn spellcheck"
   },
