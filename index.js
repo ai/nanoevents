@@ -36,6 +36,7 @@
 
   /**
    * Add a listener for a given event.
+   *
    * @param {string} event The event name.
    * @param {function} cb The listener function.
    *
@@ -75,7 +76,7 @@
    * @param {string} event The event name.
    * @param {...*} arguments The arguments for listeners.
    *
-   * @returns {undefined}
+   * @return {undefined}
    *
    * @example
    * ee.emit('tick', tickType, tickDuration)
