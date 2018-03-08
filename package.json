@@ -1,7 +1,7 @@
 {
   "name": "nanoevents",
   "version": "1.0.2",
-  "description": "Simple and tiny (119 bytes) event emitter library",
+  "description": "Simple and tiny (120 bytes) event emitter library",
   "keywords": [
     "EventEmitter",
     "Events",
@@ -19,23 +19,23 @@
   "dependencies": {},
   "devDependencies": {
     "docdash": "^0.4.0",
-    "eslint": "^4.11.0",
+    "eslint": "^4.18.2",
     "eslint-ci": "^0.1.1",
-    "eslint-config-logux": "^17.0.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-es5": "^1.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jest": "^21.3.2",
-    "eslint-plugin-node": "^5.2.1",
+    "eslint-config-logux": "^21.0.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-es5": "^1.2.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jest": "^21.13.0",
+    "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-standard": "^3.0.1",
-    "jest": "^21.2.1",
+    "jest": "^22.4.2",
     "jsdoc": "^3.5.5",
-    "lint-staged": "^5.0.0",
+    "lint-staged": "^7.0.0",
     "pre-commit": "^1.2.2",
     "rimraf": "^2.6.2",
-    "size-limit": "^0.13.2",
+    "size-limit": "^0.16.1",
     "yaspeller-ci": "^1.0.0"
   },
   "scripts": {
@@ -47,6 +47,7 @@
     "test": "jest --coverage && yarn lint && size-limit && yarn spellcheck"
   },
   "jest": {
+    "testEnvironment": "node",
     "coverageThreshold": {
       "global": {
         "statements": 100
@@ -65,7 +66,7 @@
   "size-limit": [
     {
       "path": "index.js",
-      "limit": "119 B"
+      "limit": "120 B"
     }
   ],
   "lint-staged": {
