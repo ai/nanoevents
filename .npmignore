@@ -12,3 +12,6 @@ coverage/
 docs/
 .jsdocrc
 .yaspellerrc
+.size-limit
+.eslintrc
+.lintstagedrc

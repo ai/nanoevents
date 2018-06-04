@@ -57,22 +57,6 @@
   "engines": {
     "node": ">=4.0.0"
   },
-  "eslintConfig": {
-    "extends": "eslint-config-logux/browser",
-    "rules": {
-      "no-invalid-this": "off"
-    }
-  },
-  "size-limit": [
-    {
-      "path": "index.js",
-      "limit": "120 B"
-    }
-  ],
-  "lint-staged": {
-    "*.md": "yaspeller-ci",
-    "*.js": "eslint"
-  },
   "pre-commit": [
     "lint-staged"
   ]
