@@ -122,6 +122,11 @@ If you need add event listener only for first event dispatch,
 you can use this snippet:
 
 ```js
+class Ticker {
+  constructor() {
+    this.emitter = new NanoEvents()
+  }
+  …
   once (event, callback) {
     const unbind = this.emitter.on(event, function () {
       unbind()
@@ -129,6 +134,7 @@ you can use this snippet:
     })
     return unbind
   }
+}
 ```
 
 #### Remove all listeners
