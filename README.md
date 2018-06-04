@@ -116,6 +116,21 @@ Object.keys(emitter.events) //=> []
 
 ### Helpers
 
+#### Once
+
+If you need add event listener only for first event dispatch,
+you can use this snippet:
+
+```js
+  once (event, callback) {
+    const unbind = this.emitter.on(event, function () {
+      unbind()
+      callback.apply(this, arguments)
+    })
+    return unbind
+  }
+```
+
 #### Remove all listeners
 
 `unbindAll` method will remove all listeners to all events.
