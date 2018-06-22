@@ -16,6 +16,9 @@
   "author": "Andrey Sitnik <andrey@sitnik.ru>",
   "license": "MIT",
   "repository": "ai/nanoevents",
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "dependencies": {},
   "devDependencies": {
     "docdash": "^0.4.0",
@@ -45,17 +48,6 @@
     "lint": "eslint-ci *.js test/*.js",
     "docs": "jsdoc --configure .jsdocrc *.js",
     "test": "jest --coverage && yarn lint && size-limit && yarn spellcheck"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "coverageThreshold": {
-      "global": {
-        "statements": 100
-      }
-    }
-  },
-  "engines": {
-    "node": ">=4.0.0"
   },
   "pre-commit": [
     "lint-staged"
