@@ -10,9 +10,3 @@ coverage/
 .travis.yml
 
 docs/
-.jsdocrc
-.yaspellerrc
-.size-limit
-.eslintrc
-.lintstagedrc
-jest.config.js
