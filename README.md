@@ -43,7 +43,7 @@ class Ticker {
     this.emitter = new NanoEvents()
   }
   on() {
-    return this.emitter.on.apply(this.events, arguments)
+    return this.emitter.on.apply(this.emitter, arguments)
   }
   tick() {
     this.emitter.emit('tick')
