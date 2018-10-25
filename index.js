@@ -49,7 +49,7 @@
    * @method
    */
   emit: function emit (event) {
-    // event variable is reused and repurposed, now it’s an array of handlers
+    // Event variable is reused and repurposed, now it’s an array of handlers
     event = this.events[event]
     if (event && event[0]) { // event[0] === Array.isArray(event)
       var args = event.slice.call(arguments, 1)
@@ -84,7 +84,7 @@
       throw new Error('Listener must be a function')
     }
 
-    // event variable is reused and repurposed, now it's an array of handlers
+    // Event variable is reused and repurposed, now it’s an array of handlers
     event = this.events[event] = this.events[event] || []
     event.push(cb)
 
