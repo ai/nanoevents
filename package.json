@@ -1,6 +1,6 @@
 {
   "name": "nanoevents",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Simple and tiny (115 bytes) event emitter library",
   "keywords": [
     "EventEmitter",
@@ -98,7 +98,9 @@
       "Tue",
       "Thu",
       "Fri",
-      "Oct"
+      "Oct",
+      "Vladlen",
+      "Grachev"
     ]
   }
 }
