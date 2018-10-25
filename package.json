@@ -54,7 +54,7 @@
   "size-limit": [
     {
       "path": "index.js",
-      "limit": "118 B"
+      "limit": "115 B"
     }
   ],
   "jest": {

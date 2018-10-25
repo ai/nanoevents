@@ -35,6 +35,31 @@
 ).prototype = {
 
   /**
+   * Calls each of the listeners registered for a given event.
+   *
+   * @param {string} event The event name.
+   * @param {...*} arguments The arguments for listeners.
+   *
+   * @return {undefined}
+   *
+   * @example
+   * ee.emit('tick', tickType, tickDuration)
+   *
+   * @alias NanoEvents#emit
+   * @method
+   */
+  emit: function emit (event) {
+    // event variable is reused and repurposed, now it's an array of handlers
+    event = this.events[event]
+    if (!event || !event[0]) return // event[0] === Array.isArray(event)
+
+    var args = event.slice.call(arguments, 1)
+    event.slice().map(function (i) {
+      i.apply(this, args) // this === global or window
+    })
+  },
+
+  /**
    * Add a listener for a given event.
    *
    * @param {string} event The event name.
@@ -68,29 +93,5 @@
       // -1 >>> 0 === 0xFFFFFFFF, max possible array length
       event.splice(event.indexOf(cb) >>> 0, 1)
     }
-  },
-
-  /**
-   * Calls each of the listeners registered for a given event.
-   *
-   * @param {string} event The event name.
-   * @param {...*} arguments The arguments for listeners.
-   *
-   * @return {undefined}
-   *
-   * @example
-   * ee.emit('tick', tickType, tickDuration)
-   *
-   * @alias NanoEvents#emit
-   * @method
-   */
-  emit: function emit (event) {
-    var list = this.events[event]
-    if (!list || !list[0]) return // list[0] === Array.isArray(list)
-
-    var args = list.slice.call(arguments, 1)
-    list.slice().map(function (i) {
-      i.apply(this, args) // this === global or window
-    })
   }
 }
