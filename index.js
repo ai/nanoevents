@@ -49,14 +49,12 @@
    * @method
    */
   emit: function emit (event) {
-    // Event variable is reused and repurposed, now it’s an array of handlers
-    event = this.events[event]
-    if (event && event[0]) { // event[0] === Array.isArray(event)
-      var args = event.slice.call(arguments, 1)
-      event.slice().map(function (i) {
+    var args = [].slice.call(arguments, 1)
+    // Array.prototype.call() returns empty array if context is not array-like
+    ;[].slice.call(this.events[event] || [])
+      .filter(function (i) {
         i.apply(this, args) // this === global or window
       })
-    }
   },
 
   /**
@@ -84,14 +82,14 @@
       throw new Error('Listener must be a function')
     }
 
-    // Event variable is reused and repurposed, now it’s an array of handlers
-    event = this.events[event] = this.events[event] || []
-    event.push(cb)
+    (this.events[event] = this.events[event] || []).push(cb)
 
     return function () {
-      // a.splice(i >>> 0, 1) === if (i !== -1) a.splice(i, 1)
-      // -1 >>> 0 === 0xFFFFFFFF, max possible array length
-      event.splice(event.indexOf(cb) >>> 0, 1)
-    }
+      this.events[event] = this.events[event].filter(
+        function (i) {
+          return i !== cb
+        }
+      )
+    }.bind(this)
   }
 }
