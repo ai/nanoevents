@@ -51,10 +51,9 @@
   emit: function emit (event) {
     var args = [].slice.call(arguments, 1)
     // Array.prototype.call() returns empty array if context is not array-like
-    ;[].slice.call(this.events[event] || [])
-      .filter(function (i) {
-        i.apply(this, args) // this === global or window
-      })
+    ;[].slice.call(this.events[event] || []).filter(function (i) {
+      i.apply(this, args) // this === global or window
+    })
   },
 
   /**
@@ -85,11 +84,9 @@
     (this.events[event] = this.events[event] || []).push(cb)
 
     return function () {
-      this.events[event] = this.events[event].filter(
-        function (i) {
-          return i !== cb
-        }
-      )
+      this.events[event] = this.events[event].filter(function (i) {
+        return i !== cb
+      })
     }.bind(this)
   }
 }
