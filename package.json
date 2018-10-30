@@ -13,6 +13,13 @@
     "reactor",
     "subscribe"
   ],
+  "scripts": {
+    "spellcheck": "yarn docs && yaspeller-ci *.md docs/*.html",
+    "clean": "rimraf docs/ coverage/",
+    "lint": "eslint-ci *.js test/*.js",
+    "docs": "jsdoc -d docs *.js",
+    "test": "jest --coverage && yarn lint && size-limit && yarn spellcheck"
+  },
   "author": "Andrey Sitnik <andrey@sitnik.ru>",
   "license": "MIT",
   "repository": "ai/nanoevents",
@@ -32,25 +39,14 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-standard": "^4.0.0",
+    "husky": "^1.1.2",
     "jest": "^23.6.0",
     "jsdoc": "^3.5.5",
     "lint-staged": "^7.3.0",
-    "pre-commit": "^1.2.2",
     "rimraf": "^2.6.2",
     "size-limit": "^0.20.1",
     "yaspeller-ci": "^1.0.0"
   },
-  "scripts": {
-    "lint-staged": "lint-staged",
-    "spellcheck": "yarn docs && yaspeller-ci *.md docs/*.html",
-    "clean": "rimraf docs/ coverage/",
-    "lint": "eslint-ci *.js test/*.js",
-    "docs": "jsdoc -d docs *.js",
-    "test": "jest --coverage && yarn lint && size-limit && yarn spellcheck"
-  },
-  "pre-commit": [
-    "lint-staged"
-  ],
   "size-limit": [
     {
       "path": "index.js",
@@ -63,6 +59,11 @@
       "global": {
         "statements": 100
       }
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
