@@ -28,29 +28,29 @@
   },
   "devDependencies": {
     "clean-publish": "^1.0.10",
-    "eslint": "^5.7.0",
+    "eslint": "^5.8.0",
     "eslint-ci": "^0.1.1",
-    "eslint-config-logux": "^26.0.0",
+    "eslint-config-logux": "^26.0.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-es5": "^1.3.1",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jest": "^21.26.1",
-    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-jest": "^21.26.2",
+    "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-standard": "^4.0.0",
     "husky": "^1.1.2",
     "jest": "^23.6.0",
     "jsdoc": "^3.5.5",
-    "lint-staged": "^7.3.0",
+    "lint-staged": "^8.0.3",
     "rimraf": "^2.6.2",
-    "size-limit": "^0.20.1",
+    "size-limit": "^0.21.0",
     "yaspeller-ci": "^1.0.0"
   },
   "size-limit": [
     {
       "path": "index.js",
-      "limit": "115 B"
+      "limit": "101 B"
     }
   ],
   "jest": {
