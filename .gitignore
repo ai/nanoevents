@@ -7,5 +7,3 @@ yarn-error.log
 
 coverage/
 docs/
-
-*.gz
