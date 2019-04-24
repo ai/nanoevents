@@ -2,11 +2,12 @@
 
 Simple and tiny event emitter library for JavaScript.
 
-* No Node.js [EventEmitter] compatibility.
-* Only 101 bytes (minified and gzipped). It uses [Size Limit] to control size.
+* Only **101 bytes** (minified and gzipped).
+  It uses [Size Limit] to control size.
 * `on` method returns `unbind` function. You don’t need to save
   callback to variable for `removeListener`.
 * No aliases, just `emit` and `on` methods.
+  No Node.js [EventEmitter] compatibility.
 
 ```js
 import NanoEvents from 'nanoevents'
@@ -16,9 +17,12 @@ const unbind = emitter.on('tick', volume => {
   summary += volume
 })
 
-function disable () {
-  unbind()
-}
+emitter.emit('tick', 2)
+summary //=> 2
+
+unbind()
+emitter.emit('tick', 2)
+summary //=> 2
 ```
 
 [EventEmitter]: https://nodejs.org/api/events.html
@@ -34,8 +38,8 @@ function disable () {
 
 ### Mixing to Object
 
-Because main Nano Events API has only 2 methods,
-you could just create proxy methods in your class:
+Because Nano Events API has only just 2 methods,
+you could just create proxy methods in your class.
 
 ```js
 class Ticker {
@@ -51,6 +55,8 @@ class Ticker {
 }
 ```
 
+It allows you to have custom JSDoc or type definitions.
+
 
 ### Add Listener
 
@@ -62,9 +68,9 @@ emitter.on('tick', number => {
 })
 
 emitter.emit('tick', 1)
-// Prints "1"
-emitter.emit('tick', 2)
-// Prints "2"
+// Prints 1
+emitter.emit('tick', 5)
+// Prints 5
 ```
 
 
@@ -114,9 +120,7 @@ Object.keys(emitter.events) //=> []
 ```
 
 
-### Helpers
-
-#### Once
+### Once
 
 If you need add event listener only for first event dispatch,
 you can use this snippet:
@@ -137,7 +141,7 @@ class Ticker {
 }
 ```
 
-#### Remove all listeners
+### Remove all listeners
 
 `unbindAll` method will remove all listeners to all events.
 
