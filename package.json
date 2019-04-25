@@ -14,10 +14,10 @@
     "subscribe"
   ],
   "scripts": {
-    "spellcheck": "yarn docs && yaspeller-ci *.md docs/*.html",
+    "spellcheck": "yarn docs && yaspeller-ci *.md",
     "clean": "rimraf docs/ coverage/",
     "lint": "eslint-ci *.js test/*.js",
-    "docs": "jsdoc -d docs *.js",
+    "docs": "documentation build *.js -f md -o api.md",
     "test": "jest --coverage && yarn lint && size-limit && yarn spellcheck"
   },
   "author": "Andrey Sitnik <andrey@sitnik.ru>",
@@ -29,6 +29,7 @@
   "devDependencies": {
     "@logux/eslint-config": "^28.1.0",
     "clean-publish": "^1.1.2",
+    "documentation": "^10.0.0",
     "eslint": "^5.16.0",
     "eslint-ci": "^1.0.0",
     "eslint-config-standard": "^12.0.0",
@@ -42,7 +43,6 @@
     "eslint-plugin-standard": "^4.0.0",
     "husky": "^1.3.1",
     "jest": "^24.7.1",
-    "jsdoc": "^3.5.5",
     "lint-staged": "^8.1.5",
     "rimraf": "^2.6.3",
     "size-limit": "^1.1.2",
@@ -80,15 +80,11 @@
   "yaspeller": {
     "lang": "en",
     "ignoreCapitalization": true,
-    "excludeFiles": [
-      "docs/*.js.html"
-    ],
     "dictionary": [
       "JSDoc",
       "NanoEvents",
       "EventEmitter",
       "js",
-      "cb",
       "Versioning",
       "gzipped",
       "unbindAll",

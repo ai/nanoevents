@@ -9,4 +9,4 @@ test/
 coverage/
 .travis.yml
 
-docs/
+api.md
