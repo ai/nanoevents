@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "spellcheck": "yarn docs && yaspeller-ci *.md",
-    "clean": "rimraf docs/ coverage/",
+    "clean": "rimraf api.md coverage/",
     "lint": "eslint-ci *.js test/*.js",
     "docs": "documentation build *.js -f md -o api.md",
     "test": "jest --coverage && yarn lint && size-limit && yarn spellcheck"
