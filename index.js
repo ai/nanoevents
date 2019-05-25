@@ -52,7 +52,7 @@
     var args = [].slice.call(arguments, 1)
     // Array.prototype.call() returns empty array if context is not array-like
     ;[].slice.call(this.events[event] || []).filter(function (i) {
-      i.apply(this, args) // this === global or window
+      i.apply(null, args)
     })
   },
 
