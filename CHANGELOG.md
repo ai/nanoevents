@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 2.0
+* Remove `this` from listeners to bind it explicitly (by Alexander Zonov).
+
 ## 1.0.8
 * Reduce size (by Vladlen Grachev).
 
