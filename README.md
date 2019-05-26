@@ -73,25 +73,18 @@ emitter.emit('tick', 5)
 // Prints 5
 ```
 
-In case of your listener relies on some particular context 
-(if it uses `this` within itself) you have to bind required 
+In case of your listener relies on some particular context
+(if it uses `this` within itself) you have to bind required
 context explicitly before passing function in as a callback.
 
 ```js
 const app = {
-  data: {
-    userId: getUserId(),
-    userVerified: false
-  },
+  userId = 1,
   showUserId() {
-    console.log(this.data.userId)
+    console.log(this.userId)
   }
 }
-
-emitter.on('load application', app.showUserId.bind(app))
-
-emitter.emit('load application')
-// Prints user's id
+emitter.on('print', app.showUserId.bind(app))
 ```
 
 ### Remove Listener
