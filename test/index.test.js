@@ -141,6 +141,7 @@ it('allows to use arrow function to bind a context', function () {
   var app = {
     value: 'test',
     getListener: function getListener () {
+      // eslint-disable-next-line es5/no-arrow-functions
       return () => {
         this.check = this.value.split('')
       }

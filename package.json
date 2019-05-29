@@ -75,15 +75,7 @@
     "extends": "@logux/eslint-config/browser",
     "rules": {
       "no-invalid-this": "off"
-    },
-    "overrides": [
-      {
-        "files": ["test/index.test.js"],
-        "rules": {
-          "es5/no-arrow-functions": "off"
-        }
-      }
-    ]
+    }
   },
   "yaspeller": {
     "lang": "en",
