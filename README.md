@@ -73,6 +73,25 @@ emitter.emit('tick', 5)
 // Prints 5
 ```
 
+In case of your listener relies on some particular context
+(if it uses `this` within itself) you have to bind required
+context explicitly before passing function in as a callback.
+
+```js
+var app = {
+  userId = 1,
+  getListener() {
+    return () => {
+      console.log(this.userId)
+    }
+  }
+}
+emitter.on('print', app.getListener())
+```
+
+Note: binding with use of .bind method won't work as you might expect 
+and therefor is not recommended
+
 
 ### Remove Listener
 
