@@ -89,8 +89,8 @@ var app = {
 emitter.on('print', app.getListener())
 ```
 
-Note: binding with use of .bind method won't work as you might expect 
-and therefor is not recommended
+Note: binding with use of the `.bind()` method won’t work as you might expect 
+and therefore is not recommended.
 
 
 ### Remove Listener
