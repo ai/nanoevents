@@ -109,3 +109,52 @@ it('does not clash with Object.prototype properties', function () {
     ee.emit('__proto__')
   }).not.toThrowError()
 })
+
+it('emit applies regular functions to the global object', function () {
+  // regular functions applied to global object
+  var ee = new NanoEvents()
+
+  global['nanoEventsTestValue'] = 'value'
+
+  var results = []
+
+  function listener () {
+    results.push(this.nanoeventsTestValue)
+  }
+
+  var unbind1 = ee.on('event', listener)
+  var unbind2 = ee.on('event', listener.bind({
+    nanoEventsTestValue: 'wrong value'
+  }))
+
+  ee.emit('event')
+
+  expect(results).toHaveLength(2)
+  expect(results[0] === results[1]).toBe(true)
+
+  unbind1()
+  unbind2()
+})
+
+it('allows to use arrow function to bind a context', function () {
+  var ee = new NanoEvents()
+  var app = {
+    value: 'test',
+    getListener: function getListener () {
+      // eslint-disable-next-line es5/no-arrow-functions
+      return () => {
+        this.check = this.value.split('')
+      }
+    }
+  }
+
+  var unbind = ee.on('event', app.getListener())
+
+  expect(function () {
+    ee.emit('event')
+  }).not.toThrowError()
+
+  expect(app.check).toEqual(['t', 'e', 's', 't'])
+
+  unbind()
+})
