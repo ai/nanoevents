@@ -15,10 +15,9 @@
   ],
   "scripts": {
     "api": "documentation build *.js -f md -o api.md",
-    "spellcheck": "yarn api && yaspeller-ci *.md",
+    "spell": "yarn api && yaspeller-ci *.md",
     "clean": "rimraf api.md coverage/",
-    "lint": "eslint-ci *.js test/*.js",
-    "test": "jest --coverage && yarn lint && size-limit && yarn spellcheck"
+    "test": "jest --coverage && eslint-ci . && size-limit && yarn spell"
   },
   "author": "Andrey Sitnik <andrey@sitnik.ru>",
   "license": "MIT",
@@ -27,21 +26,22 @@
     "node": ">=4.0.0"
   },
   "devDependencies": {
-    "@logux/eslint-config": "^29.0.1",
+    "@logux/eslint-config": "^29.1.1",
+    "@logux/sharec-config": "^0.3.0",
     "clean-publish": "^1.1.2",
-    "documentation": "^12.0.1",
-    "eslint": "^6.0.1",
+    "documentation": "^12.0.3",
+    "eslint": "^6.1.0",
     "eslint-ci": "^1.0.0",
     "eslint-config-standard": "^13.0.1",
     "eslint-plugin-es5": "^1.4.1",
-    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-import-helpers": "^1.0.2",
-    "eslint-plugin-jest": "^22.7.2",
+    "eslint-plugin-jest": "^22.13.6",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-standard": "^4.0.0",
-    "husky": "^3.0.0",
+    "husky": "^3.0.1",
     "jest": "^24.8.0",
     "lint-staged": "^9.2.0",
     "rimraf": "^2.6.3",
@@ -77,11 +77,14 @@
       "no-invalid-this": "off"
     }
   },
+  "eslintIgnore": [
+    "node_modules"
+  ],
   "yaspeller": {
     "lang": "en",
     "ignoreCapitalization": true,
     "ignoreText": [
-      "\\(by [^ )]+( [^ )]+)*\\)"
+      " \\(by [^)]+\\)."
     ],
     "dictionary": [
       "EventEmitter",
@@ -94,5 +97,8 @@
       "unbindAll",
       "Versioning"
     ]
+  },
+  "sharec": {
+    "version": "0.3.0"
   }
 }
