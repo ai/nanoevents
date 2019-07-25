@@ -71,10 +71,7 @@
     "*.js": "eslint"
   },
   "eslintConfig": {
-    "extends": "@logux/eslint-config/browser",
-    "rules": {
-      "no-invalid-this": "off"
-    }
+    "extends": "@logux/eslint-config/browser"
   },
   "eslintIgnore": [
     "node_modules"

@@ -111,7 +111,6 @@ it('does not clash with Object.prototype properties', function () {
 })
 
 it('emit applies regular functions to the global object', function () {
-  // regular functions applied to global object
   var ee = new NanoEvents()
 
   global['nanoEventsTestValue'] = 'value'
@@ -119,6 +118,7 @@ it('emit applies regular functions to the global object', function () {
   var results = []
 
   function listener () {
+    // eslint-disable-next-line no-invalid-this
     results.push(this.nanoeventsTestValue)
   }
 
