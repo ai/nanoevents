@@ -1,10 +1,10 @@
-var NanoEvents = require('../')
-var unbindAll = require('../unbind-all')
+let NanoEvents = require('../')
+let unbindAll = require('../unbind-all')
 
-it('cleans all listeners', function () {
-  var ee = new NanoEvents()
-  var calls = 0
-  ee.on('event', function () {
+it('cleans all listeners', () => {
+  let ee = new NanoEvents()
+  let calls = 0
+  ee.on('event', () => {
     calls += 1
   })
 
