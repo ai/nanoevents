@@ -113,7 +113,7 @@ it('does not clash with Object.prototype properties', () => {
 it('emit applies regular functions to the global object', () => {
   let ee = new NanoEvents()
 
-  global['nanoEventsTestValue'] = 'value'
+  global.nanoEventsTestValue = 'value'
 
   let results = []
 
