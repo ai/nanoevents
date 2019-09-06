@@ -89,7 +89,7 @@ var app = {
 emitter.on('print', app.getListener())
 ```
 
-Note: binding with use of the `.bind()` method won’t work as you might expect 
+Note: binding with use of the `.bind()` method won’t work as you might expect
 and therefore is not recommended.
 
 
@@ -132,10 +132,7 @@ You can get used events list by `events` property.
 
 ```js
 const unbind = emitter.on('tick', () => { })
-Object.keys(emitter.events) //=> ["tick"]
-
-unbind()
-Object.keys(emitter.events) //=> []
+emitter.events //=> { tick: [ [Function] ] }
 ```
 
 
