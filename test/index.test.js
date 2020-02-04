@@ -3,7 +3,7 @@ let NanoEvents = require('../')
 it('is a class', () => {
   let ee = new NanoEvents()
   expect(typeof NanoEvents).toEqual('function')
-  expect(ee instanceof NanoEvents).toBeTruthy()
+  expect(ee).toBeInstanceOf(NanoEvents)
 })
 
 it('is empty from the beggining', () => {
@@ -15,7 +15,7 @@ it('allows only function as listener', () => {
   let ee = new NanoEvents()
   expect(() => {
     ee.on('event', { })
-  }).toThrowError(/function/)
+  }).toThrow(/function/)
 })
 
 it('adds listeners', () => {
@@ -107,7 +107,7 @@ it('does not clash with Object.prototype properties', () => {
     ee.emit('constructor')
     ee.emit('hasOwnProperty')
     ee.emit('__proto__')
-  }).not.toThrowError()
+  }).not.toThrow()
 })
 
 it('emit applies regular functions to the global object', () => {
@@ -151,7 +151,7 @@ it('allows to use arrow function to bind a context', () => {
 
   expect(() => {
     ee.emit('event')
-  }).not.toThrowError()
+  }).not.toThrow()
 
   expect(app.check).toEqual(['t', 'e', 's', 't'])
 
