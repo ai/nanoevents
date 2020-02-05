@@ -1228,25 +1228,25 @@
   dependencies:
     type-detect "4.0.8"
 
-"@size-limit/file@4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@size-limit/file/-/file-4.0.0.tgz#ca62d84347f23ff3e153e90703c9b7ffa9dd8da3"
-  integrity sha512-v10KakpBmstJjbFp6yrhSpntNCDIvf4S/T7O8tmEkMC+lvifaQlEzBFQdW9Hbg/OZ0kkzxOJlmlWrJ/QWsf2Lg==
+"@size-limit/file@4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@size-limit/file/-/file-4.0.1.tgz#9d98a529d7856d0e666dc0d87a091dbfd1779023"
+  integrity sha512-0IribiiEXz7WkX8oJdmXLn1XXpvOYZgDld0Db+o4EZjigdopfDqSzH3Jkef0MpNRERtfi0DCZR1/dSe2o6jN3g==
   dependencies:
-    semver "7.1.1"
+    semver "7.1.2"
 
-"@size-limit/preset-small-lib@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@size-limit/preset-small-lib/-/preset-small-lib-4.0.0.tgz#aaebb1f4fc1df935c986538e657657566ceb76de"
-  integrity sha512-A2PpsFq8lfn8goMXl8UB5Jl4xTguEw8Kx8bAy24f+YqYMasPjzG4zwR04A+JsFon2Zk581ybf7/4lDEwh+2RuA==
+"@size-limit/preset-small-lib@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@size-limit/preset-small-lib/-/preset-small-lib-4.0.1.tgz#e7b68d5e805766ae6df79d81690a71a1e6d6bca9"
+  integrity sha512-DPjNMyzYOya/hyAd7WjDTXpKNSN6anQLN6kGYOKdy/hJNS6WDm6/kEiAjv+9D7gbA4gKh+7gElcwUeQh6ul2sA==
   dependencies:
-    "@size-limit/file" "4.0.0"
-    "@size-limit/webpack" "4.0.0"
+    "@size-limit/file" "4.0.1"
+    "@size-limit/webpack" "4.0.1"
 
-"@size-limit/webpack@4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-4.0.0.tgz#ec043d8f3fbbef2a3cb42b6d030480eb88eee0f4"
-  integrity sha512-HastKn2I/g0mW23rtkWWTy8cTpdpjEjDpZ+LqmMI6IdRwh/LF0YYm2v3JqbW/xvwHuz/bP96Upf9vX6+KvkQFA==
+"@size-limit/webpack@4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-4.0.1.tgz#413a2b6ee0a54726fdf20a7fcc3eb50d0ca93e5e"
+  integrity sha512-WyJigkeJLMBD7TVCLjmZrpOIPwxPIxwwe1F0LD46GLnUD5svsP24OZEnHF2y3OX8vdCDFYf3xCYAau340XLg7A==
   dependencies:
     css-loader "^3.4.2"
     escape-string-regexp "^2.0.0"
@@ -8399,20 +8399,15 @@ semver@7.0.0:
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.0.0.tgz#5f3ca35761e47e05b206c6daff2cf814f0316b8e"
   integrity sha512-+GB6zVA9LWh6zovYQLALHwv5rb2PHGlJi3lfiqIHxR0uuwCgefcOJc59v9fv1w8GbStwxuuqqAjI9NMAOOgq1A==
 
-semver@7.1.1:
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-7.1.1.tgz#29104598a197d6cbe4733eeecbe968f7b43a9667"
-  integrity sha512-WfuG+fl6eh3eZ2qAf6goB7nhiCd7NPXhmyFxigB/TOkQyeLP8w8GsVehvtGNtnNmyboz4TgeK40B1Kbql/8c5A==
+semver@7.1.2, semver@^7.1.1, semver@^7.1.2:
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.1.2.tgz#847bae5bce68c5d08889824f02667199b70e3d87"
+  integrity sha512-BJs9T/H8sEVHbeigqzIEo57Iu/3DG6c4QoqTfbQB3BPA4zgzAomh/Fk9E7QtjWQ8mx2dgA9YCfSF4y9k9bHNpQ==
 
 semver@^6.0.0, semver@^6.1.0, semver@^6.1.2, semver@^6.3.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
   integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
-
-semver@^7.1.1, semver@^7.1.2:
-  version "7.1.2"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-7.1.2.tgz#847bae5bce68c5d08889824f02667199b70e3d87"
-  integrity sha512-BJs9T/H8sEVHbeigqzIEo57Iu/3DG6c4QoqTfbQB3BPA4zgzAomh/Fk9E7QtjWQ8mx2dgA9YCfSF4y9k9bHNpQ==
 
 send@0.17.1:
   version "0.17.1"
@@ -8552,10 +8547,10 @@ sisteransi@^1.0.3:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.4.tgz#386713f1ef688c7c0304dc4c0632898941cad2e3"
   integrity sha512-/ekMoM4NJ59ivGSfKapeG+FWtrmWvA1p6FBZwXrqojw90vJu8lBmrTxCMuBCydKtkaUe2zt4PlxeTKpjwMbyig==
 
-size-limit@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-4.0.0.tgz#56a6e1687df83da33549b29d00398f7ccb429ad0"
-  integrity sha512-geYo+mriszY6duwxxnIKREpFKAFD0uffK7PiRjmWXQ65uQIAswcFNpXFwoMAJSt3UZytagduGEfh4cReSuGwBQ==
+size-limit@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-4.0.1.tgz#7e001ea7f113a25a0d863ac2dac4b3f81269242f"
+  integrity sha512-UwXXuMeyoUx3BbCBdsnSEQFg4G4yj0ViItvFCq46LOWbDQOXJU8rx7LwQEbu9lte7fDHQy+BkZS8PxKNXbju9A==
   dependencies:
     bytes "^3.1.0"
     chalk "^3.0.0"
