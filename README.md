@@ -2,16 +2,18 @@
 
 Simple and tiny event emitter library for JavaScript.
 
-* Only **103 bytes** (minified and gzipped).
+* Only **78 bytes** (minified and gzipped).
   It uses [Size Limit] to control size.
 * `on` method returns `unbind` function. You don’t need to save
   callback to variable for `removeListener`.
+* TypeScript and ES modules support.
 * No aliases, just `emit` and `on` methods.
   No Node.js [EventEmitter] compatibility.
 
 ```js
-import NanoEvents from 'nanoevents'
-const emitter = new NanoEvents()
+const createNanoEvents = require('nanoevents')
+
+const emitter = createNanoEvents()
 
 const unbind = emitter.on('tick', volume => {
   summary += volume
@@ -34,9 +36,61 @@ summary //=> 2
 </a>
 
 
-## Usage
+## Table of Contents
 
-### Mixing to Object
+* [TypeScript](#typescript)
+* [ES Modules](#es-modules)
+* [Mixing to Object](#mixing-to-object)
+* [Add Listener](#add-listener)
+* [Remove Listener](#remove-listener)
+* [Execute Listeners](#execute-listeners)
+* [Events List](#events-list)
+* [Once](#once)
+* [Remove All Listeners](#remove-all-listeners)
+
+
+## TypeScript
+
+Nano Events accepts interface with event name
+to listener argument types mapping.
+
+```ts
+import createNanoEvents = require('..')
+
+interface Events {
+  'set': (name: string, count: number) => void,
+  'tick': () => void
+}
+
+const emitter = createNanoEvents<Events>()
+
+// Correct calls:
+emitter.emit('set', 'prop', 1)
+emitter.emit('tick')
+
+// Compilation errors:
+emitter.emit('set', 'prop', '1')
+emitter.emit('tick', 2)
+```
+
+
+## ES Modules
+
+In Node.js 13 you can import ES module by manually added `index.mjs`.
+
+```js
+import createNanoEvents from 'nanoevents/index.mjs'
+```
+
+For quick hacks you can load Nano Events from CDN. Do not use it in production
+because of low performance.
+
+```js
+import createNanoEvents from 'https://cdn.jsdelivr.net/npm/nanoevents/index.mjs'
+```
+
+
+## Mixing to Object
 
 Because Nano Events API has only just 2 methods,
 you could just create proxy methods in your class.
@@ -44,7 +98,7 @@ you could just create proxy methods in your class.
 ```js
 class Ticker {
   constructor() {
-    this.emitter = new NanoEvents()
+    this.emitter = createNanoEvents()
   }
   on() {
     return this.emitter.on.apply(this.emitter, arguments)
@@ -55,10 +109,8 @@ class Ticker {
 }
 ```
 
-It allows you to have custom JSDoc or type definitions.
 
-
-### Add Listener
+## Add Listener
 
 Use `on` method to add listener for specific event:
 
@@ -93,7 +145,7 @@ Note: binding with use of the `.bind()` method won’t work as you might expect
 and therefore is not recommended.
 
 
-### Remove Listener
+## Remove Listener
 
 Methods `on` returns `unbind` function. Call it and this listener
 will be removed from event.
@@ -112,7 +164,7 @@ emitter.emit('tick', 2)
 ```
 
 
-### Execute Listeners
+## Execute Listeners
 
 Method `emit` will execute all listeners. First argument is event name, others
 will be passed to listeners.
@@ -126,7 +178,7 @@ emitter.emit('tick', 1, 'one')
 ```
 
 
-### Events List
+## Events List
 
 You can get used events list by `events` property.
 
@@ -136,7 +188,7 @@ emitter.events //=> { tick: [ [Function] ] }
 ```
 
 
-### Once
+## Once
 
 If you need add event listener only for first event dispatch,
 you can use this snippet:
@@ -144,7 +196,7 @@ you can use this snippet:
 ```js
 class Ticker {
   constructor() {
-    this.emitter = new NanoEvents()
+    this.emitter = createNanoEvents()
   }
   …
   once (event, callback) {
@@ -157,17 +209,12 @@ class Ticker {
 }
 ```
 
-### Remove all listeners
 
-`unbindAll` method will remove all listeners to all events.
+## Remove All Listeners
 
 ```js
-import unbindAll from 'nanoevents/unbind-all';
-
 emitter.on('event1', () => { })
 emitter.on('event2', () => { })
 
-unbindAll(emitter);
-
-Object.keys(emitter.events) //=> { }
+emitter.events = { }
 ```

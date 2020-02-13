@@ -1,25 +1,12 @@
-let NanoEvents = require('../')
-
-it('is a class', () => {
-  let ee = new NanoEvents()
-  expect(typeof NanoEvents).toEqual('function')
-  expect(ee).toBeInstanceOf(NanoEvents)
-})
+let createNanoEvents = require('../')
 
 it('is empty from the beggining', () => {
-  let ee = new NanoEvents()
+  let ee = createNanoEvents()
   expect(ee.events).toEqual({ })
 })
 
-it('allows only function as listener', () => {
-  let ee = new NanoEvents()
-  expect(() => {
-    ee.on('event', { })
-  }).toThrow(/function/)
-})
-
 it('adds listeners', () => {
-  let ee = new NanoEvents()
+  let ee = createNanoEvents()
 
   ee.on('one', () => true)
   ee.on('two', () => true)
@@ -31,7 +18,7 @@ it('adds listeners', () => {
 })
 
 it('calls listener', () => {
-  let ee = new NanoEvents()
+  let ee = createNanoEvents()
   let calls = []
   ee.on('event', (...args) => {
     calls.push(args)
@@ -47,7 +34,7 @@ it('calls listener', () => {
 })
 
 it('unbinds listener', () => {
-  let ee = new NanoEvents()
+  let ee = createNanoEvents()
 
   let calls1 = []
   let unbind = ee.on('event', a => {
@@ -68,7 +55,7 @@ it('unbinds listener', () => {
 })
 
 it('removes event on no listeners', () => {
-  let ee = new NanoEvents()
+  let ee = createNanoEvents()
   let unbind1 = ee.on('one', () => {})
   let unbind2 = ee.on('one', () => {})
 
@@ -86,7 +73,7 @@ it('removes event on no listeners', () => {
 })
 
 it('removes listener during event', () => {
-  let ee = new NanoEvents()
+  let ee = createNanoEvents()
 
   let calls = []
   let remove1 = ee.on('event', () => {
@@ -101,43 +88,8 @@ it('removes listener during event', () => {
   expect(calls).toEqual([1, 2])
 })
 
-it('does not clash with Object.prototype properties', () => {
-  let ee = new NanoEvents()
-  expect(() => {
-    ee.emit('constructor')
-    ee.emit('hasOwnProperty')
-    ee.emit('__proto__')
-  }).not.toThrow()
-})
-
-it('emit applies regular functions to the global object', () => {
-  let ee = new NanoEvents()
-
-  global.nanoEventsTestValue = 'value'
-
-  let results = []
-
-  function listener () {
-    // eslint-disable-next-line no-invalid-this
-    results.push(this.nanoeventsTestValue)
-  }
-
-  let unbind1 = ee.on('event', listener)
-  let unbind2 = ee.on('event', listener.bind({
-    nanoEventsTestValue: 'wrong value'
-  }))
-
-  ee.emit('event')
-
-  expect(results).toHaveLength(2)
-  expect(results[0] === results[1]).toBe(true)
-
-  unbind1()
-  unbind2()
-})
-
 it('allows to use arrow function to bind a context', () => {
-  let ee = new NanoEvents()
+  let ee = createNanoEvents()
   let app = {
     value: 'test',
     getListener () {
@@ -156,4 +108,26 @@ it('allows to use arrow function to bind a context', () => {
   expect(app.check).toEqual(['t', 'e', 's', 't'])
 
   unbind()
+})
+
+it('allows to replace listeners', () => {
+  let ee1 = createNanoEvents()
+  let ee2 = createNanoEvents()
+
+  let aCalls = 0
+  ee1.on('A', () => {
+    aCalls += 1
+  })
+  let bCalls = 0
+  ee2.on('B', () => {
+    bCalls += 1
+  })
+
+  ee1.events = ee2.events
+
+  ee1.emit('A')
+  expect(aCalls).toEqual(0)
+
+  ee1.emit('B')
+  expect(bCalls).toEqual(1)
 })
