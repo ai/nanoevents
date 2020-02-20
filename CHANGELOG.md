@@ -1,6 +1,14 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 3.0
+* Use modern JS syntax and drop IE 11 support.
+* Remove `nanoevents/unbind-all` helper.
+* Add `NanoEvents#set`.
+* Add TypeScript definitions.
+* Add ES modules support.
+* Reduce size.
+
 ## 2.0
 * Remove `this` from listeners to bind it explicitly (by Alexander Zonov).
 
