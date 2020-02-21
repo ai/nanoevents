@@ -79,14 +79,14 @@ emitter.emit('tick', 2)
 In Node.js 13 you can import ES module by manually added `index.mjs`.
 
 ```js
-import createNanoEvents from 'nanoevents/index.mjs'
+import createNanoEvents from 'nanoevents/index.js'
 ```
 
 For quick hacks you can load Nano Events from CDN. Do not use it in production
 because of low performance.
 
 ```js
-import createNanoEvents from 'https://cdn.jsdelivr.net/npm/nanoevents/index.mjs'
+import createNanoEvents from 'https://cdn.jsdelivr.net/npm/nanoevents/index.js'
 ```
 
 
