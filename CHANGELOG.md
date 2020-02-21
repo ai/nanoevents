@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 4.0
+* Use `index.js` instead of `index.mjs` for ES modules.
+
 ## 3.0
 * Use modern JS syntax and drop IE 11 support.
 * Remove `nanoevents/unbind-all` helper.
