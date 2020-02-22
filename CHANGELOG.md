@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 4.0.1
+* Reduce size (by Eduardo San Martin Morote).
+
 ## 4.0
 * Use `index.js` instead of `index.mjs` for ES modules.
 
