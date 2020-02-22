@@ -1,7 +1,7 @@
 {
   "name": "nanoevents",
   "version": "4.0.0",
-  "description": "Simple and tiny (78 bytes) event emitter library",
+  "description": "Simple and tiny (69 bytes) event emitter library",
   "keywords": [
     "EventEmitter",
     "Events",
@@ -56,7 +56,7 @@
   "size-limit": [
     {
       "path": "index.js",
-      "limit": "78 B"
+      "limit": "69 B"
     }
   ],
   "jest": {
