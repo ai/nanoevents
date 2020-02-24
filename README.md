@@ -55,7 +55,7 @@ Nano Events accepts interface with event name
 to listener argument types mapping.
 
 ```ts
-import createNanoEvents = require('..')
+import createNanoEvents = require('nanoevents')
 
 interface Events {
   'set': (name: string, count: number) => void,
