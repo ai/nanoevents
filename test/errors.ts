@@ -21,13 +21,13 @@ typed.events = {
 }
 
 typed.events = {
-  // THROWS '{ 'unknown': never[]; }' is not assignable to type
+  // THROWS '{ unknown: never[]; }' is not assignable to type
   'unknown': []
 }
 
 typed.events = {
-  // THROWS not assignable to type '((c: number) => void)[]
   'add': [
+    // THROWS not assignable to type '(c: number) => void'
     (a: string) => a
   ]
 }
