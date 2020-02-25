@@ -34,7 +34,7 @@ declare class Emitter<Events extends EventsMap> {
    * @param cb The listener function.
    * @returns Unbind listener from event.
    */
-  on <K extends keyof Events>(event: K, cb: Events[K]): () => void
+  on <K extends keyof Events>(this: this, event: K, cb: Events[K]): () => void
 
   /**
    * Calls each of the listeners registered for a given event.
@@ -47,6 +47,7 @@ declare class Emitter<Events extends EventsMap> {
    * @param args The arguments for listeners.
    */
   emit <K extends keyof Events>(
+    this: this,
     event: K,
     ...args: Parameters<Events[K]>
   ): void
