@@ -131,7 +131,7 @@ context explicitly before passing function in as a callback.
 
 ```js
 var app = {
-  userId = 1,
+  userId: 1,
   getListener() {
     return () => {
       console.log(this.userId)
