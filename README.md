@@ -58,8 +58,8 @@ to listener argument types mapping.
 import createNanoEvents = require('nanoevents')
 
 interface Events {
-  'set': (name: string, count: number) => void,
-  'tick': () => void
+  set: (name: string, count: number) => void,
+  tick: () => void
 }
 
 const emitter = createNanoEvents<Events>()
@@ -97,13 +97,13 @@ you could just create proxy methods in your class.
 
 ```js
 class Ticker {
-  constructor() {
+  constructor () {
     this.emitter = createNanoEvents()
   }
-  on(...args) {
+  on (...args) {
     return this.emitter.on(...args)
   }
-  tick() {
+  tick () {
     this.emitter.emit('tick')
   }
 }
@@ -132,7 +132,7 @@ context explicitly before passing function in as a callback.
 ```js
 var app = {
   userId: 1,
-  getListener() {
+  getListener () {
     return () => {
       console.log(this.userId)
     }
@@ -195,14 +195,14 @@ you can use this snippet:
 
 ```js
 class Ticker {
-  constructor() {
+  constructor () {
     this.emitter = createNanoEvents()
   }
   …
   once (event, callback) {
-    const unbind = this.emitter.on(event, function () {
+    const unbind = this.emitter.on(event, (...args) => {
       unbind()
-      callback.apply(this, arguments)
+      callback(...args)
     })
     return unbind
   }

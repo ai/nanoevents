@@ -1,9 +1,9 @@
 import createNanoEvents = require('..')
 
 interface Events {
-  'set': (a: string, b: number) => void,
-  'add': (c: number) => void,
-  'tick': () => void
+  set: (a: string, b: number) => void,
+  add: (c: number) => void,
+  tick: () => void
 }
 
 function fn (a: string) {

@@ -1,9 +1,9 @@
 import createNanoEvents = require('..')
 
 interface Events {
-  'set': (a: string, b: number) => void,
-  'add': (c: number) => void,
-  'tick': () => void
+  set: (a: string, b: number) => void,
+  add: (c: number) => void,
+  tick: () => void
 }
 
 let typed = createNanoEvents<Events>()
@@ -17,16 +17,16 @@ typed.emit('tick', 1)
 
 typed.events = {
   // THROWS is not assignable to type '((a: string, b: number) => void)[]
-  'set': 1
+  set: 1
 }
 
 typed.events = {
   // THROWS '{ unknown: never[]; }' is not assignable to type
-  'unknown': []
+  unknown: []
 }
 
 typed.events = {
-  'add': [
+  add: [
     // THROWS not assignable to type '(c: number) => void'
     (a: string) => a
   ]
