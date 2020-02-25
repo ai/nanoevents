@@ -100,8 +100,8 @@ class Ticker {
   constructor() {
     this.emitter = createNanoEvents()
   }
-  on() {
-    return this.emitter.on.apply(this.emitter, arguments)
+  on(...args) {
+    return this.emitter.on(...args)
   }
   tick() {
     this.emitter.emit('tick')
