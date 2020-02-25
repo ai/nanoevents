@@ -1,6 +1,10 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 4.0.3
+* Add `this` type definition (by Anton Khlynovskiy).
+* Improve docs (by @azu and @38elements).
+
 ## 4.0.2
 * Improve `emit` performance.
 
