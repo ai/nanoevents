@@ -98,14 +98,20 @@ or encapsulate them entirely.
 
 ```js
 class Ticker {
-  constructor (interval) {
+  constructor () {
     this.emitter = createNanoEvents()
-    setInterval(function () {
+    this.internal = setInterval(() => {
       this.emitter.emit('tick')
-    }, interval)
+    }, 100)
   }
-  on (callback) {
-    return this.emitter.on('tick', callback)
+
+  stop () {
+    clearInterval(this.internal)
+    this.emitter.emit('stop')
+  }
+
+  on (event, callback) {
+    return this.emitter.on(event, callback)
   }
 }
 ```
