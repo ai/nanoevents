@@ -93,18 +93,19 @@ import createNanoEvents from 'https://cdn.jsdelivr.net/npm/nanoevents/index.js'
 ## Mixing to Object
 
 Because Nano Events API has only just 2 methods,
-you could just create proxy methods in your class.
+you could just create proxy methods in your class
+or encapsulate them entirely.
 
 ```js
 class Ticker {
-  constructor () {
+  constructor (interval) {
     this.emitter = createNanoEvents()
+    setInterval(function () {
+      this.emitter.emit('tick')
+    }, interval)
   }
   on (callback) {
     return this.emitter.on('tick', callback)
-  }
-  tick () {
-    this.emitter.emit('tick')
   }
 }
 ```
