@@ -110,24 +110,11 @@ it('allows to use arrow function to bind a context', () => {
   unbind()
 })
 
-it('allows to replace listeners', () => {
-  let ee1 = createNanoEvents()
-  let ee2 = createNanoEvents()
+it('allows to predefine listeners', () => {
+  const cb = jest.fn()
+  const ee = createNanoEvents({ test: [cb] })
 
-  let aCalls = 0
-  ee1.on('A', () => {
-    aCalls += 1
-  })
-  let bCalls = 0
-  ee2.on('B', () => {
-    bCalls += 1
-  })
+  ee.emit('test', 0)
 
-  ee1.events = ee2.events
-
-  ee1.emit('A')
-  expect(aCalls).toEqual(0)
-
-  ee1.emit('B')
-  expect(bCalls).toEqual(1)
+  expect(cb).toHaveBeenCalledWith(0)
 })

@@ -1,14 +1,14 @@
-module.exports = () => ({
-  events: { },
+module.exports = (events = {}) => ({
+  events,
   emit (event, ...args) {
-    for (let i of this.events[event] || []) {
+    for (var i of events[event] || []) {
       i(...args)
     }
   },
   on (event, cb) {
-    (this.events[event] = this.events[event] || []).push(cb)
+    (events[event] = events[event] || []).push(cb)
     return () => (
-      this.events[event] = this.events[event].filter(i => i !== cb)
+      events[event] = events[event].filter(i => i !== cb)
     )
   }
 })

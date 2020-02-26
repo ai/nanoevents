@@ -2,7 +2,7 @@
 
 Simple and tiny event emitter library for JavaScript.
 
-* Only **75 bytes** (minified and gzipped).
+* Only **72 bytes** (minified and gzipped).
   It uses [Size Limit] to control size.
 * `on` method returns `unbind` function. You don’t need to save
   callback to variable for `removeListener`.
@@ -210,11 +210,11 @@ class Ticker {
 ```
 
 
-## Remove All Listeners
+## Predefine listeners
 
 ```js
-emitter.on('event1', () => { })
-emitter.on('event2', () => { })
+const emitter = createNanoEvents({ log: [console.log] })
 
-emitter.events = { }
+emitter.emit('log', { data: true })
+// { data: true }
 ```
