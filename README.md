@@ -76,6 +76,8 @@ emitter.emit('tick', 2)
 
 ## ES Modules
 
+Nano Events supports ES modules. You do not need to do anything for bundlers.
+
 In Node.js 13 you can import ES module by manually added `index.mjs`.
 
 ```js

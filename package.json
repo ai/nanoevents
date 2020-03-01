@@ -94,7 +94,9 @@
       "CDN",
       "npm",
       "JSDoc",
-      "JS"
+      "JS",
+      "supports ES",
+      "bundlers"
     ]
   },
   "sharec": {
