@@ -1,7 +1,7 @@
 {
   "name": "nanoevents",
   "version": "4.0.3",
-  "description": "Simple and tiny (75 bytes) event emitter library",
+  "description": "Simple and tiny (72 bytes) event emitter library",
   "keywords": [
     "EventEmitter",
     "Events",
