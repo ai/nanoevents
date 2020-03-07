@@ -11,7 +11,7 @@ Simple and tiny event emitter library for JavaScript.
   No Node.js [EventEmitter] compatibility.
 
 ```js
-const createNanoEvents = require('nanoevents')
+import { createNanoEvents } from 'nanoevents'
 
 const emitter = createNanoEvents()
 
@@ -39,7 +39,6 @@ summary //=> 2
 ## Table of Contents
 
 * [TypeScript](#typescript)
-* [ES Modules](#es-modules)
 * [Mixing to Object](#mixing-to-object)
 * [Add Listener](#add-listener)
 * [Remove Listener](#remove-listener)
@@ -55,8 +54,6 @@ Nano Events accepts interface with event name
 to listener argument types mapping.
 
 ```ts
-import createNanoEvents = require('nanoevents')
-
 interface Events {
   set: (name: string, count: number) => void,
   tick: () => void
@@ -71,24 +68,6 @@ emitter.emit('tick')
 // Compilation errors:
 emitter.emit('set', 'prop', '1')
 emitter.emit('tick', 2)
-```
-
-
-## ES Modules
-
-Nano Events supports ES modules. You do not need to do anything for bundlers.
-
-In Node.js 13 you can import ES module by manually added `index.mjs`.
-
-```js
-import createNanoEvents from 'nanoevents/index.js'
-```
-
-For quick hacks you can load Nano Events from CDN. Do not use it in production
-because of low performance.
-
-```js
-import createNanoEvents from 'https://cdn.jsdelivr.net/npm/nanoevents/index.js'
 ```
 
 
