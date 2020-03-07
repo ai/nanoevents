@@ -332,10 +332,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@logux/eslint-config@^36.0.0":
-  version "36.0.0"
-  resolved "https://registry.yarnpkg.com/@logux/eslint-config/-/eslint-config-36.0.0.tgz#4e9104362914119c8b0c6e0fcae5d2ef6ae2a72b"
-  integrity sha512-qxUJXdZJ+Z9roXxZaRG5ZyQPC3BhByNT1qQNZWwDYddDMZ3tnIf5NE+dbpURGI5J1rKWsVYRB2QbR52Vr/CNsw==
+"@logux/eslint-config@^36.1.0":
+  version "36.1.0"
+  resolved "https://registry.yarnpkg.com/@logux/eslint-config/-/eslint-config-36.1.0.tgz#f395caacbbc8ed6761def8e9d6488d3971dbe62b"
+  integrity sha512-iPtbR0LDftGMXwVpeZ9nV9A+3lqtd/TdzGye6OCwm/dDaJ6wYMFanpJgjdCLxMpF0LmDPwZVcEeKr/Mj1j3d3g==
   dependencies:
     globals "^12.3.0"
 
@@ -1516,16 +1516,15 @@ class-utils@^0.3.5:
     static-extend "^0.1.1"
 
 clean-publish@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/clean-publish/-/clean-publish-1.1.5.tgz#d54a55e62774e312c6e8e003f0814d3dcf837a42"
-  integrity sha512-U11TQ/7Uc3m/LkvN4IPz3NDrbSJOS9p/exQYzOXgr51mFqyfoBQEBhIyEAv8DD2azwiYQc+m0UU5dFPSkr+HRA==
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/clean-publish/-/clean-publish-1.1.6.tgz#c79fa12515db44b94bbee75d9a946cb0fb26e005"
+  integrity sha512-8uX/7qWUFQgSAGJ8lxxvz8PR0J9PI08Kofaq+4+lhoygnquUNChMcSLDUoKyPcJR/1r1OIkMHN5C33l4bv15VA==
   dependencies:
     chalk "^2.4.1"
     cosmiconfig "^5.0.7"
     cross-spawn "^6.0.5"
     fs-extra "^6.0.1"
     ramda "^0.25.0"
-    shelljs "^0.8.3"
     util.promisify "^1.0.0"
     yargs "^12.0.1"
 

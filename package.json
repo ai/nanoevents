@@ -26,7 +26,7 @@
   },
   "types": "./index.d.ts",
   "devDependencies": {
-    "@logux/eslint-config": "^36.0.0",
+    "@logux/eslint-config": "^36.1.0",
     "@logux/sharec-config": "^0.5.7",
     "@size-limit/dual-publish": "^4.2.1",
     "@size-limit/preset-small-lib": "^4.2.1",
@@ -78,10 +78,7 @@
     "*.js": "eslint"
   },
   "eslintConfig": {
-    "extends": "@logux/eslint-config",
-    "rules": {
-      "func-style": "off"
-    }
+    "extends": "@logux/eslint-config"
   },
   "yaspeller": {
     "lang": "en",
