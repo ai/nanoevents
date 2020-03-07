@@ -1,4 +1,4 @@
-let createNanoEvents = require('../')
+let { createNanoEvents } = require('../')
 
 it('is empty from the beggining', () => {
   let ee = createNanoEvents()

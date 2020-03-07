@@ -1,4 +1,4 @@
-module.exports = () => ({
+let createNanoEvents = () => ({
   events: { },
   emit (event, ...args) {
     for (let i of this.events[event] || []) {
@@ -12,3 +12,5 @@ module.exports = () => ({
     )
   }
 })
+
+module.exports = { createNanoEvents }

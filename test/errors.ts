@@ -1,4 +1,4 @@
-import createNanoEvents = require('..')
+import { createNanoEvents } from '..'
 
 interface Events {
   set: (a: string, b: number) => void,

@@ -1,4 +1,4 @@
-declare namespace createNanoEvents {
+export namespace createNanoEvents {
   interface EventsMap {
     [event: string]: any
   }
@@ -74,7 +74,6 @@ declare namespace createNanoEvents {
  * }
  * ```
  */
-declare function createNanoEvents<Events extends createNanoEvents.EventsMap = createNanoEvents.DefaultEvents> (
-): createNanoEvents.Emitter<Events>
-
-export = createNanoEvents
+export function createNanoEvents<
+  Events extends createNanoEvents.EventsMap = createNanoEvents.DefaultEvents
+> (): createNanoEvents.Emitter<Events>
