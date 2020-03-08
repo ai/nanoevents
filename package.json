@@ -1,6 +1,6 @@
 {
   "name": "nanoevents",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "Simple and tiny (72 bytes) event emitter library",
   "keywords": [
     "EventEmitter",
