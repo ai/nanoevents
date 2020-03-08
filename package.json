@@ -24,6 +24,7 @@
   "engines": {
     "node": ">=6.0.0"
   },
+  "sideEffects": false,
   "types": "./index.d.ts",
   "devDependencies": {
     "@logux/eslint-config": "^36.1.0",
