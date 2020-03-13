@@ -51,7 +51,6 @@
     "lint-staged": "^10.0.8",
     "rimraf": "^3.0.2",
     "size-limit": "^4.2.1",
-    "typedoc": "^0.16.11",
     "yaspeller-ci": "^1.0.2"
   },
   "size-limit": [
