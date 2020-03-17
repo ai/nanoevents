@@ -6,6 +6,10 @@ interface DefaultEvents extends EventsMap {
   [event: string]: (...args: any) => void
 }
 
+export interface Unsubscribe {
+  (): void
+}
+
 export declare class Emitter<Events extends EventsMap> {
   /**
    * Event names in keys and arrays with listeners in values.
@@ -34,7 +38,7 @@ export declare class Emitter<Events extends EventsMap> {
    * @param cb The listener function.
    * @returns Unbind listener from event.
    */
-  on <K extends keyof Events>(this: this, event: K, cb: Events[K]): () => void
+  on <K extends keyof Events>(this: this, event: K, cb: Events[K]): Unsubscribe
 
   /**
    * Calls each of the listeners registered for a given event.
