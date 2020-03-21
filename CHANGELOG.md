@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 5.1.2
+* Fix React Native warnings.
+
 ## 5.1.1
 * Add temporary workaround for React Native.
 
