@@ -46,6 +46,7 @@ summary //=> 2
 * [Events List](#events-list)
 * [Once](#once)
 * [Remove All Listeners](#remove-all-listeners)
+* [React Native](#react-native)
 
 
 ## TypeScript
@@ -205,4 +206,18 @@ emitter.on('event1', () => { })
 emitter.on('event2', () => { })
 
 emitter.events = { }
+```
+
+
+## React Native
+
+Adding this lines to `metro.config.js` will fix
+[temporary issue](https://github.com/facebook/metro/issues/535) of React Native.
+
+```js
+module.exports = {
+  resolver: {
+   resolverMainFields: ['react-native', 'browser', 'main']
+  }
+}
 ```
