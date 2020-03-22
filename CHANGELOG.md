@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 5.1.3
+* Allow to use library in React Native without `resolverMainFields`.
+
 ## 5.1.2
 * Fix React Native warnings.
 
