@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 5.1.5
+* Fix ES module regression.
+
 ## 5.1.4
 * Remove React Native extra files.
 
