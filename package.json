@@ -28,11 +28,11 @@
   "devDependencies": {
     "@logux/eslint-config": "^36.1.1",
     "@logux/sharec-config": "^0.6.2",
-    "@size-limit/dual-publish": "^4.4.0",
-    "@size-limit/preset-small-lib": "^4.4.0",
+    "@size-limit/dual-publish": "^4.4.1",
+    "@size-limit/preset-small-lib": "^4.4.1",
     "@types/jest": "^25.1.4",
     "check-dts": "^0.1.4",
-    "dual-publish": "^0.8.4",
+    "dual-publish": "^0.8.5",
     "eslint": "^6.8.0",
     "eslint-ci": "^1.0.0",
     "eslint-config-standard": "^14.1.1",
@@ -49,7 +49,7 @@
     "jest-ci": "^0.1.1",
     "lint-staged": "^10.0.8",
     "rimraf": "^3.0.2",
-    "size-limit": "^4.4.0",
+    "size-limit": "^4.4.1",
     "yaspeller-ci": "^1.0.2"
   },
   "size-limit": [
