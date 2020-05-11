@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 5.1.6
+* Clean up code.
+
 ## 5.1.5
 * Fix ES module regression.
 
