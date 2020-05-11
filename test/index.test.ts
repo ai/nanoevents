@@ -1,8 +1,8 @@
-let { createNanoEvents } = require('../')
+import { createNanoEvents } from '../'
 
 it('is empty from the beggining', () => {
   let ee = createNanoEvents()
-  expect(ee.events).toEqual({ })
+  expect(ee.events).toEqual({})
 })
 
 it('adds listeners', () => {
@@ -19,7 +19,7 @@ it('adds listeners', () => {
 
 it('calls listener', () => {
   let ee = createNanoEvents()
-  let calls = []
+  let calls: number[][] = []
   ee.on('event', (...args) => {
     calls.push(args)
   })
@@ -36,12 +36,12 @@ it('calls listener', () => {
 it('unbinds listener', () => {
   let ee = createNanoEvents()
 
-  let calls1 = []
+  let calls1: number[] = []
   let unbind = ee.on('event', a => {
     calls1.push(a)
   })
 
-  let calls2 = []
+  let calls2: number[] = []
   ee.on('event', a => {
     calls2.push(a)
   })
@@ -75,7 +75,7 @@ it('removes event on no listeners', () => {
 it('removes listener during event', () => {
   let ee = createNanoEvents()
 
-  let calls = []
+  let calls: number[] = []
   let remove1 = ee.on('event', () => {
     remove1()
     calls.push(1)
@@ -91,7 +91,10 @@ it('removes listener during event', () => {
 it('allows to use arrow function to bind a context', () => {
   let ee = createNanoEvents()
   let app = {
+    check: ['a'],
+
     value: 'test',
+
     getListener () {
       return () => {
         this.check = this.value.split('')

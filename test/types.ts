@@ -1,8 +1,8 @@
 import { createNanoEvents } from '..'
 
 interface Events {
-  set: (a: string, b: number) => void,
-  add: (c: number) => void,
+  set: (a: string, b: number) => void
+  add: (c: number) => void
   tick: () => void
 }
 
@@ -20,7 +20,7 @@ ee.emit('add', 2)
 ee.emit('tick')
 
 ee.events = {
-  'set': [
+  set: [
     a => {
       fn(a)
     }

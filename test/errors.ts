@@ -1,8 +1,8 @@
 import { createNanoEvents } from '..'
 
 interface Events {
-  set: (a: string, b: number) => void,
-  add: (c: number) => void,
+  set: (a: string, b: number) => void
+  add: (c: number) => void
   tick: () => void
 }
 
