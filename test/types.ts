@@ -1,4 +1,4 @@
-import { createNanoEvents } from '..'
+import { createNanoEvents, Emitter } from '..'
 
 interface Events {
   set: (a: string, b: number) => void
@@ -26,3 +26,13 @@ ee.events = {
     }
   ]
 }
+
+function listenersCount (emitter: Emitter) {
+  let count = 0
+  for (let i in emitter.events) {
+    count += emitter.events[i]?.length ?? 0
+  }
+  return count
+}
+
+console.log(listenersCount(ee))
