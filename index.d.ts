@@ -10,7 +10,7 @@ export interface Unsubscribe {
   (): void
 }
 
-export declare class Emitter<Events extends EventsMap> {
+export declare class Emitter<Events extends EventsMap = DefaultEvents> {
   /**
    * Event names in keys and arrays with listeners in values.
    *
