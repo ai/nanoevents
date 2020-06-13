@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 5.1.8
+* Fix ES module support.
+
 ## 5.1.7
 * Simplify `Emitter` type usage.
 
