@@ -97,33 +97,26 @@ class Ticker {
 }
 ```
 
-*with Typescript*
+With Typescript:
 
 ```ts
+import { createNanoEvents, Emitter } from "nanoevents"
+
 interface Events {
   start: (startedAt: number) => void
 }
 
 class Ticker {
   emitter: Emitter
+
   constructor () {
     this.emitter = createNanoEvents<Events>()
   }
-  
-  start() {
-    this.emitter.emit('start', Date.now())
-  }
 
-  on<T extends keyof Events>(event: T, callback: Events[T]) {
+  on<E extends keyof Events>(event: E, callback: Events[E]) {
     return this.emitter.on(event, callback)
   }
 }
-
-// Usage:
-const ticker = new Ticker()
-ticker.on('start', (startedAt) => console.log('started at', startedAt))
-
-ticker.start()
 ```
 
 ## Add Listener
