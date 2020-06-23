@@ -119,6 +119,7 @@ class Ticker {
 }
 ```
 
+
 ## Add Listener
 
 Use `on` method to add listener for specific event:
