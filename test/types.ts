@@ -1,4 +1,4 @@
-import { createNanoEvents, Emitter } from '..'
+import { createNanoEvents, Emitter } from '../index.js'
 
 interface Events {
   set: (a: string, b: number) => void

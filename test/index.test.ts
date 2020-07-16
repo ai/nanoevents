@@ -1,4 +1,4 @@
-import { createNanoEvents } from '../'
+import { createNanoEvents } from '../index.js'
 
 it('is empty from the beggining', () => {
   let ee = createNanoEvents()
