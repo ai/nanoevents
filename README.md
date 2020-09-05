@@ -38,6 +38,7 @@ summary //=> 2
 
 ## Table of Contents
 
+* [Install](#install)
 * [TypeScript](#typescript)
 * [Mixing to Object](#mixing-to-object)
 * [Add Listener](#add-listener)
@@ -46,6 +47,13 @@ summary //=> 2
 * [Events List](#events-list)
 * [Once](#once)
 * [Remove All Listeners](#remove-all-listeners)
+
+
+## Install
+
+```sh
+npm install nanoevents
+```
 
 
 ## TypeScript
