@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 5.1.9
+* Add `package.types`.
+
 ## 5.1.8
 * Fix ES module support.
 
