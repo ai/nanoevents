@@ -25,10 +25,10 @@
     "node": ">=6.0.0"
   },
   "sideEffects": false,
-  "types": "index.d.ts",
+  "types": "./index.d.ts",
   "devDependencies": {
     "@logux/eslint-config": "^41.0.2",
-    "@logux/sharec-config": "^0.7.8",
+    "@logux/sharec-config": "^0.7.9",
     "@size-limit/dual-publish": "^4.6.2",
     "@size-limit/preset-small-lib": "^4.6.2",
     "@types/jest": "^26.0.15",
@@ -115,6 +115,6 @@
   },
   "sharec": {
     "config": "@logux/sharec-config",
-    "version": "0.7.8"
+    "version": "0.7.9"
   }
 }
