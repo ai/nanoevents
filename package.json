@@ -14,9 +14,7 @@
     "subscribe"
   ],
   "scripts": {
-    "spell": "yaspeller-ci *.md",
-    "clean": "rimraf coverage/",
-    "test": "jest-ci --coverage && eslint-ci . && check-dts && size-limit --highlight-less && yarn spell"
+    "test": "jest --coverage && eslint . && check-dts && size-limit --highlight-less && yaspeller *.md"
   },
   "author": "Andrey Sitnik <andrey@sitnik.ru>",
   "license": "MIT",
@@ -27,18 +25,17 @@
   "sideEffects": false,
   "types": "./index.d.ts",
   "devDependencies": {
-    "@logux/eslint-config": "^41.0.2",
-    "@logux/sharec-config": "^0.7.10",
+    "@logux/eslint-config": "^42.2.0",
+    "@logux/sharec-config": "^0.8.2",
     "@size-limit/dual-publish": "^4.7.0",
     "@size-limit/preset-small-lib": "^4.7.0",
     "@types/jest": "^26.0.15",
-    "@typescript-eslint/eslint-plugin": "^4.6.0",
-    "@typescript-eslint/parser": "^4.6.0",
+    "@typescript-eslint/eslint-plugin": "^4.6.1",
+    "@typescript-eslint/parser": "^4.6.1",
     "check-dts": "^0.3.3",
     "dual-publish": "^0.11.0",
     "eslint": "^7.12.1",
-    "eslint-ci": "^1.0.0",
-    "eslint-config-standard": "^15.0.1",
+    "eslint-config-standard": "^16.0.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^24.1.0",
     "eslint-plugin-node": "^11.1.0",
@@ -49,14 +46,13 @@
     "eslint-plugin-standard": "^4.0.2",
     "eslint-plugin-unicorn": "^23.0.0",
     "husky": "^4.3.0",
-    "jest": "^26.6.1",
-    "jest-ci": "^0.1.1",
-    "lint-staged": "^10.5.0",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.1",
     "rimraf": "^3.0.2",
     "size-limit": "^4.7.0",
     "ts-jest": "^26.4.3",
     "typescript": "^4.0.5",
-    "yaspeller-ci": "^1.0.2"
+    "yaspeller": "^7.0.0"
   },
   "size-limit": [
     {
@@ -115,6 +111,6 @@
   },
   "sharec": {
     "config": "@logux/sharec-config",
-    "version": "0.7.10"
+    "version": "0.8.2"
   }
 }
