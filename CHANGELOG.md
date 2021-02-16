@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 5.1.11
+* Fixed unsubscribing on cleaned `Emitter#events` (by Mikhail Nasyrov).
+
 ## 5.1.10
 * Fixed `package.types` path.
 
