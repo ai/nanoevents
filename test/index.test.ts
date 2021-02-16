@@ -58,7 +58,9 @@ it('calls unbind after cleaning events', () => {
   let ee = createNanoEvents()
   let unbind = ee.on('event', () => undefined)
   ee.events = {}
-  expect(() => unbind()).not.toThrow()
+  expect(() => {
+    unbind()
+  }).not.toThrow()
 })
 
 it('removes event on no listeners', () => {
