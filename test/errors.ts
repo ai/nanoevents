@@ -8,7 +8,7 @@ interface Events {
 
 let typed = createNanoEvents<Events>()
 
-// THROWS not assignable to parameter of type '"set" | "add" | "tick"'
+// THROWS not assignable to parameter of type 'keyof Events'
 typed.emit('unknown')
 // THROWS Expected 3 arguments, but got 2
 typed.emit('set', 1)
