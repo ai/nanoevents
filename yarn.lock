@@ -754,9 +754,9 @@
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
 
 "@types/prettier@^2.0.0":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.2.1.tgz#374e31645d58cb18a07b3ecd8e9dede4deb2cccd"
-  integrity sha512-DxZZbyMAM9GWEzXL+BMZROWz9oo6A9EilwwOMET2UVu2uZTqMWS5S69KVtuVKaRjCUpcrOXRalet86/OpG4kqw==
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.2.2.tgz#e2280c89ddcbeef340099d6968d8c86ba155fdf6"
+  integrity sha512-i99hy7Ki19EqVOl77WplDrvgNugHnsSjECVR/wUrzw2TJXz1zlUfT2ngGckR6xN7yFYaijsMAqPkOLx9HgUqHg==
 
 "@types/q@^1.5.1":
   version "1.5.4"
@@ -1871,9 +1871,9 @@ class-utils@^0.3.5:
     static-extend "^0.1.1"
 
 clean-publish@^1.1.8:
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/clean-publish/-/clean-publish-1.1.8.tgz#e193233b489aad12976fb2a5f2166480346b0c46"
-  integrity sha512-1XcR5CRA1JkEJedUT9aFKEwbR33JvHY8Qm0ZgKk3JF7VStliaDJFuV96J3sf3bR/ZYt5P+c01DK6AQxI10a9Dw==
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/clean-publish/-/clean-publish-1.1.9.tgz#303d13d6f353e53cf5df3c54d74934e1f20b604c"
+  integrity sha512-YihaxM1Bzp4ASJYr+i25KV4uCq3YA0n0hrfJmO1xFuEoJ2SopeKGsHS6RCmNHDS//IUnX+qcH4zQcpBVlPd4pQ==
   dependencies:
     chalk "^2.4.1"
     cosmiconfig "^5.0.7"
@@ -2647,9 +2647,9 @@ editorconfig@0.15.3, editorconfig@^0.15.3:
     sigmund "^1.0.1"
 
 electron-to-chromium@^1.3.649:
-  version "1.3.677"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.677.tgz#b5d586b0d1976c97cc7e95262677ac5944199513"
-  integrity sha512-Tcmk+oKQgpjcM+KYanlkd76ZtpzalkpUULnlJDP6vjHtR7UU564IM9Qv5DxqHZNBQjzXm6mkn7Y8bw2OoE3FmQ==
+  version "1.3.678"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.678.tgz#c7c6960463167126b7ed076fade14cac6223bfff"
+  integrity sha512-E5ha1pE9+aWWrT2fUD5wdPBWUnYtKnEnloewbtVyrkAs79HvodOiNO4rMR94+hKbxgMFQG4fnPQACOc1cfMfBg==
 
 elliptic@^6.5.3:
   version "6.5.4"
