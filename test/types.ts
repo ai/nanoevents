@@ -6,7 +6,7 @@ interface Events {
   tick: () => void
 }
 
-function fn (a: string) {
+function fn(a: string): void {
   console.log(a)
 }
 
@@ -27,7 +27,7 @@ ee.events = {
   ]
 }
 
-function listenersCount (emitter: Emitter) {
+function listenersCount(emitter: Emitter): number {
   let count = 0
   for (let i in emitter.events) {
     count += emitter.events[i]?.length ?? 0

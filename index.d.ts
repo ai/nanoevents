@@ -38,7 +38,7 @@ export declare class Emitter<Events extends EventsMap = DefaultEvents> {
    * @param cb The listener function.
    * @returns Unbind listener from event.
    */
-  on<K extends keyof Events> (this: this, event: K, cb: Events[K]): Unsubscribe
+  on<K extends keyof Events>(this: this, event: K, cb: Events[K]): Unsubscribe
 
   /**
    * Calls each of the listeners registered for a given event.
@@ -50,7 +50,7 @@ export declare class Emitter<Events extends EventsMap = DefaultEvents> {
    * @param event The event name.
    * @param args The arguments for listeners.
    */
-  emit<K extends keyof Events> (
+  emit<K extends keyof Events>(
     this: this,
     event: K,
     ...args: Parameters<Events[K]>
@@ -78,4 +78,4 @@ export declare class Emitter<Events extends EventsMap = DefaultEvents> {
  */
 export function createNanoEvents<
   Events extends EventsMap = DefaultEvents
-> (): Emitter<Events>
+>(): Emitter<Events>

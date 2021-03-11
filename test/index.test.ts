@@ -104,7 +104,7 @@ it('allows to use arrow function to bind a context', () => {
 
     value: 'test',
 
-    getListener () {
+    getListener() {
       return () => {
         this.check = this.value.split('')
       }
