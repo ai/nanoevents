@@ -6,7 +6,7 @@ env:
   FORCE_COLOR: 2
 jobs:
   full:
-    name: Node.js 15 Full
+    name: Node.js 16 Full
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
@@ -14,7 +14,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 15
+          node-version: 16
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
       - name: Run tests
@@ -26,7 +26,6 @@ jobs:
         node-version:
           - 14
           - 12
-          - 10
     name: Node.js ${{ matrix.node-version }} Quick
     steps:
       - name: Checkout the repository
@@ -38,4 +37,4 @@ jobs:
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
       - name: Run unit tests
-        run: npx jest
+        run: node --experimental-vm-modules node_modules/.bin/jest
