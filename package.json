@@ -26,6 +26,7 @@
   "type": "module",
   "types": "./index.d.ts",
   "exports": {
+    "./package.json": "./package.json",
     ".": "./index.js"
   },
   "devDependencies": {
