@@ -2,7 +2,7 @@
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 6.0.2
-* Reduce package size.
+* Reduced package size.
 
 ## 6.0.1
 * Fixed `package.json` export (by Jules Robichaud-Gagnon).
