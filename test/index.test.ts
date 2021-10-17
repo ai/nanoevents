@@ -138,8 +138,8 @@ it('allows to replace listeners', () => {
   ee1.events = ee2.events
 
   ee1.emit('A')
-  expect(aCalls).toEqual(0)
+  expect(aCalls).toBe(0)
 
   ee1.emit('B')
-  expect(bCalls).toEqual(1)
+  expect(bCalls).toBe(1)
 })
