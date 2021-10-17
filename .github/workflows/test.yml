@@ -1,9 +1,6 @@
 name: Test
 on:
   push:
-  pull_request:
-env:
-  FORCE_COLOR: 2
 jobs:
   full:
     name: Node.js 16 Full
