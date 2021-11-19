@@ -11,7 +11,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 17
           cache: yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile
@@ -24,6 +24,7 @@ jobs:
     strategy:
       matrix:
         node-version:
+          - 16
           - 14
           - 12
     name: Node.js ${{ matrix.node-version }} Quick
@@ -37,6 +38,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Run unit tests
-        run: node --experimental-vm-modules node_modules/.bin/jest
+        run: yarn unit
         env:
           FORCE_COLOR: 2

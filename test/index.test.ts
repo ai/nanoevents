@@ -1,23 +1,26 @@
+import { equal, not } from 'uvu/assert'
+import { test } from 'uvu'
+
 import { createNanoEvents } from '../index.js'
 
-it('is empty from the beggining', () => {
+test('is empty from the beggining', () => {
   let ee = createNanoEvents()
-  expect(ee.events).toEqual({})
+  equal(ee.events, {})
 })
 
-it('adds listeners', () => {
+test('adds listeners', () => {
   let ee = createNanoEvents()
 
   ee.on('one', () => true)
   ee.on('two', () => true)
   ee.on('two', () => true)
 
-  expect(Object.keys(ee.events)).toEqual(['one', 'two'])
-  expect(ee.events.one).toHaveLength(1)
-  expect(ee.events.two).toHaveLength(2)
+  equal(Object.keys(ee.events), ['one', 'two'])
+  equal(ee.events.one?.length, 1)
+  equal(ee.events.two?.length, 2)
 })
 
-it('calls listener', () => {
+test('calls listener', () => {
   let ee = createNanoEvents()
   let calls: number[][] = []
   ee.on('event', (...args) => {
@@ -30,10 +33,10 @@ it('calls listener', () => {
   ee.emit('event', 31, 32, 33)
   ee.emit('event', 41, 42, 43, 44)
 
-  expect(calls).toEqual([[], [11], [21, 22], [31, 32, 33], [41, 42, 43, 44]])
+  equal(calls, [[], [11], [21, 22], [31, 32, 33], [41, 42, 43, 44]])
 })
 
-it('unbinds listener', () => {
+test('unbinds listener', () => {
   let ee = createNanoEvents()
 
   let calls1: number[] = []
@@ -50,38 +53,38 @@ it('unbinds listener', () => {
   unbind()
   ee.emit('event', 2)
 
-  expect(calls1).toEqual([1])
-  expect(calls2).toEqual([1, 2])
+  equal(calls1, [1])
+  equal(calls2, [1, 2])
 })
 
-it('calls unbind after cleaning events', () => {
+test('calls unbind after cleaning events', () => {
   let ee = createNanoEvents()
   let unbind = ee.on('event', () => undefined)
   ee.events = {}
-  expect(() => {
+  not.throws(() => {
     unbind()
-  }).not.toThrow()
+  })
 })
 
-it('removes event on no listeners', () => {
+test('removes event on no listeners', () => {
   let ee = createNanoEvents()
   let unbind1 = ee.on('one', () => {})
   let unbind2 = ee.on('one', () => {})
 
   unbind1()
-  expect(ee.events.one).toHaveLength(1)
+  equal(ee.events.one?.length, 1)
 
   unbind1()
-  expect(ee.events.one).toHaveLength(1)
+  equal(ee.events.one?.length, 1)
 
   unbind2()
-  expect(ee.events.one).toHaveLength(0)
+  equal(ee.events.one?.length, 0)
 
   unbind2()
-  expect(ee.events.one).toHaveLength(0)
+  equal(ee.events.one?.length, 0)
 })
 
-it('removes listener during event', () => {
+test('removes listener during event', () => {
   let ee = createNanoEvents()
 
   let calls: number[] = []
@@ -94,10 +97,10 @@ it('removes listener during event', () => {
   })
 
   ee.emit('event')
-  expect(calls).toEqual([1, 2])
+  equal(calls, [1, 2])
 })
 
-it('allows to use arrow function to bind a context', () => {
+test('allows to use arrow function to bind a context', () => {
   let ee = createNanoEvents()
   let app = {
     check: ['a'],
@@ -113,16 +116,16 @@ it('allows to use arrow function to bind a context', () => {
 
   let unbind = ee.on('event', app.getListener())
 
-  expect(() => {
+  not.throws(() => {
     ee.emit('event')
-  }).not.toThrow()
+  })
 
-  expect(app.check).toEqual(['t', 'e', 's', 't'])
+  equal(app.check, ['t', 'e', 's', 't'])
 
   unbind()
 })
 
-it('allows to replace listeners', () => {
+test('allows to replace listeners', () => {
   let ee1 = createNanoEvents()
   let ee2 = createNanoEvents()
 
@@ -138,8 +141,10 @@ it('allows to replace listeners', () => {
   ee1.events = ee2.events
 
   ee1.emit('A')
-  expect(aCalls).toBe(0)
+  equal(aCalls, 0)
 
   ee1.emit('B')
-  expect(bCalls).toBe(1)
+  equal(bCalls, 1)
 })
+
+test.run()
