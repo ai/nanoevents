@@ -3,7 +3,7 @@ on:
   push:
 jobs:
   full:
-    name: Node.js 16 Full
+    name: Node.js 17 Full
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
