@@ -3,7 +3,7 @@ import { test } from 'uvu'
 
 import { createNanoEvents } from '../index.js'
 
-test('is empty from the beggining', () => {
+test('is empty from the beginning', () => {
   let ee = createNanoEvents()
   equal(ee.events, {})
 })
