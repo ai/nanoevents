@@ -37,7 +37,7 @@
     "@typescript-eslint/parser": "^5.20.0",
     "benchmark": "^2.1.4",
     "c8": "^7.11.2",
-    "check-dts": "^0.6.6",
+    "check-dts": "^0.6.7",
     "clean-publish": "^4.0.0",
     "eslint": "^8.14.0",
     "eslint-config-standard": "^17.0.0",
