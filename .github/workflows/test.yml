@@ -6,7 +6,7 @@ on:
   pull_request:
 jobs:
   full:
-    name: Node.js 17 Full
+    name: Node.js Latest Full
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
@@ -18,7 +18,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 17
+          node-version: 18
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
@@ -57,15 +57,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
           version: latest
       - name: Install Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
