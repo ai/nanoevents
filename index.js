@@ -5,6 +5,6 @@ export let createNanoEvents = () => ({
   },
   on(event, cb) {
     this.events[event]?.push(cb) || (this.events[event] = [cb])
-    return (function () { this.events[event] = this.events[event]?.filter(i => cb !== i) }).bind(this)
+    return () => (this.events[event] = this.events[event]?.filter(i => cb !== i))
   }
 })
