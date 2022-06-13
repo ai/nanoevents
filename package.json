@@ -53,7 +53,7 @@
   "size-limit": [
     {
       "import": "{ createNanoEvents }",
-      "limit": "99 B"
+      "limit": "156 B"
     }
   ],
   "prettier": {
