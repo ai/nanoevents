@@ -5,17 +5,6 @@ export let createNanoEvents = () => ({
   },
   on(event, cb) {
     this.events[event]?.push(cb) || (this.events[event] = [cb])
-    return () => {
-      /* eslint-disable prefer-arrow-callback */
-      // The code is faster on V8 with anonymous function.
-      let result = (this.events[event] || []).filter(function (i) {
-        return cb !== i;
-      });
-      if (result.length) {
-        this.events[event] = result
-      } else {
-        delete this.events[event]
-      }
-    }
+    return (function () { this.events[event] = this.events[event]?.filter(i => cb !== i) }).bind(this)
   }
 })
