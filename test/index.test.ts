@@ -78,10 +78,10 @@ test('removes event on no listeners', () => {
   equal(ee.events.one?.length, 1)
 
   unbind2()
-  equal(ee.events.one?.length, 0)
+  equal(ee.events.one, undefined)
 
   unbind2()
-  equal(ee.events.one?.length, 0)
+  equal(ee.events.one, undefined)
 })
 
 test('removes listener during event', () => {
