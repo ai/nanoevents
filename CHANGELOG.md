@@ -1,12 +1,15 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 7.0.1
+* Reduced size.
+
 ## 7.0
 * Improved performance (by Sergey Ukustov).
 * Dropped Node.js 12 support.
 
 ## 6.0.2
-* Reduced package size.
+* Reduced npm package size.
 
 ## 6.0.1
 * Fixed `package.json` export (by Jules Robichaud-Gagnon).
