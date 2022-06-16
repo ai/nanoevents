@@ -1,6 +1,10 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 7.0
+* Improved performance (by Sergey Ukustov).
+* Dropped Node.js 12 support.
+
 ## 6.0.2
 * Reduced package size.
 
