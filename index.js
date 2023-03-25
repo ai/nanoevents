@@ -1,15 +1,16 @@
-export let createNanoEvents = () => ({
+export const createNanoEvents = () => ({
   events: {},
   emit(event, ...args) {
-    let callbacks = this.events[event] || []
-    for (let i = 0, length = callbacks.length; i < length; i++) {
-      callbacks[i](...args)
+    for (const callback of (this.events[event] || [])) {
+      callback(...args)
     }
   },
   on(event, cb) {
-    this.events[event]?.push(cb) || (this.events[event] = [cb])
+    const events = (this.events[event] ||= [])
+    events.push(cb)
     return () => {
-      this.events[event] = this.events[event]?.filter(i => cb !== i)
+      const i = events.indexOf(cb)
+      if (i > -1) events.splice(i, 1)
     }
   }
 })
