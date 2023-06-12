@@ -1,5 +1,5 @@
-import { equal, not } from 'uvu/assert'
 import { test } from 'uvu'
+import { equal, not } from 'uvu/assert'
 
 import { createNanoEvents } from '../index.js'
 
@@ -105,13 +105,13 @@ test('allows to use arrow function to bind a context', () => {
   let app = {
     check: ['a'],
 
-    value: 'test',
-
     getListener() {
       return () => {
         this.check = this.value.split('')
       }
-    }
+    },
+
+    value: 'test'
   }
 
   let unbind = ee.on('event', app.getListener())

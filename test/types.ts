@@ -1,8 +1,9 @@
-import { createNanoEvents, Emitter } from '../index.js'
+import type { Emitter } from '../index.js';
+import { createNanoEvents } from '../index.js'
 
 interface Events {
-  set: (a: string, b: number) => void
   add: (c: number) => void
+  set: (a: string, b: number) => void
   tick: () => void
 }
 

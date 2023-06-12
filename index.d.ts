@@ -22,6 +22,22 @@ export declare class Emitter<Events extends EventsMap = DefaultEvents> {
   events: Partial<{ [E in keyof Events]: Events[E][] }>
 
   /**
+   * Calls each of the listeners registered for a given event.
+   *
+   * ```js
+   * ee.emit('tick', tickType, tickDuration)
+   * ```
+   *
+   * @param event The event name.
+   * @param args The arguments for listeners.
+   */
+  emit<K extends keyof Events>(
+    this: this,
+    event: K,
+    ...args: Parameters<Events[K]>
+  ): void
+
+  /**
    * Add a listener for a given event.
    *
    * ```js
@@ -39,22 +55,6 @@ export declare class Emitter<Events extends EventsMap = DefaultEvents> {
    * @returns Unbind listener from event.
    */
   on<K extends keyof Events>(this: this, event: K, cb: Events[K]): Unsubscribe
-
-  /**
-   * Calls each of the listeners registered for a given event.
-   *
-   * ```js
-   * ee.emit('tick', tickType, tickDuration)
-   * ```
-   *
-   * @param event The event name.
-   * @param args The arguments for listeners.
-   */
-  emit<K extends keyof Events>(
-    this: this,
-    event: K,
-    ...args: Parameters<Events[K]>
-  ): void
 }
 
 /**
