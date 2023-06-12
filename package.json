@@ -21,7 +21,7 @@
   "license": "MIT",
   "repository": "ai/nanoevents",
   "engines": {
-    "node": "^16.0.0 || ^18.0.0 || >=20.0.0"
+    "node": "^18.0.0 || >=20.0.0"
   },
   "sideEffects": false,
   "type": "module",
