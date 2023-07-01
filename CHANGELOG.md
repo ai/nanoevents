@@ -1,6 +1,10 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 8.0
+* Dropped Node.js 14 support.
+* Fixed types (by @jakub791).
+
 ## 7.0.1
 * Reduced size.
 
