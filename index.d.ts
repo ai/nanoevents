@@ -12,16 +12,6 @@ export interface Unsubscribe {
 
 export interface Emitter<Events extends EventsMap = DefaultEvents> {
   /**
-   * Event names in keys and arrays with listeners in values.
-   *
-   * ```js
-   * emitter1.events = emitter2.events
-   * emitter2.events = { }
-   * ```
-   */
-  events: Partial<{ [E in keyof Events]: Events[E][] }>
-
-  /**
    * Calls each of the listeners registered for a given event.
    *
    * ```js
@@ -36,6 +26,16 @@ export interface Emitter<Events extends EventsMap = DefaultEvents> {
     event: K,
     ...args: Parameters<Events[K]>
   ): void
+
+  /**
+   * Event names in keys and arrays with listeners in values.
+   *
+   * ```js
+   * emitter1.events = emitter2.events
+   * emitter2.events = { }
+   * ```
+   */
+  events: Partial<{ [E in keyof Events]: Events[E][] }>
 
   /**
    * Add a listener for a given event.
