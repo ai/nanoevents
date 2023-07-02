@@ -1,4 +1,4 @@
-export const createNanoEvents = () => ({
+export let createNanoEvents = () => ({
   events: {},
   emit(event, ...args) {
     for (const callback of (this.events[event] || [])) {
