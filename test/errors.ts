@@ -21,7 +21,7 @@ typed.events = {
 }
 
 typed.events = {
-  // THROWS '{ unknown: never[]; }' is not assignable to type
+  // THROWS 'unknown' does not exist
   unknown: []
 }
 

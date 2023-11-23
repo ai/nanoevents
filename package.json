@@ -1,7 +1,7 @@
 {
   "name": "nanoevents",
   "version": "8.0.0",
-  "description": "Simple and tiny (130 bytes) event emitter library",
+  "description": "Simple and tiny (107 bytes) event emitter library",
   "keywords": [
     "EventEmitter",
     "Events",
@@ -35,29 +35,29 @@
     "./package.json": "./package.json"
   },
   "devDependencies": {
-    "@logux/eslint-config": "^51.0.0",
-    "@size-limit/preset-small-lib": "^8.2.6",
-    "@typescript-eslint/eslint-plugin": "^5.60.1",
-    "@typescript-eslint/parser": "^5.60.1",
+    "@logux/eslint-config": "^52.0.2",
+    "@size-limit/preset-small-lib": "^11.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
     "benchmark": "^2.1.4",
-    "c8": "^8.0.0",
+    "c8": "^8.0.1",
     "check-dts": "^0.7.2",
     "clean-publish": "^4.2.0",
-    "eslint": "^8.44.0",
+    "eslint": "^8.54.0",
     "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-n": "^16.0.1",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.3.1",
     "eslint-plugin-prefer-let": "^3.0.1",
     "eslint-plugin-promise": "^6.1.1",
-    "size-limit": "^8.2.6",
+    "size-limit": "^11.0.0",
     "tsm": "^2.3.0",
-    "typescript": "^5.1.6",
+    "typescript": "^5.3.2",
     "uvu": "^0.5.6"
   },
   "size-limit": [
     {
       "import": "{ createNanoEvents }",
-      "limit": "124 B"
+      "limit": "107 B"
     }
   ],
   "prettier": {
