@@ -15,7 +15,11 @@
   ],
   "scripts": {
     "unit": "tsm ./node_modules/uvu/bin.js . '\\.test\\.(ts|js)$'",
-    "test": "c8 pnpm unit && eslint . && check-dts && size-limit"
+    "test:coverage": "c8 pnpm unit",
+    "test:lint": "eslint .",
+    "test:types": "check-dts",
+    "test:size": "size-limit",
+    "test": "pnpm run /^test:/"
   },
   "author": "Andrey Sitnik <andrey@sitnik.ru>",
   "license": "MIT",
