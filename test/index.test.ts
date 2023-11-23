@@ -1,11 +1,11 @@
-import { test } from 'uvu'
-import { equal, not } from 'uvu/assert'
+import { deepStrictEqual, doesNotThrow, equal } from 'node:assert'
+import { test } from 'node:test'
 
 import { createNanoEvents } from '../index.js'
 
 test('is empty from the beginning', () => {
   let ee = createNanoEvents()
-  equal(ee.events, {})
+  deepStrictEqual(ee.events, {})
 })
 
 test('adds listeners', () => {
@@ -15,7 +15,7 @@ test('adds listeners', () => {
   ee.on('two', () => true)
   ee.on('two', () => true)
 
-  equal(Object.keys(ee.events), ['one', 'two'])
+  deepStrictEqual(Object.keys(ee.events), ['one', 'two'])
   equal(ee.events.one?.length, 1)
   equal(ee.events.two?.length, 2)
 })
@@ -33,7 +33,7 @@ test('calls listener', () => {
   ee.emit('event', 31, 32, 33)
   ee.emit('event', 41, 42, 43, 44)
 
-  equal(calls, [[], [11], [21, 22], [31, 32, 33], [41, 42, 43, 44]])
+  deepStrictEqual(calls, [[], [11], [21, 22], [31, 32, 33], [41, 42, 43, 44]])
 })
 
 test('unbinds listener', () => {
@@ -53,15 +53,15 @@ test('unbinds listener', () => {
   unbind()
   ee.emit('event', 2)
 
-  equal(calls1, [1])
-  equal(calls2, [1, 2])
+  deepStrictEqual(calls1, [1])
+  deepStrictEqual(calls2, [1, 2])
 })
 
 test('calls unbind after cleaning events', () => {
   let ee = createNanoEvents()
   let unbind = ee.on('event', () => undefined)
   ee.events = {}
-  not.throws(() => {
+  doesNotThrow(() => {
     unbind()
   })
 })
@@ -97,7 +97,7 @@ test('removes listener during event', () => {
   })
 
   ee.emit('event')
-  equal(calls, [1, 2])
+  deepStrictEqual(calls, [1, 2])
 })
 
 test('allows to use arrow function to bind a context', () => {
@@ -116,11 +116,11 @@ test('allows to use arrow function to bind a context', () => {
 
   let unbind = ee.on('event', app.getListener())
 
-  not.throws(() => {
+  doesNotThrow(() => {
     ee.emit('event')
   })
 
-  equal(app.check, ['t', 'e', 's', 't'])
+  deepStrictEqual(app.check, ['t', 'e', 's', 't'])
 
   unbind()
 })
@@ -146,5 +146,3 @@ test('allows to replace listeners', () => {
   ee1.emit('B')
   equal(bCalls, 1)
 })
-
-test.run()
