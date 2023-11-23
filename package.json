@@ -72,11 +72,17 @@
   },
   "c8": {
     "exclude": [
-      "**/*.test.*"
+      "**/*.test.*",
+      "test/*"
     ],
     "lines": 100,
-    "reporter": "lcov",
-    "check-coverage": true
+    "check-coverage": true,
+    "reporter": [
+      "text",
+      "lcov"
+    ],
+    "skip-full": true,
+    "clean": true
   },
   "eslintIgnore": [
     "**/errors.ts"
