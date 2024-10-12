@@ -1,4 +1,4 @@
-import type { Emitter } from '../index.js';
+import type { Emitter, EmitterMixin } from '../index.js';
 import { createNanoEvents } from '../index.js'
 
 interface Events {
@@ -37,3 +37,26 @@ function listenersCount(emitter: Emitter): number {
 }
 
 console.log(listenersCount(ee))
+
+type Mixin = {
+  add: () => void
+} & EmitterMixin<Events>
+
+const createMixin = (): Mixin => {
+  let mixinEmitter = createNanoEvents<Events>()
+
+  return {
+    add: () => {
+      mixinEmitter.emit('add', 1)
+    },
+    on: mixinEmitter.on.bind(mixinEmitter),
+  }
+}
+
+const mixin = createMixin()
+
+mixin.on('add', (a) => {
+  console.log(a)
+})
+
+mixin.add()

@@ -79,3 +79,27 @@ export interface Emitter<Events extends EventsMap = DefaultEvents> {
 export function createNanoEvents<
   Events extends EventsMap = DefaultEvents
 >(): Emitter<Events>
+
+/**
+ * An interface for mixins that expose the `on` function (without the emitter
+ * bound to `this`)
+ *
+ * ```js
+ * import { createNanoEvents } from 'nanoevents'
+ *
+ * class Ticker implements EmitterMixin<Events> {
+ *   constructor() {
+ *     this.emitter = createNanoEvents()
+ *   }
+ *   on(...args) {
+ *     return this.emitter.on(...args)
+ *   }
+ *   tick() {
+ *     this.emitter.emit('tick')
+ *   }
+ * }
+ * ```
+ */
+export interface EmitterMixin<Events extends EventsMap = DefaultEvents> {
+  on<K extends keyof Events>(event: K, cb: Events[K]): Unsubscribe
+}
