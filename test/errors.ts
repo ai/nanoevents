@@ -35,9 +35,3 @@ typed.events = {
 let untyped = createNanoEvents()
 // THROWS not assignable to parameter of type '(...args: any) => void'
 untyped.on('test', 1)
-
-const { on, emit } = typed
-// THROWS is not assignable to method's 'this' of type
-on('tick', () => {})
-// THROWS is not assignable to method's 'this' of type
-emit('tick')

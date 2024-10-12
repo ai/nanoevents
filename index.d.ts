@@ -22,7 +22,6 @@ export interface Emitter<Events extends EventsMap = DefaultEvents> {
    * @param args The arguments for listeners.
    */
   emit<K extends keyof Events>(
-    this: this,
     event: K,
     ...args: Parameters<Events[K]>
   ): void
@@ -54,7 +53,7 @@ export interface Emitter<Events extends EventsMap = DefaultEvents> {
    * @param cb The listener function.
    * @returns Unbind listener from event.
    */
-  on<K extends keyof Events>(this: this, event: K, cb: Events[K]): Unsubscribe
+  on<K extends keyof Events>(event: K, cb: Events[K]): Unsubscribe
 }
 
 /**
