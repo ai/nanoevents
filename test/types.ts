@@ -46,7 +46,7 @@ function createMixin(): Mixin {
   let mixinEmitter = createNanoEvents<Events>()
 
   return {
-    add: () => {
+    add () {
       mixinEmitter.emit('add', 1)
     },
     on: mixinEmitter.on.bind(mixinEmitter),
