@@ -42,7 +42,7 @@ type Mixin = {
   add: () => void
 } & EmitterMixin<Events>
 
-const createMixin = (): Mixin => {
+function createMixin(): Mixin {
   let mixinEmitter = createNanoEvents<Events>()
 
   return {
