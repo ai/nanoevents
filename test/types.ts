@@ -53,7 +53,7 @@ function createMixin(): Mixin {
   }
 }
 
-const mixin = createMixin()
+let mixin = createMixin()
 
 mixin.on('add', (a) => {
   console.log(a)
