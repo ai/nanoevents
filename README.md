@@ -2,7 +2,7 @@
 
 Simple and tiny event emitter library for JavaScript.
 
-* Only **107 bytes** (minified and brotlied).
+* Only **108 bytes** (minified and brotlied).
   It uses [Size Limit] to control size.
 * The `on` method returns `unbind` function. You don’t need to save
   callback to variable for `removeListener`.
@@ -38,15 +38,16 @@ summary //=> 2
 
 ## Table of Contents
 
-* [Install](#install)
-* [TypeScript](#typescript)
-* [Mixing to Object](#mixing-to-object)
-* [Add Listener](#add-listener)
-* [Remove Listener](#remove-listener)
-* [Execute Listeners](#execute-listeners)
-* [Events List](#events-list)
-* [Once](#once)
-* [Remove All Listeners](#remove-all-listeners)
+- [Table of Contents](#table-of-contents)
+- [Install](#install)
+- [TypeScript](#typescript)
+- [Mixing to Object](#mixing-to-object)
+- [Add Listener](#add-listener)
+- [Remove Listener](#remove-listener)
+- [Execute Listeners](#execute-listeners)
+- [Events List](#events-list)
+- [Once](#once)
+- [Remove All Listeners](#remove-all-listeners)
 
 
 ## Install

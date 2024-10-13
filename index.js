@@ -1,8 +1,8 @@
 export let createNanoEvents = () => ({
   emit(event, ...args) {
     for (
-      let i = 0,
-        callbacks = this.events[event] || [],
+      let callbacks = this.events[event] || [],
+        i = 0,
         length = callbacks.length;
       i < length;
       i++
