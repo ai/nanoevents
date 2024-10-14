@@ -1,6 +1,9 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 9.1.0
+* Added `EmitterMixin` type (by @fuadsaud).
+
 ## 9.0
 * Dropped Node.js 16 support.
 * Reduced size (by @igisev).
