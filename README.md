@@ -49,6 +49,7 @@ summary //=> 2
 - [Events List](#events-list)
 - [Once](#once)
 - [Remove All Listeners](#remove-all-listeners)
+- [Usage With Frameworks](#usage-with-frameworks)
 
 
 ## Install
@@ -237,4 +238,69 @@ emitter.on('event1', () => { })
 emitter.on('event2', () => { })
 
 emitter.events = { }
+```
+
+## Usage With Frameworks
+
+You can use Nano Events with front-end frameworks. Below is an example of a custom hook implementation in React.
+
+```ts
+// hooks/use-on-emit.js
+
+import { useEffect, useRef } from 'react'
+
+export function useOnEmit(emitter, event, cb) {
+  const cbRef = useRef(cb);
+
+  useEffect(() => {
+    cbRef.current = cb;
+  }, [cb]);
+
+  useEffect(() => {
+    const listener = (...args) => cbRef.current(...args);
+
+    const unbind = emitter.on(event, listener);
+    return unbind;
+  }, [emitter, event]);
+}
+
+// hooks/use-on-emit.d.ts
+import type { Emitter, EventsMap } from 'nanoevents'
+
+export declare function useOnEmit<
+  Events extends EventsMap, 
+  Event extends keyof Events
+>(
+  emitter: Emitter<Events>,
+  event: Event,
+  cb: Events[Event]
+): void
+```
+
+Then in the components:
+
+```tsx
+import { createNanoEvents } from 'nanoevents';
+import { useOnEmit } from '../hooks/use-on-emit.js';
+import { useState } from 'react';
+
+const emitter = createNanoEvents();
+
+export function Counter() {
+  const [count, setCount] = useState(0);
+
+  useOnEmit(emitter, 'increment', () => {
+    setCount(v => v + 1);
+  });
+
+  return <span>{count}</span>;
+}
+
+export function Increment() {
+  return (
+    <button onClick={() => emitter.emit('increment')}>
+      Increment
+    </button>
+  );
+}
 ```
