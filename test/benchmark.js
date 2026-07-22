@@ -7,8 +7,7 @@ import { createNanoEvents } from '../index.js'
 let suite = new benchmark.Suite()
 
 function formatNumber(number) {
-  return String(number)
-    .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+  return String(number).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
 let counter = 0

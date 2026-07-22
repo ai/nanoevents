@@ -13,39 +13,36 @@
     "reactor",
     "subscribe"
   ],
-  "scripts": {
-    "test:coverage": "c8 pnpm bnt",
-    "test:lint": "eslint .",
-    "test:types": "check-dts",
-    "test:size": "size-limit",
-    "test": "pnpm run /^test:/"
-  },
-  "author": "Andrey Sitnik <andrey@sitnik.ru>",
   "license": "MIT",
+  "author": "Andrey Sitnik <andrey@sitnik.ru>",
   "repository": "ai/nanoevents",
-  "engines": {
-    "node": "^22.0.0 || ^24.0.0 || >=26.0.0"
-  },
-  "sideEffects": false,
   "type": "module",
+  "sideEffects": false,
   "types": "./index.d.ts",
   "exports": {
     ".": "./index.js",
     "./package.json": "./package.json"
   },
+  "scripts": {
+    "test:coverage": "bnt --coverage 100 --coverage-exclude '**/*.test.*' --coverage-exclude 'test/*'",
+    "test:lint": "oxlint",
+    "test:types": "check-dts",
+    "test:size": "size-limit",
+    "test": "pnpm run /^test:/"
+  },
   "devDependencies": {
-    "@logux/eslint-config": "^53.4.0",
-    "@size-limit/preset-small-lib": "^11.1.6",
-    "@types/node": "^22.7.5",
+    "@logux/oxc-configs": "^0.4.1",
+    "@size-limit/preset-small-lib": "^12.1.0",
+    "@types/node": "^26.1.1",
+    "actions-up": "^1.16.0",
     "benchmark": "^2.1.4",
-    "better-node-test": "^0.7.1",
-    "c8": "^10.1.2",
-    "check-dts": "^0.8.2",
-    "clean-publish": "^5.0.0",
-    "eslint": "^9.12.0",
-    "size-limit": "^11.1.6",
-    "tsx": "^4.19.1",
-    "typescript": "^5.6.3"
+    "better-node-test": "^0.8.4",
+    "check-dts": "^2.0.0",
+    "eslint-plugin-prefer-let": "^4.2.2",
+    "oxlint": "^1.74.0",
+    "oxlint-tsgolint": "^7.0.2001",
+    "size-limit": "^12.1.0",
+    "typescript": "^7.0.2"
   },
   "size-limit": [
     {
@@ -53,29 +50,7 @@
       "limit": "108 B"
     }
   ],
-  "prettier": {
-    "arrowParens": "avoid",
-    "jsxSingleQuote": false,
-    "quoteProps": "consistent",
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "none"
-  },
-  "c8": {
-    "exclude": [
-      "**/*.test.*",
-      "test/*"
-    ],
-    "lines": 100,
-    "check-coverage": true,
-    "reporter": [
-      "text",
-      "lcov"
-    ],
-    "skip-full": true,
-    "clean": true
-  },
-  "clean-publish": {
-    "cleanDocs": true
+  "engines": {
+    "node": "^22.0.0 || ^24.0.0 || >=26.0.0"
   }
 }

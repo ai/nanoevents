@@ -2,12 +2,12 @@
 
 Simple and tiny event emitter library for JavaScript.
 
-* Only **108 bytes** (minified and brotlied).
+- Only **108 bytes** (minified and brotlied).
   It uses [Size Limit] to control size.
-* The `on` method returns `unbind` function. You don’t need to save
+- The `on` method returns `unbind` function. You don’t need to save
   callback to variable for `removeListener`.
-* TypeScript and ES modules support.
-* No aliases, just `emit` and `on` methods.
+- TypeScript and ES modules support.
+- No aliases, just `emit` and `on` methods.
   No Node.js [EventEmitter] compatibility.
 
 ```js
@@ -28,14 +28,13 @@ summary //=> 2
 ```
 
 [EventEmitter]: https://nodejs.org/api/events.html
-[Size Limit]:   https://github.com/ai/size-limit
+[Size Limit]: https://github.com/ai/size-limit
 
 ---
 
 <img src="https://cdn.evilmartians.com/badges/logo-no-label.svg" alt="" width="22" height="16" />  Made at <b><a href="https://evilmartians.com/devtools?utm_source=nanoevents&utm_campaign=devtools-button&utm_medium=github">Evil Martians</a></b>, product consulting for <b>developer tools</b>.
 
 ---
-
 
 ## Table of Contents
 
@@ -51,13 +50,11 @@ summary //=> 2
 - [Remove All Listeners](#remove-all-listeners)
 - [Usage With Frameworks](#usage-with-frameworks)
 
-
 ## Install
 
 ```sh
 npm install nanoevents
 ```
-
 
 ## TypeScript
 
@@ -66,7 +63,7 @@ to listener argument types mapping.
 
 ```ts
 interface Events {
-  set: (name: string, count: number) => void,
+  set: (name: string, count: number) => void
   tick: () => void
 }
 
@@ -81,7 +78,6 @@ emitter.emit('set', 'prop', '1')
 emitter.emit('tick', 2)
 ```
 
-
 ## Mixing to Object
 
 Because Nano Events API has only just 2 methods,
@@ -90,19 +86,19 @@ or encapsulate them entirely.
 
 ```js
 class Ticker {
-  constructor () {
+  constructor() {
     this.emitter = createNanoEvents()
     this.internal = setInterval(() => {
       this.emitter.emit('tick')
     }, 100)
   }
 
-  stop () {
+  stop() {
     clearInterval(this.internal)
     this.emitter.emit('stop')
   }
 
-  on (event, callback) {
+  on(event, callback) {
     return this.emitter.on(event, callback)
   }
 }
@@ -111,7 +107,7 @@ class Ticker {
 With Typescript:
 
 ```ts
-import { createNanoEvents, Emitter } from "nanoevents"
+import { createNanoEvents, Emitter } from 'nanoevents'
 
 interface Events {
   start: (startedAt: number) => void
@@ -120,7 +116,7 @@ interface Events {
 class Ticker {
   emitter: Emitter
 
-  constructor () {
+  constructor() {
     this.emitter = createNanoEvents<Events>()
   }
 
@@ -129,7 +125,6 @@ class Ticker {
   }
 }
 ```
-
 
 ## Add Listener
 
@@ -153,7 +148,7 @@ context explicitly before passing function in as a callback.
 ```js
 var app = {
   userId: 1,
-  getListener () {
+  getListener() {
     return () => {
       console.log(this.userId)
     }
@@ -164,7 +159,6 @@ emitter.on('print', app.getListener())
 
 Note: binding with use of the `.bind()` method won’t work as you might expect
 and therefore is not recommended.
-
 
 ## Remove Listener
 
@@ -184,7 +178,6 @@ emitter.emit('tick', 2)
 // Prints nothing
 ```
 
-
 ## Execute Listeners
 
 Method `emit` will execute all listeners. First argument is event name, others
@@ -198,16 +191,14 @@ emitter.emit('tick', 1, 'one')
 // Prints 1, 'one'
 ```
 
-
 ## Events List
 
 You can get used events list by `events` property.
 
 ```js
-const unbind = emitter.on('tick', () => { })
+const unbind = emitter.on('tick', () => {})
 emitter.events //=> { tick: [ [Function] ] }
 ```
-
 
 ## Once
 
@@ -230,14 +221,13 @@ class Ticker {
 }
 ```
 
-
 ## Remove All Listeners
 
 ```js
-emitter.on('event1', () => { })
-emitter.on('event2', () => { })
+emitter.on('event1', () => {})
+emitter.on('event2', () => {})
 
-emitter.events = { }
+emitter.events = {}
 ```
 
 ## Usage With Frameworks
@@ -250,57 +240,49 @@ You can use Nano Events with front-end frameworks. Below is an example of a cust
 import { useEffect, useRef } from 'react'
 
 export function useOnEmit(emitter, event, cb) {
-  const cbRef = useRef(cb);
+  const cbRef = useRef(cb)
 
   useEffect(() => {
-    cbRef.current = cb;
-  }, [cb]);
+    cbRef.current = cb
+  }, [cb])
 
   useEffect(() => {
-    const listener = (...args) => cbRef.current(...args);
+    const listener = (...args) => cbRef.current(...args)
 
-    const unbind = emitter.on(event, listener);
-    return unbind;
-  }, [emitter, event]);
+    const unbind = emitter.on(event, listener)
+    return unbind
+  }, [emitter, event])
 }
 
 // hooks/use-on-emit.d.ts
 import type { Emitter, EventsMap } from 'nanoevents'
 
 export declare function useOnEmit<
-  Events extends EventsMap, 
+  Events extends EventsMap,
   Event extends keyof Events
->(
-  emitter: Emitter<Events>,
-  event: Event,
-  cb: Events[Event]
-): void
+>(emitter: Emitter<Events>, event: Event, cb: Events[Event]): void
 ```
 
 Then in the components:
 
 ```tsx
-import { createNanoEvents } from 'nanoevents';
-import { useOnEmit } from '../hooks/use-on-emit.js';
-import { useState } from 'react';
+import { createNanoEvents } from 'nanoevents'
+import { useOnEmit } from '../hooks/use-on-emit.js'
+import { useState } from 'react'
 
-const emitter = createNanoEvents();
+const emitter = createNanoEvents()
 
 export function Counter() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   useOnEmit(emitter, 'increment', () => {
-    setCount(v => v + 1);
-  });
+    setCount(v => v + 1)
+  })
 
-  return <span>{count}</span>;
+  return <span>{count}</span>
 }
 
 export function Increment() {
-  return (
-    <button onClick={() => emitter.emit('increment')}>
-      Increment
-    </button>
-  );
+  return <button onClick={() => emitter.emit('increment')}>Increment</button>
 }
 ```

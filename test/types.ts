@@ -1,4 +1,4 @@
-import type { Emitter, EmitterMixin } from '../index.js';
+import type { Emitter, EmitterMixin } from '../index.js'
 import { createNanoEvents } from '../index.js'
 
 interface Events {
@@ -46,16 +46,16 @@ function createMixin(): Mixin {
   let mixinEmitter = createNanoEvents<Events>()
 
   return {
-    add () {
+    add() {
       mixinEmitter.emit('add', 1)
     },
-    on: mixinEmitter.on.bind(mixinEmitter),
+    on: mixinEmitter.on.bind(mixinEmitter)
   }
 }
 
 let mixin = createMixin()
 
-mixin.on('add', (a) => {
+mixin.on('add', a => {
   console.log(a)
 })
 

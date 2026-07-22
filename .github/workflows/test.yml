@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - next
   pull_request:
 permissions:
   contents: read
@@ -12,59 +13,37 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          version: 9
-      - name: Install Node.js
-        uses: actions/setup-node@v3
+          persist-credentials: false
+      - name: Install Node.js & pnpm
+        uses: pnpm/setup@5d160c5bc68a09337ad0d5654e237e03253b5879 # v1.0.0
         with:
-          node-version: 26
-          cache: pnpm
+          version: 11
+          runtime: node@26
       - name: Install dependencies
-        run: pnpm install --ignore-scripts
+        run: pnpm ci
       - name: Run tests
         run: pnpm test
   short:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version:
+        node:
           - 24
           - 22
-    name: Node.js ${{ matrix.node-version }} Quick
+    name: Node.js ${{ matrix.node }} Quick
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          version: 9
-      - name: Install Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+          persist-credentials: false
+      - name: Install Node.js & pnpm
+        uses: pnpm/setup@5d160c5bc68a09337ad0d5654e237e03253b5879 # v1.0.0
         with:
-          node-version: ${{ matrix.node-version }}
+          version: 11
+          runtime: node@${{ matrix.node }}
       - name: Install dependencies
-        run: pnpm install --ignore-scripts
+        run: pnpm ci
       - name: Run unit tests
         run: pnpm bnt
-  benchmark:
-    name: Benchmark
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v4
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 9
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 26
-          cache: pnpm
-      - name: Install dependencies
-        run: pnpm install --ignore-scripts
-      - name: Run benchmark
-        run: node ./test/benchmark.js
