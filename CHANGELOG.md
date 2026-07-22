@@ -2,6 +2,12 @@
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 10.0.0
+
+- Added npm provenance.
+- Added `EventsMap` and `DefaultEvents` exports.
+- Dropped Node.js 18 and 20 support.
+
 ## 9.1.0
 
 - Added `EmitterMixin` type (by @fuadsaud).
