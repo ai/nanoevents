@@ -1,8 +1,8 @@
-interface EventsMap {
+export interface EventsMap {
   [event: string]: any
 }
 
-interface DefaultEvents extends EventsMap {
+export interface DefaultEvents extends EventsMap {
   [event: string]: (...args: any) => void
 }
 
