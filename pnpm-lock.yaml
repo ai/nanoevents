@@ -20,9 +20,6 @@ importers:
       actions-up:
         specifier: ^1.16.0
         version: 1.16.0
-      benchmark:
-        specifier: ^2.1.4
-        version: 2.1.4
       better-node-test:
         specifier: ^0.8.4
         version: 0.8.4
@@ -41,6 +38,9 @@ importers:
       size-limit:
         specifier: ^12.1.0
         version: 12.1.0(jiti@2.3.3)
+      tinybench:
+        specifier: ^6.0.2
+        version: 6.0.2
       typescript:
         specifier: ^7.0.2
         version: 7.0.2
@@ -516,9 +516,6 @@ packages:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
     engines: {node: '>=8'}
 
-  benchmark@2.1.4:
-    resolution: {integrity: sha512-l9MlfN4M1K/H2fbhfMy3B7vJd6AGKJVQn2h6Sg/Yx+KckoUA7ewS5Vv6TjSq18ooE1kS9hhAlQRH3AkXIh/aOQ==}
-
   better-node-test@0.8.4:
     resolution: {integrity: sha512-Abil6GxliznKjFTrIZa95y7W2siBXq+I74caB0UmiJ78G9SBXfu7vTnVN+y3DohR7gsxaz0UOqVwOf0OaFxFQw==}
     engines: {node: ^18.19.0 || ^20.0.0 || ^22.0.0 || >=24.0.0}
@@ -565,9 +562,6 @@ packages:
     resolution: {integrity: sha512-/vlFKAoH5Cgt3Ie+JLhRbwOsCQePABiU3tJ1egGvyQ+33R/vcwM2Zl2QR/LzjsBeItPt3oSVXapn+m4nQDvpzw==}
     engines: {node: '>=14'}
 
-  lodash@4.18.1:
-    resolution: {integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==}
-
   nanoid@5.1.16:
     resolution: {integrity: sha512-kVrnsrJqMR8+oLJnGEmSWw9BivK5mt7H3FZatVRjrc5wGqFYuBxX1yG7+A7Gi5AefkX6t/oCkizcQgpu0cY1dQ==}
     engines: {node: ^18 || >=20}
@@ -600,9 +594,6 @@ packages:
     resolution: {integrity: sha512-RvwwcruNjI1ncT5xRakeyS9Lf8lcItv34KD+aif+VH9kduAyfYBipGh12274xtenIPZ119/R9BdTBa8gAwSh0A==}
     engines: {node: '>=12'}
 
-  platform@1.3.6:
-    resolution: {integrity: sha512-fnWVljUchTro6RiCFvCXBbNhJc2NijN7oIQxbwsyL0buWJPG85v81ehlHI9fXrJsMNgTofEoWIQeClKpgxFLrg==}
-
   requireindex@1.2.0:
     resolution: {integrity: sha512-L9jEkOi3ASd9PYit2cwRfyppc9NoABujTP8/5gFcbERmo5jUoAKovIC3fsF17pkTnGsrByysqX+Kxd2OTNI1ww==}
     engines: {node: '>=0.10.5'}
@@ -625,6 +616,10 @@ packages:
   strip-ansi@6.0.1:
     resolution: {integrity: sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==}
     engines: {node: '>=8'}
+
+  tinybench@6.0.2:
+    resolution: {integrity: sha512-FlHoQpcFvCzeXK5kVPvV7IVgW/hs/B36QWTz876iSdeJguBDfdTSRQmYmaHX+fQNt4hp+gEFB2XXw+8hT4/y8A==}
+    engines: {node: '>=20.0.0'}
 
   tinyglobby@0.2.17:
     resolution: {integrity: sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g==}
@@ -897,11 +892,6 @@ snapshots:
 
   ansi-regex@5.0.1: {}
 
-  benchmark@2.1.4:
-    dependencies:
-      lodash: 4.18.1
-      platform: 1.3.6
-
   better-node-test@0.8.4: {}
 
   bytes-iec@3.1.1: {}
@@ -959,8 +949,6 @@ snapshots:
 
   lilconfig@3.1.3: {}
 
-  lodash@4.18.1: {}
-
   nanoid@5.1.16: {}
 
   nanospinner@1.2.2:
@@ -1003,8 +991,6 @@ snapshots:
 
   picomatch@4.0.5: {}
 
-  platform@1.3.6: {}
-
   requireindex@1.2.0: {}
 
   semver@7.8.5: {}
@@ -1022,6 +1008,8 @@ snapshots:
   strip-ansi@6.0.1:
     dependencies:
       ansi-regex: 5.0.1
+
+  tinybench@6.0.2: {}
 
   tinyglobby@0.2.17:
     dependencies:

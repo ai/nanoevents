@@ -1,7 +1,7 @@
 {
   "name": "nanoevents",
   "version": "9.1.0",
-  "description": "Simple and tiny (107 bytes) event emitter library",
+  "description": "Simple and tiny (108 bytes) event emitter library",
   "keywords": [
     "EventEmitter",
     "Events",
@@ -35,13 +35,13 @@
     "@size-limit/preset-small-lib": "^12.1.0",
     "@types/node": "^26.1.1",
     "actions-up": "^1.16.0",
-    "benchmark": "^2.1.4",
     "better-node-test": "^0.8.4",
     "check-dts": "^2.0.0",
     "eslint-plugin-prefer-let": "^4.2.2",
     "oxlint": "^1.74.0",
     "oxlint-tsgolint": "^7.0.2001",
     "size-limit": "^12.1.0",
+    "tinybench": "^6.0.2",
     "typescript": "^7.0.2"
   },
   "size-limit": [
