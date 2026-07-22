@@ -38,7 +38,6 @@ summary //=> 2
 
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
 - [Install](#install)
 - [TypeScript](#typescript)
 - [Mixing to Object](#mixing-to-object)
@@ -141,7 +140,7 @@ emitter.emit('tick', 5)
 // Prints 5
 ```
 
-In case of your listener relies on some particular context
+In case your listener relies on some particular context
 (if it uses `this` within itself) you have to bind required
 context explicitly before passing function in as a callback.
 
@@ -162,7 +161,7 @@ and therefore is not recommended.
 
 ## Remove Listener
 
-Methods `on` returns `unbind` function. Call it and this listener
+The `on` method returns `unbind` function. Call it and this listener
 will be removed from event.
 
 ```js
@@ -202,7 +201,7 @@ emitter.events //=> { tick: [ [Function] ] }
 
 ## Once
 
-If you need add event listener only for first event dispatch,
+If you need to add an event listener only for first event dispatch,
 you can use this snippet:
 
 ```js
