@@ -30,6 +30,12 @@
     "test:size": "size-limit",
     "test": "pnpm run /^test:/"
   },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/ai"
+    }
+  ],
   "devDependencies": {
     "@logux/oxc-configs": "^0.4.1",
     "@size-limit/preset-small-lib": "^12.1.0",
