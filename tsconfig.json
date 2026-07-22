@@ -1,13 +1,17 @@
 {
   "compilerOptions": {
-    "target": "ES2024",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "strict": true,
     "noEmit": true,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
+    "skipLibCheck": true,
+    "stableTypeOrdering": true,
+    "strict": true,
+    "target": "es2024",
     "types": ["node"]
   },
   "exclude": ["**/errors.ts"]
